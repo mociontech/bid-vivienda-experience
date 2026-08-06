@@ -1,0 +1,430 @@
+.stage {
+  --tv-bg: #000000;
+  --tv-surface: rgba(255, 255, 255, 0.05);
+  --tv-surface-border: rgba(255, 255, 255, 0.1);
+  --tv-text-primary: #f5f7fa;
+  --tv-text-secondary: rgba(245, 247, 250, 0.62);
+  --tv-text-muted: rgba(245, 247, 250, 0.4);
+  --tv-accent: #2f7bff;
+  --tv-no-data: #4b4b4b;
+
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  min-height: 100dvh;
+  overflow: hidden;
+  background: var(--tv-bg);
+  color: var(--tv-text-primary);
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  box-sizing: border-box;
+}
+
+.stage *,
+.stage *::before,
+.stage *::after {
+  box-sizing: border-box;
+}
+
+/* Very subtle depth, background stays black */
+.stage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 55% at 22% 15%, rgba(47, 123, 255, 0.07), transparent 65%),
+    radial-gradient(50% 45% at 85% 90%, rgba(47, 123, 255, 0.05), transparent 70%);
+}
+
+/* Map layer: full-bleed background, fills the entire stage regardless of
+   what floats on top of it. */
+.mapLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Only fade the edges when zoomed into a single country: at that scale the
+   country's neighbors get cropped by the container, and the fade keeps that
+   crop from looking like a hard, ugly cut. The full regional view should
+   fill edge-to-edge instead, so it does NOT get this mask. */
+.mapAreaZoomed {
+  -webkit-mask-image: radial-gradient(120% 115% at 50% 50%, #000 68%, transparent 100%);
+  mask-image: radial-gradient(120% 115% at 50% 50%, #000 68%, transparent 100%);
+}
+
+.mapSvg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Header: floats over the map as its own layer, with a scrim behind the
+   text so it stays legible over any map color underneath. */
+
+.header {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(24px, 3vw, 48px) clamp(32px, 4vw, 64px) clamp(56px, 6vw, 96px);
+}
+
+.headerScrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.headerBrand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brandMark {
+  font-weight: 800;
+  font-size: clamp(16px, 1.4vw, 20px);
+  letter-spacing: 0.5px;
+  color: var(--tv-text-secondary);
+}
+
+.categoryHeading {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.categoryIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(48px, 4vw, 60px);
+  height: clamp(48px, 4vw, 60px);
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent, var(--tv-accent));
+  color: var(--accent, var(--tv-accent));
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.categoryIcon svg {
+  width: 55%;
+  height: 55%;
+}
+
+.categoryTitle {
+  margin: 0;
+  font-size: clamp(1.75rem, 2.6vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+.categorySubtitle {
+  margin: 4px 0 0;
+  font-size: clamp(0.9rem, 1vw, 1.15rem);
+  color: var(--tv-text-secondary);
+  font-weight: 400;
+}
+
+.subregionBadge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--tv-surface-border);
+  background: var(--tv-surface);
+  font-size: clamp(0.85rem, 0.95vw, 1rem);
+  color: var(--tv-text-secondary);
+  flex-shrink: 0;
+}
+
+.subregionBadge strong {
+  color: var(--tv-text-primary);
+  font-weight: 600;
+}
+
+/* Sidebar: floats over the map on the right, its own scrollable layer. */
+
+.main {
+  position: absolute;
+  inset: 0 0 0 auto;
+  z-index: 2;
+  width: clamp(380px, 30vw, 500px);
+  display: flex;
+  padding: clamp(140px, 12vw, 200px) clamp(32px, 4vw, 64px) clamp(32px, 3.5vw, 56px) clamp(48px, 5vw, 80px);
+}
+
+.main::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.55) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 1.8vw, 24px);
+  min-height: 0;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.panel {
+  background: rgba(8, 9, 12, 0.72);
+  border: 1px solid var(--tv-surface-border);
+  border-radius: 20px;
+  padding: clamp(18px, 1.8vw, 28px);
+  backdrop-filter: blur(14px);
+}
+
+.legendTitle {
+  margin: 0 0 14px;
+  font-size: clamp(0.95rem, 1vw, 1.1rem);
+  font-weight: 700;
+  color: var(--tv-text-primary);
+}
+
+.legendBar {
+  height: 16px;
+  border-radius: 999px;
+  overflow: hidden;
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.legendBar span {
+  flex: 1;
+  height: 100%;
+}
+
+.legendLabels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: clamp(0.75rem, 0.85vw, 0.9rem);
+  color: var(--tv-text-secondary);
+}
+
+.legendNoData {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: clamp(0.8rem, 0.9vw, 0.95rem);
+  color: var(--tv-text-secondary);
+}
+
+.legendNoDataSwatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 5px;
+  background: var(--tv-no-data);
+  flex-shrink: 0;
+}
+
+/* Country card */
+
+.countryCard {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.countryEyebrow {
+  margin: 0;
+  font-size: clamp(0.8rem, 0.9vw, 0.95rem);
+  color: var(--tv-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.countryName {
+  margin: 6px 0 0;
+  font-size: clamp(1.4rem, 1.8vw, 1.85rem);
+  font-weight: 700;
+}
+
+.countryValue {
+  margin: 18px 0 0;
+  font-size: clamp(2.5rem, 4.2vw, 3.75rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -1px;
+  color: var(--accent, var(--tv-text-primary));
+}
+
+.countryUnit {
+  margin: 8px 0 0;
+  font-size: clamp(0.95rem, 1.05vw, 1.1rem);
+  color: var(--tv-text-secondary);
+}
+
+.countryMeta {
+  margin: clamp(18px, 2vw, 28px) 0 0;
+  padding-top: clamp(16px, 1.8vw, 22px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: grid;
+  gap: 10px;
+}
+
+.countryMetaRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: clamp(0.8rem, 0.9vw, 0.95rem);
+}
+
+.countryMetaLabel {
+  color: var(--tv-text-muted);
+}
+
+.countryMetaValue {
+  color: var(--tv-text-secondary);
+  text-align: right;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: clamp(0.72rem, 0.8vw, 0.85rem);
+  font-weight: 600;
+  width: fit-content;
+}
+
+.statusPill[data-status='oficial'] {
+  background: rgba(47, 209, 128, 0.14);
+  color: #4fe3a0;
+}
+
+.statusPill[data-status='proxy'] {
+  background: rgba(255, 176, 47, 0.14);
+  color: #ffc773;
+}
+
+.noDataMessage {
+  margin: clamp(20px, 2.4vw, 32px) 0 0;
+  font-size: clamp(0.95rem, 1.05vw, 1.1rem);
+  color: var(--tv-text-secondary);
+  line-height: 1.5;
+}
+
+.regionalPrompt {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.regionalPromptIcon {
+  width: 40px;
+  height: 40px;
+  color: var(--tv-text-muted);
+}
+
+.regionalPromptTitle {
+  margin: 0;
+  font-size: clamp(1rem, 1.1vw, 1.2rem);
+  font-weight: 700;
+}
+
+.regionalPromptText {
+  margin: 0;
+  font-size: clamp(0.85rem, 0.95vw, 1rem);
+  color: var(--tv-text-secondary);
+  line-height: 1.5;
+}
+
+/* Empty state */
+
+.emptyStage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  text-align: center;
+  padding: 0 10vw;
+}
+
+.emptyIcon {
+  width: clamp(64px, 6vw, 88px);
+  height: clamp(64px, 6vw, 88px);
+  color: var(--tv-text-muted);
+}
+
+.emptyTitle {
+  margin: 0;
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  font-weight: 700;
+  color: var(--tv-text-primary);
+}
+
+.emptyText {
+  margin: 0;
+  max-width: 46ch;
+  font-size: clamp(1rem, 1.2vw, 1.25rem);
+  color: var(--tv-text-secondary);
+  line-height: 1.55;
+}
+
+.connectionBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: clamp(0.8rem, 0.9vw, 0.95rem);
+  color: var(--tv-text-muted);
+}
+
+.connectionDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1f9d55;
+}
+
+/* Responsive: narrower / shorter TV panels still readable */
+
+@media (max-aspect-ratio: 4/3) {
+  .main {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+
+  .sidebar {
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: visible;
+  }
+
+  .panel {
+    min-width: 320px;
+  }
+}
