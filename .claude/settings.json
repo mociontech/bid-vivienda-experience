@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node check_fit.mjs)",
+      "Bash(curl -s http://localhost:5184/src/pages/TVView.tsx)",
+      "Bash(curl -s http://localhost:5184/src/hooks/useElementSize.ts)",
+      "Bash(node check_debug2.mjs)",
+      "Bash(node check_clean.mjs)",
+      "Bash(curl -s -X DELETE \"https://bid-rtdb-default-rtdb.firebaseio.com/sessions/default/state.json\" >/dev/null; taskkill //F //IM node.exe //T 2>&1 | tail -3; cd \"/c/Users/Pipec/OneDrive/Documentos/Experiencias/Agosto\" && npm run dev -- --port 5185 > /tmp/vite8.log 2>&1 & sleep 2 && cat /tmp/vite8.log)",
+      "Read(//tmp/**)",
+      "Bash(sed -i 's/5184/5185/g' check_layers.mjs)",
+      "Bash(node check_layers.mjs)"
+    ]
+  }
+}

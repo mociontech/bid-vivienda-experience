@@ -1,12 +1,12 @@
 import type { Category } from '../types/experience'
 
-// Escalas de 5 pasos (menor -> mayor) inspiradas en la paleta del mockup:
-// naranja para déficit cuantitativo, azul para cualitativo, verde-azulado
-// para acceso a financiamiento.
+// Escalas de 5 pasos (menor -> mayor), vibrantes para contrastar sobre el
+// fondo oscuro de la TV: naranja para déficit cuantitativo, azul para
+// cualitativo, verde para acceso a financiamiento.
 const SCALES: Record<Category, string[]> = {
-  deficit_cuantitativo: ['#fde3c8', '#f7b370', '#f08c3e', '#e0601f', '#b8360f'],
-  deficit_cualitativo: ['#d8e8f7', '#a9cced', '#6fa8dc', '#3d78bf', '#1f4e8c'],
-  acceso_financiamiento: ['#d7f0e6', '#9ed9c4', '#5cbfa0', '#2e9b81', '#136b56'],
+  deficit_cuantitativo: ['#ffd9a0', '#ffab40', '#ff8a00', '#ff5f1f', '#e63900'],
+  deficit_cualitativo: ['#a9d6ff', '#5fb3ff', '#2196f3', '#1565c0', '#0d3fa3'],
+  acceso_financiamiento: ['#b8f7d4', '#5eebac', '#1fd88f', '#00c176', '#009160'],
 }
 
 export const NO_DATA_COLOR = '#4b4b4b'
