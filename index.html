@@ -73,7 +73,8 @@ const config={
 };
 const state={category:'quantitative',mode:'regional',selected:'COL',subregion:'Todas'};
 const VALID_SUBREGIONS=['Todas','México','Centroamérica','Caribe','Suramérica'];
-const isDisplayMode=location.pathname.replace(/\/$/,'').endsWith('/display')||new URLSearchParams(location.search).get('display')==='1';
+const currentPath=location.pathname.replace(/\/$/,'');
+const isDisplayMode=currentPath===''||currentPath.endsWith('/display')||new URLSearchParams(location.search).get('display')==='1';
 document.getElementById('app').classList.toggle('display-mode',isDisplayMode);
 document.body.classList.toggle('display-body',isDisplayMode);
 const isoMap=new Map(countries.map(c=>[c.iso3,c]));
