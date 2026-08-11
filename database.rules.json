@@ -1,0 +1,53 @@
+{
+  "rules": {
+    "messages": {
+      ".read": true,
+      ".write": true,
+      ".indexOn": ["ts"],
+      "$message": {
+        ".validate": "newData.hasChildren(['t', 'u', 'ts']) && newData.child('t').isString() && newData.child('t').val().length > 0 && newData.child('t').val().length <= 500 && newData.child('u').isString() && newData.child('u').val().length > 0 && newData.child('ts').isNumber()"
+      }
+    },
+    "live_reactions": {
+      ".read": true,
+      ".write": true,
+      "$reaction": {
+        ".validate": "newData.hasChildren(['e', 'ts']) && newData.child('e').isString() && newData.child('ts').isNumber()"
+      }
+    },
+    "bidMapaSessions": {
+      "$session": {
+        ".read": true,
+        "state": {
+          ".write": true,
+          ".validate": "newData.hasChildren(['category', 'mode', 'countryIso3', 'subregion'])",
+          "category": {
+            ".validate": "newData.val() === 'quantitative' || newData.val() === 'qualitative' || newData.val() === 'financing'"
+          },
+          "mode": {
+            ".validate": "newData.val() === 'regional' || newData.val() === 'country'"
+          },
+          "countryIso3": {
+            ".validate": "newData.val() === 'ATG' || newData.val() === 'ARG' || newData.val() === 'BHS' || newData.val() === 'BRB' || newData.val() === 'BLZ' || newData.val() === 'BOL' || newData.val() === 'BRA' || newData.val() === 'CHL' || newData.val() === 'COL' || newData.val() === 'CRI' || newData.val() === 'DMA' || newData.val() === 'DOM' || newData.val() === 'ECU' || newData.val() === 'SLV' || newData.val() === 'GRD' || newData.val() === 'GTM' || newData.val() === 'GUY' || newData.val() === 'HND' || newData.val() === 'JAM' || newData.val() === 'MEX' || newData.val() === 'NIC' || newData.val() === 'PAN' || newData.val() === 'PRY' || newData.val() === 'PER' || newData.val() === 'KNA' || newData.val() === 'LCA' || newData.val() === 'VCT' || newData.val() === 'SUR' || newData.val() === 'TTO' || newData.val() === 'URY' || newData.val() === 'VEN'"
+          },
+          "subregion": {
+            ".validate": "newData.val() === 'Todas' || newData.val() === 'México' || newData.val() === 'Centroamérica' || newData.val() === 'Caribe' || newData.val() === 'Suramérica'"
+          },
+          "updatedAt": {
+            ".validate": "newData.isNumber()"
+          },
+          "$other": {
+            ".validate": false
+          }
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+    },
+    "$other": {
+      ".read": false,
+      ".write": false
+    }
+  }
+}

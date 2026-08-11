@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Control tablet · Mapa BID</title>
+<style>
+:root{--accent:#f47721;--accent-2:#ff9b54;--soft:#fff4ec;--ink:#202226;--muted:#66727f;--line:#e7e2dc;--paper:#fffaf4;--shadow:0 24px 70px rgba(68,52,38,.16)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);background:linear-gradient(135deg,#fffaf4,#f4f7fb 45%,#eef6f0);touch-action:manipulation}
+body[data-category="qualitative"]{--accent:#267ed9;--accent-2:#59a8ef;--soft:#eef6ff}
+body[data-category="financing"]{--accent:#2f9a58;--accent-2:#59bc7d;--soft:#eef9f1}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.app{max-width:1160px;margin:0 auto;padding:22px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:14px}
+.brand{display:flex;align-items:center;gap:10px;color:#415063;font-weight:800}.brand span{display:grid;place-items:center;width:34px;height:34px;border-radius:12px;background:var(--soft);color:var(--accent)}
+.status{display:grid;min-width:190px;padding:11px 15px;border:1px solid #e0b2b2;border-radius:999px;background:#fff;color:#7f3b3b}
+.status.online{color:#145b34;border-color:#9bdcb8;background:#f2fff6}
+.status strong{font-size:14px}.status span{font-size:12px;color:inherit;opacity:.78}
+.stage{display:grid;grid-template-columns:270px minmax(0,1fr);gap:22px;align-items:start}
+.intro{min-height:560px;padding:34px 24px;border-radius:30px;background:linear-gradient(180deg,var(--soft),#fff);box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:center}
+.introicon{display:grid;place-items:center;width:86px;height:86px;margin-bottom:24px;border-radius:26px;background:white;border:1px solid var(--line);box-shadow:0 12px 30px rgba(0,0,0,.08);font-size:44px}
+.intro h1{margin:0;color:var(--accent);font-size:clamp(28px,4vw,42px);line-height:1.02}.intro p{margin:16px 0 0;color:#3f444b;font-weight:650;line-height:1.45}
+.device{padding:16px;border:10px solid #1f1f20;border-radius:30px;background:#111;box-shadow:0 18px 60px rgba(0,0,0,.22)}
+.screen{min-height:540px;padding:24px;border-radius:18px;background:linear-gradient(180deg,#fff,#fafafa);overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.eyebrow{margin:0;color:#697386;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:800}
+.screen h2,.panel h2{margin:4px 0 3px;font-size:19px;text-align:center}.hint{margin:0 0 18px;color:#6f7884;text-align:center;font-size:13px}
+.categorylist{display:grid;gap:14px;margin:24px auto 0;max-width:500px;width:100%}
+.btn{min-height:64px;padding:14px 18px;color:#2c3137;text-align:center;border:1px solid #ececec;border-radius:10px;background:#f7f7f7;box-shadow:0 4px 14px rgba(0,0,0,.05);font-weight:800}
+.btn small{display:none}.btn.active{color:white;border-color:transparent;background:linear-gradient(180deg,var(--accent-2),var(--accent));box-shadow:0 10px 22px color-mix(in srgb,var(--accent) 28%,transparent)}
+.actionrows{display:grid;gap:10px;max-width:430px;margin:0 auto}.rowaction{display:flex;align-items:center;gap:11px;width:100%;padding:12px 14px;color:#2f343b;border:1px solid #e6e6e6;border-radius:11px;background:#fff;text-align:left;box-shadow:0 5px 14px rgba(0,0,0,.05)}.rowaction.active{border-color:color-mix(in srgb,var(--accent) 45%,#fff);background:var(--soft)}.rowaction i{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--soft);font-style:normal}
+.interaction{margin-top:18px;padding:18px;border:2px solid #333;border-radius:12px;background:#fff}.choicegrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}.choice{min-height:118px;display:grid;place-items:center;padding:14px;border:1px solid #eee;border-radius:12px;background:#fff;box-shadow:0 10px 24px rgba(0,0,0,.08);font-weight:800}.choice.active{color:white;background:linear-gradient(180deg,var(--accent-2),var(--accent))}.choice span{display:block;font-size:34px;margin-bottom:7px}
+.subhead{margin:8px 0 10px;text-align:center;font-weight:800;font-size:13px}.regions{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}.region{padding:8px 13px;color:#34383e;border:1px solid #dedede;border-radius:999px;background:#fff;font-size:12px}.region.active{color:white;border-color:transparent;background:var(--accent)}
+.countrytools{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0 10px}input,select{width:100%;min-height:44px;padding:10px 12px;color:#222;border:1px solid #dadde2;border-radius:10px;background:white}
+.countrygrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;max-height:190px;overflow:auto;padding-right:4px}.country{min-height:42px;padding:9px 11px;color:#30343a;text-align:left;border:1px solid #e3e3e3;border-radius:10px;background:#fff}.country.active{color:white;border-color:transparent;background:var(--accent)}
+@media(max-width:900px){.stage{grid-template-columns:1fr}.intro{min-height:auto}.device{border-width:7px}.countrytools{grid-template-columns:1fr}.choicegrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main class="app">
+  <header class="topbar">
+    <div class="brand"><span>⌂</span>Medir para transformar</div>
+    <div class="status" id="status"><strong>Firebase</strong><span>configuración pendiente</span></div>
+  </header>
+
+  <section class="stage">
+    <aside class="intro" id="dimensionIntro">
+      <div class="introicon" id="dimensionIcon">⌂</div>
+      <h1 id="dimensionTitle">Déficit cuantitativo</h1>
+      <p id="dimensionText">Hogares que necesitan una nueva vivienda.</p>
+    </aside>
+
+    <section class="device" aria-label="Control de tablet">
+      <div class="screen">
+        <p class="eyebrow" style="text-align:center">Selecciona una dimensión</p>
+        <h2>Medir para transformar</h2>
+        <p class="hint">Elige el indicador que quieres mostrar en la mesa.</p>
+
+        <div class="categorylist" id="categoryButtons">
+          <button class="btn" data-category="quantitative">Déficit cuantitativo<small>Viviendas nuevas requeridas</small></button>
+          <button class="btn" data-category="qualitative">Déficit cualitativo<small>Viviendas que requieren mejoras</small></button>
+          <button class="btn" data-category="financing">Acceso al financiamiento<small>Cartera hipotecaria / PIB</small></button>
+        </div>
+
+      </div>
+    </section>
+  </section>
+</main>
+
+<script src="https://www.gstatic.com/firebasejs/12.17.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.17.0/firebase-database-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script>
+const countries=[
+  ['ATG','Antigua y Barbuda','Caribe'],['ARG','Argentina','Suramérica'],['BHS','Bahamas','Caribe'],['BRB','Barbados','Caribe'],['BLZ','Belice','Centroamérica'],
+  ['BOL','Bolivia','Suramérica'],['BRA','Brasil','Suramérica'],['CHL','Chile','Suramérica'],['COL','Colombia','Suramérica'],['CRI','Costa Rica','Centroamérica'],
+  ['DMA','Dominica','Caribe'],['DOM','República Dominicana','Caribe'],['ECU','Ecuador','Suramérica'],['SLV','El Salvador','Centroamérica'],['GRD','Granada','Caribe'],
+  ['GTM','Guatemala','Centroamérica'],['GUY','Guyana','Suramérica'],['HND','Honduras','Centroamérica'],['JAM','Jamaica','Caribe'],['MEX','México','México'],
+  ['NIC','Nicaragua','Centroamérica'],['PAN','Panamá','Centroamérica'],['PRY','Paraguay','Suramérica'],['PER','Perú','Suramérica'],['KNA','San Cristóbal y Nieves','Caribe'],
+  ['LCA','Santa Lucía','Caribe'],['VCT','San Vicente y las Granadinas','Caribe'],['SUR','Surinam','Suramérica'],['TTO','Trinidad y Tobago','Caribe'],['URY','Uruguay','Suramérica'],['VEN','Venezuela','Suramérica']
+].map(([iso3,name,subregion])=>({iso3,name,subregion}));
+const labels={quantitative:'Déficit cuantitativo',qualitative:'Déficit cualitativo',financing:'Acceso al financiamiento'};
+const dimensions={
+  quantitative:{icon:'⌂',title:'Déficit cuantitativo',text:'Hogares que necesitan una nueva vivienda.'},
+  qualitative:{icon:'⌁',title:'Déficit cualitativo',text:'Viviendas que requieren mejoras en materiales, estructura, servicios o habitabilidad.'},
+  financing:{icon:'$',title:'Acceso al financiamiento',text:'Profundidad del mercado hipotecario medida como cartera hipotecaria sobre PIB.'}
+};
+const subregions=['Todas','México','Centroamérica','Caribe','Suramérica'];
+const defaultState={category:'quantitative',mode:'regional',countryIso3:'COL',subregion:'Todas'};
+const state={...defaultState};
+let firebaseStateRef=null;
+let firebaseConnectedRef=null;
+
+function setStatus(title,detail,online=false){const el=document.getElementById('status');el.classList.toggle('online',online);el.innerHTML='<strong>'+title+'</strong><span>'+detail+'</span>'}
+function normalizeState(next={}){return{...defaultState,category:labels[next.category]?next.category:state.category}}
+function applyState(next={},renderOnly=false){Object.assign(state,normalizeState(next));render();if(!renderOnly)sendState()}
+function firebaseOptions(){return window.BID_FIREBASE||{}}
+function hasFirebaseConfig(){const o=firebaseOptions();return Boolean(o.apiKey&&o.projectId&&o.databaseURL)}
+function firebaseSessionPath(){const raw=(firebaseOptions().sessionId||'maqueta-1-bid').toString();const safe=raw.replace(/[.#$\/\[\]]/g,'-').slice(0,80)||'maqueta-1-bid';return 'bidMapaSessions/'+safe+'/state'}
+function sendState(){const payload={...normalizeState(state),updatedAt:firebase.database.ServerValue.TIMESTAMP};if(firebaseStateRef){firebaseStateRef.set(payload).then(()=>setStatus('Conectado','sincronizado con Firebase',true)).catch(err=>setStatus('Error Firebase',err.message,false))}render()}
+function connect(){if(!hasFirebaseConfig()){setStatus('Configura Firebase','edita firebase-config.js',false);return}if(!window.firebase||!firebase.database){setStatus('SDK Firebase no cargó','revisa internet',false);return}try{if(!firebase.apps.length)firebase.initializeApp(firebaseOptions());const db=firebase.database();firebaseStateRef=db.ref(firebaseSessionPath());firebaseConnectedRef=db.ref('.info/connected');firebaseConnectedRef.on('value',snap=>setStatus(snap.val()?'Conectado':'Sin internet',snap.val()?'Firebase Realtime Database':'esperando conexión',Boolean(snap.val())));firebaseStateRef.on('value',snap=>{const next=snap.val();if(next)applyState(next,true);else sendState()},err=>setStatus('Error Firebase',err.message,false))}catch(err){setStatus('Error Firebase',err.message,false)}}
+function render(){
+  const dimension=dimensions[state.category];
+  document.body.dataset.category=state.category;
+  document.getElementById('dimensionIcon').textContent=dimension.icon;
+  document.getElementById('dimensionTitle').textContent=dimension.title;
+  document.getElementById('dimensionText').textContent=dimension.text;
+  document.querySelectorAll('[data-category]').forEach(btn=>btn.classList.toggle('active',btn.dataset.category===state.category));
+
+}
+
+document.querySelectorAll('[data-category]').forEach(btn=>btn.onclick=()=>applyState({category:btn.dataset.category}));
+render();
+connect();
+</script>
+</body>
+</html>

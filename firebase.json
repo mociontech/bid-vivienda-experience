@@ -1,0 +1,32 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "database.rules.json",
+      "server.js",
+      "package.json",
+      "package-lock.json",
+      "PROMPT_CODEX (1).md",
+      "INSTRUCCIONES_TABLET_MESA.md",
+      "INSTRUCCIONES_FIREBASE.md",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "rewrites": [
+      {
+        "source": "/display",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/controller",
+        "destination": "/controller.html"
+      }
+    ]
+  },
+  "database": {
+    "rules": "database.rules.json"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "bid-mapa-tablet-display",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Maqueta BID con display para mesa touch y controlador tablet sincronizados por Firebase Realtime Database.",
+  "scripts": {
+    "build": "node build-netlify.js",
+    "start": "node server.js"
+  }
+}
