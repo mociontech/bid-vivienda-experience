@@ -3,10 +3,13 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 <title>Maqueta 1 · Mapa BID</title>
 <style>
-:root{--bg:#080c10;--panel:#0e151c;--panel2:#111a22;--border:#2d3943;--text:#f5f7fa;--muted:#9cabb7;--nodata:#505963;--context:#242b32;}
-*{box-sizing:border-box} body{margin:0;min-width:320px;min-height:100vh;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--text);background:radial-gradient(circle at 50% -10%,#22303b,#080c10 56%)}.display-body{overflow:hidden}
+:root{--bg:#080c10;--panel:#0e151c;--panel2:#111a22;--border:#2d3943;--text:#f5f7fa;--muted:#9cabb7;--nodata:#59636f;--context:#59636f;}
+*{box-sizing:border-box} body{margin:0;min-width:320px;min-height:100vh;font-family:Montserrat,Inter,Segoe UI,Arial,sans-serif;color:var(--text);background:radial-gradient(circle at 50% -10%,#22303b,#080c10 56%)}.display-body{overflow:hidden}
 button,select{font:inherit} button{cursor:pointer} .app{padding:22px} .top{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:16px}
 .eyebrow{margin:0 0 5px;color:var(--muted);font-size:12px;letter-spacing:.12em;text-transform:uppercase} h1,h2{margin:0} h1{font-size:clamp(26px,3vw,42px)}
 .topcards{display:flex;align-items:stretch;gap:10px}.coverage,.sync{display:grid;min-width:148px;padding:11px 15px;border:1px solid var(--border);border-radius:13px;background:var(--panel)} .coverage strong{font-size:20px} .coverage span,.sync span{font-size:13px;color:var(--muted)}.sync strong{font-size:14px}.sync.online{border-color:#41dca1;background:rgba(18,78,61,.56)}.sync.offline{border-color:#9c4f4f;background:rgba(78,18,18,.5)}
@@ -17,12 +20,14 @@ button,select{font:inherit} button{cursor:pointer} .app{padding:22px} .top{displ
 .seg button,.regions button{padding:8px;color:#bdc7cf;border:1px solid #2d3944;border-radius:9px;background:#151e26} .seg button.active,.regions button.active{color:white;border-color:#73818d;background:#35434e}
 select{width:100%;padding:10px;color:white;border:1px solid #384651;border-radius:9px;background:#151e26} .regions{display:flex;flex-wrap:wrap;gap:6px} .regions button{font-size:12px}
 .visual{position:relative;padding:15px;overflow:hidden} .head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:10px} .head p{max-width:600px;margin:5px 0 0;color:var(--muted)}
-.legend{min-width:260px} .scale{display:grid;grid-template-columns:repeat(5,1fr);height:10px;overflow:hidden;border-radius:999px} .legendlabels{display:flex;justify-content:space-between;margin-top:5px;color:var(--muted);font-size:11px}.legendranges{display:grid;gap:4px;margin-top:9px;color:#d6dee5;font-size:11px}.legendranges div{display:grid;grid-template-columns:12px 1fr;gap:7px;align-items:center}.legendranges i{display:block;width:12px;height:12px;border-radius:3px}
+.legend{min-width:260px} .scale{display:flex;height:10px;overflow:hidden;border-radius:999px} .scale span{flex:1}.legendlabels{display:flex;justify-content:space-between;margin-top:5px;color:var(--muted);font-size:11px}.legendranges{display:grid;gap:4px;margin-top:9px;color:#d6dee5;font-size:11px}.legendranges div{display:grid;grid-template-columns:12px 1fr;gap:7px;align-items:center}.legendranges i{display:block;width:12px;height:12px;border-radius:3px}
 .nodata{margin-top:7px;color:#aeb8c0;font-size:12px} .nodata i{display:inline-block;width:10px;height:10px;margin-right:5px;border-radius:2px;background:var(--nodata)}
 .mapwrap{position:relative;overflow:hidden;border:1px solid #313d47;border-radius:16px;background:#090e13}.map-stage{position:relative;display:grid;place-items:center;width:100%;min-height:520px}.map-stage svg{display:block;width:100%;height:auto;overflow:visible;shape-rendering:geometricPrecision}.map-loading{position:absolute;inset:0;display:grid;place-items:center;color:#b7c1c9;font-size:14px;letter-spacing:.04em;background:radial-gradient(circle at center,rgba(24,35,43,.9),rgba(9,14,19,.98))}.map-loading[hidden]{display:none}.country{stroke:#f2f4f5;stroke-width:1.05;vector-effect:non-scaling-stroke;paint-order:stroke fill;transition:opacity .34s ease,filter .34s ease,fill .45s ease,stroke-width .3s ease} .target-country{cursor:pointer} .target-country:hover{filter:brightness(1.18)} .context-country{fill:var(--context);opacity:.45;stroke-width:.25}.map-callouts{pointer-events:none}.map-callout{filter:drop-shadow(0 9px 14px rgba(0,0,0,.38));animation:calloutIn .48s ease both}.map-callout-line{stroke:rgba(245,217,205,.78);stroke-width:1.05;vector-effect:non-scaling-stroke}.map-callout-dot{stroke:#fff;stroke-width:1.6;vector-effect:non-scaling-stroke}.map-callout-box{fill:rgba(11,16,20,.88);stroke:rgba(255,255,255,.32);stroke-width:1;vector-effect:non-scaling-stroke}.map-callout-rank{fill:#8d1b27;stroke:#fff;stroke-width:.85;vector-effect:non-scaling-stroke}.map-callout-rank-text,.map-callout-name,.map-callout-value{font-family:Inter,Segoe UI,Arial,sans-serif;paint-order:stroke;stroke:rgba(0,0,0,.28);stroke-width:.9;stroke-linejoin:round}.map-callout-rank-text{font-size:10px;font-weight:800;fill:#fff;text-anchor:middle;dominant-baseline:middle}.map-callout-name{font-size:10.8px;font-weight:760;fill:#fff}.map-callout-value{font-size:9.4px;font-weight:720}.html-callouts{position:absolute;inset:0;z-index:4;pointer-events:none}.html-callout-lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible}.html-callout-lines line{stroke:rgba(245,217,205,.78);stroke-width:1.35px;vector-effect:non-scaling-stroke}.html-pin{position:absolute;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border:1.5px solid #fff;border-radius:50%;background:var(--callout-color);box-shadow:0 0 14px var(--callout-color),0 0 24px rgba(255,255,255,.18)}.html-callout{position:absolute;display:grid;grid-template-columns:22px minmax(0,1fr);column-gap:7px;align-items:center;min-width:142px;padding:7px 10px;border:1px solid rgba(255,255,255,.34);border-radius:10px;background:rgba(11,16,20,.9);box-shadow:0 12px 28px rgba(0,0,0,.42);animation:calloutIn .48s ease both}.html-callout-index{display:grid;place-items:center;width:20px;height:20px;border:1.5px solid #fff;border-radius:50%;background:var(--callout-color);color:#fff;font-size:12px;font-weight:850}.html-callout-name{display:block;overflow:hidden;color:#fff;font-size:12px;font-weight:800;line-height:1.05;text-overflow:ellipsis;white-space:nowrap}.html-callout-value{display:block;color:var(--callout-color);font-size:11px;font-weight:800;line-height:1.05}
 .continent-outline{fill:none;stroke:rgba(255,255,255,.58);stroke-width:2.1;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke;pointer-events:none;filter:drop-shadow(0 0 5px rgba(255,255,255,.18))}.display-mode .country{stroke-linejoin:round;stroke-linecap:round}.display-mode .target-country{stroke:rgba(255,255,255,.045)!important;stroke-width:.12!important}.display-mode .context-country{stroke:transparent!important;stroke-width:0!important;opacity:.28}.html-callout-lines{z-index:1}.html-callout-lines line{display:none}.html-callout-lines path{fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}.html-callout-lines .connector-halo{stroke:rgba(255,255,255,.16);stroke-width:5px;filter:blur(.4px)}.html-callout-lines .connector-core{stroke:rgba(255,247,238,.78);stroke-width:1.35px;filter:drop-shadow(0 0 2px rgba(0,0,0,.72))}.html-pin{z-index:2;width:10px;height:10px;margin:-5px 0 0 -5px;border:1.6px solid rgba(255,255,255,.92);border-radius:50%;background:radial-gradient(circle at 45% 42%,#fff 0 18%,var(--callout-color) 24% 100%);box-shadow:0 0 0 3px rgba(255,255,255,.08),0 0 13px var(--callout-color),0 0 24px rgba(255,255,255,.14)}.display-mode .html-callout{z-index:3;overflow:hidden;animation:none;opacity:1;background:linear-gradient(135deg,rgba(31,42,52,.56),rgba(4,8,12,.72));border-color:rgba(255,255,255,.36);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),inset 0 -18px 36px rgba(255,255,255,.035),0 16px 34px rgba(0,0,0,.58);backdrop-filter:blur(14px) saturate(1.55);-webkit-backdrop-filter:blur(14px) saturate(1.55)}.display-mode .html-callout::before{content:"";position:absolute;inset:1px;border-radius:9px;background:linear-gradient(130deg,rgba(255,255,255,.18),transparent 38%,rgba(255,255,255,.05));pointer-events:none}.display-mode .html-callout-name,.display-mode .html-callout-value{position:relative;text-shadow:0 1px 3px rgba(0,0,0,.82)}.display-mode .html-callout-index{position:relative;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 0 12px color-mix(in srgb,var(--callout-color),transparent 38%)}
 .display-mode .html-pin{display:grid;place-items:center;width:17px;height:17px;margin:-8.5px 0 0 -8.5px;color:#fff;font-size:9px;font-weight:950;line-height:1;text-shadow:0 1px 2px rgba(0,0,0,.86);background:radial-gradient(circle at 38% 32%,rgba(255,255,255,.95) 0 9%,var(--callout-color) 31%,rgba(0,0,0,.34) 100%);box-shadow:0 0 0 1.5px rgba(0,0,0,.72),0 0 0 3px rgba(255,255,255,.13),0 0 13px var(--callout-color)}
+.display-mode .continent-outline{stroke:rgba(255,255,255,.7);stroke-width:2.35;filter:drop-shadow(0 0 5px rgba(255,255,255,.2))}.display-mode .target-country{stroke:rgba(255,255,255,.52)!important;stroke-width:.72!important}
 .selected-country{filter:drop-shadow(0 0 7px rgba(255,255,255,.96)) drop-shadow(0 0 20px currentColor) brightness(1.26)}.display-mode .callout-country{stroke:rgba(255,255,255,.92)!important;stroke-width:1.18!important;filter:drop-shadow(0 0 8px rgba(255,255,255,.44)) drop-shadow(0 0 16px currentColor) brightness(1.1)}.country-arrive{animation:countryArrival 1.45s cubic-bezier(.2,.78,.22,1)}
+.reference-map{display:none;pointer-events:none}.reference-map-active .reference-map{display:block}.reference-map-active #contextCountries,.reference-map-active #countries,.reference-map-active #continentOutline{opacity:0!important;pointer-events:none}.reference-map-active .target-country,.reference-map-active .callout-country,.reference-map-active .selected-country{fill:transparent!important;stroke:transparent!important;filter:none!important;opacity:0!important}
 @keyframes countryArrival{0%{opacity:.18;filter:drop-shadow(0 0 0 transparent) brightness(.75);stroke-width:1}38%{opacity:1;filter:drop-shadow(0 0 16px #fff) drop-shadow(0 0 34px currentColor) brightness(1.5);stroke-width:5.2}72%{filter:drop-shadow(0 0 10px #fff) drop-shadow(0 0 26px currentColor) brightness(1.34);stroke-width:4.2}100%{opacity:1;filter:drop-shadow(0 0 7px rgba(255,255,255,.96)) drop-shadow(0 0 20px currentColor) brightness(1.26);stroke-width:3.6}}
 @keyframes calloutIn{from{opacity:0;transform:translateY(8px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
 .ranklist{display:none}.full-rank{display:grid;gap:3px;margin:8px 0 0;padding:0;list-style:none}.full-rank li{display:grid;grid-template-columns:20px 10px minmax(0,1fr) auto;align-items:center;gap:6px;min-height:18px;color:#eef3f6;font-size:10.5px}.full-rank i{display:block;width:9px;height:9px;border-radius:50%;background:var(--swatch,#505963);box-shadow:0 0 8px var(--swatch,#505963)}.full-rank .rank-pos{color:#f4c49c;font-weight:800;text-align:right}.full-rank .rank-country{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.full-rank strong{color:#fff;font-size:10.4px}.full-rank .missing{opacity:.56}.ranklist-title{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin-top:12px;color:#d8e1e7;font-size:11px;font-weight:780;text-transform:uppercase}.ranklist-title span:last-child{color:#9fabb4;font-size:9.5px;font-weight:650;text-align:right}.display-mode{--display-left-column:clamp(292px,17vw,340px);--display-map-shift:-.8vw;--display-map-scale:1.06;position:relative;min-height:100vh;padding:18px;background:linear-gradient(135deg,#2b211c,#bda088 5%,#090909 18%,#050505)}.display-mode .controls{display:none}.display-mode .top{position:absolute;left:38px;top:30px;right:38px;z-index:8;margin:0;pointer-events:none}.display-mode .top h1{display:none}.display-mode .top .eyebrow{display:none;color:#f5d3a9}.display-mode .topcards{display:none}.display-mode .grid{display:block;min-height:calc(100vh - 36px)}.display-mode .visual{min-height:calc(100vh - 36px);padding:0;border:1px solid #2b2b2b;border-radius:30px;background:radial-gradient(circle at 52% 48%,#1b1b18,#050505 68%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.04),0 22px 80px rgba(0,0,0,.42);overflow:hidden}.display-mode .head{position:absolute;left:30px;top:28px;bottom:28px;z-index:5;display:flex;flex-direction:column;width:calc(var(--display-left-column) - 52px);min-height:0;margin:0;pointer-events:none}.display-mode .head h2{font-size:21px;line-height:1.05;color:#fff}.display-mode .head p{max-width:100%;max-height:54px;overflow:hidden;color:#d1d1d1;font-size:11.2px;line-height:1.28}.display-mode .head .eyebrow{color:#ffc078}.display-mode .legend{width:100%;min-width:0;margin-top:12px}.display-mode .legendranges{display:none}.display-mode .legendlabels{font-size:10px}.display-mode .nodata{font-size:10px}.display-mode .ranklist{display:block;min-height:0;overflow:hidden}.display-mode .reader{display:none}.display-mode .mapwrap{height:calc(100vh - 36px);padding:6px 8px 6px 0;border:0;border-radius:30px;background:transparent;display:grid;grid-template-columns:var(--display-left-column) minmax(0,1fr);overflow:hidden}.display-mode .map-stage{grid-column:2;align-self:stretch;min-width:0;min-height:0;height:auto;padding:0;overflow:visible}.display-mode .map-stage svg{width:100%;height:100%;max-width:none;max-height:none;overflow:hidden;shape-rendering:geometricPrecision;filter:drop-shadow(0 28px 28px rgba(0,0,0,.32));transform:translateX(var(--display-map-shift)) scale(var(--display-map-scale));transform-origin:54% 52%}.display-mode .html-callouts{overflow:visible}.display-mode .details{display:none}.display-mode .target-country,.display-mode .island-country{cursor:default}.display-mode .target-country:hover{filter:none}.display-mode .inset{display:none}
@@ -38,6 +43,19 @@ select{width:100%;padding:10px;color:white;border:1px solid #384651;border-radiu
 .caribbean-inset{display:none}.display-mode .caribbean-inset{position:absolute;top:24px;right:24px;z-index:7;display:block;width:clamp(460px,27vw,560px);height:clamp(290px,31vh,350px);padding:8px 10px 10px;border:1px solid rgba(255,255,255,.3);border-radius:18px;background:linear-gradient(145deg,rgba(28,39,47,.58),rgba(4,8,11,.76));box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 18px 45px rgba(0,0,0,.48);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);pointer-events:none}.caribbean-inset h3{position:absolute;top:11px;left:0;right:0;z-index:2;margin:0;color:#f4f7f8;font-size:12px;letter-spacing:.16em;text-align:center}.caribbean-inset svg{display:block;width:100%;height:100%;overflow:visible}.caribbean-shape{stroke:rgba(255,255,255,.72);stroke-width:1.15;vector-effect:non-scaling-stroke;filter:drop-shadow(0 0 4px rgba(255,255,255,.16))}.caribbean-leader{fill:none;stroke:rgba(255,247,238,.82);stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}.caribbean-pin{stroke:#fff;stroke-width:1.15;vector-effect:non-scaling-stroke}.caribbean-label{fill:rgba(12,18,23,.78);stroke:rgba(255,255,255,.36);stroke-width:.9;vector-effect:non-scaling-stroke}.caribbean-label-name{fill:#fff;font-size:11.5px;font-weight:800}.caribbean-label-value{font-size:10.5px;font-weight:800}.caribbean-rank{fill:#fff;font-size:9.5px;font-weight:900;text-anchor:middle;dominant-baseline:middle}.caribbean-note{fill:rgba(224,232,237,.74);font-size:8.5px;letter-spacing:.04em}
 .bigvalue{margin-top:24px;font-size:clamp(34px,5vw,62px);font-weight:720;letter-spacing:-.04em} .unit{color:var(--muted)} dl{display:grid;gap:11px;margin-top:24px} dl div{display:flex;justify-content:space-between;gap:10px;padding-bottom:9px;border-bottom:1px solid #2c3741} dt{color:var(--muted)} dd{margin:0;text-align:right} .link{display:block;margin-top:20px;padding:11px;color:white;text-align:center;text-decoration:none;border:1px solid #46545f;border-radius:10px;background:#293640}
 @media(max-width:1150px){.grid{grid-template-columns:220px 1fr}.display-mode .grid{grid-template-columns:1fr}.details{grid-column:1/-1;min-height:auto}} @media(max-width:740px){.app{padding:12px}.top,.head{flex-direction:column}.topcards{width:100%;flex-direction:column}.grid{grid-template-columns:1fr}.details{grid-column:auto}.legend{width:100%}.reader{grid-template-columns:1fr}.inset{position:static;width:auto;margin:10px}}
+/* Ajustes de exhibición: ranking metodológico y Caribe ampliado */
+.display-mode{--display-left-column:clamp(360px,20vw,420px);--display-map-shift:-14.5vw;--display-map-scale:1.055}
+.full-rank li{grid-template-columns:18px 8px minmax(72px,1fr) 47px 64px 69px;gap:4px;font-size:9.8px}
+.full-rank i{width:7px;height:7px;background:var(--swatch,#59636f);box-shadow:0 0 7px var(--swatch,#59636f)}
+.full-rank .rank-metric{color:#fff;font-size:9.6px;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.full-rank .rank-pct{font-weight:850}.full-rank .rank-count,.full-rank .rank-stock{color:#dce5eb;font-weight:680}
+.ranklist-title span:last-child{font-size:8.8px}.rank-metric-key{display:grid;grid-template-columns:1fr 47px 64px 69px;gap:4px;margin:5px 0 0 30px;color:#8f9ca5;font-size:7.8px;font-weight:750;letter-spacing:.02em;text-align:right;text-transform:uppercase}.rank-metric-key span:first-child{text-align:left}
+.ranklist.financing-rank .rank-metric-key{grid-template-columns:1fr 70px}.ranklist.financing-rank .rank-metric-key span:nth-child(n+3){display:none}.ranklist.financing-rank .full-rank li{grid-template-columns:18px 8px minmax(72px,1fr) 70px}.ranklist.financing-rank .rank-count,.ranklist.financing-rank .rank-stock{display:none}
+.display-mode .caribbean-inset{top:26px;right:26px;width:clamp(440px,31vw,620px);height:clamp(315px,38vh,410px);padding:8px 12px 10px;border-color:rgba(255,255,255,.34);border-radius:20px;background:linear-gradient(145deg,rgba(28,39,47,.62),rgba(4,8,11,.82))}
+.caribbean-inset h3{top:12px;color:#fff}.caribbean-inset svg{overflow:hidden}.caribbean-shape{stroke:#fff;stroke-width:1.35;stroke-linejoin:round;stroke-linecap:round}.caribbean-context{fill:#59636f}.caribbean-country-name{fill:#fff;font-size:8.4px;font-weight:760;paint-order:stroke;stroke:#071017;stroke-width:2.2px;stroke-linejoin:round;text-anchor:middle}.caribbean-note{fill:rgba(235,241,245,.82);font-size:8px;letter-spacing:.025em;text-anchor:middle}
+.formula-note{margin-top:6px;color:#d9e2e8;font-size:8.8px;line-height:1.25}.formula-note strong{color:#fff}
+.display-mode .html-pin{width:5px;height:5px;margin:-2.5px 0 0 -2.5px;border:1px solid rgba(255,255,255,.96);background:transparent;font-size:0;line-height:0;box-shadow:0 0 0 1px var(--callout-color),0 0 7px var(--callout-color)}
+.display-logo{display:none}.display-mode .display-logo{display:block;width:clamp(150px,9vw,190px);height:auto;margin:0 0 12px}.display-mode .head .eyebrow{margin-bottom:3px;color:#fff;font-family:Montserrat,Arial,sans-serif;font-size:12px;font-weight:900;letter-spacing:.055em}.display-mode .head h2{max-width:315px;font-family:Montserrat,Arial,sans-serif;font-size:clamp(27px,1.72vw,34px);font-weight:900;line-height:.98;letter-spacing:-.045em}.display-mode .head p#description{max-height:62px;margin-top:9px;color:#e2e2e2;font-size:11.3px;font-weight:500;line-height:1.35}.display-mode .full-rank li{min-height:15.5px;font-size:9.1px;line-height:1.04}.display-mode .full-rank .rank-metric{font-size:9px}
 </style>
 </head>
 <body>
@@ -51,9 +69,9 @@ select{width:100%;padding:10px;color:white;border:1px solid #384651;border-radiu
 <div class="block"><h2>Subregión</h2><div class="regions" id="regions"></div></div>
 </aside>
 <section class="panel visual">
-<div class="head"><div><p class="eyebrow">Indicador activo</p><h2 id="title"></h2><p id="description"></p></div><div class="legend" id="legend"></div><div class="ranklist" id="rankList"></div></div>
+<div class="head"><img class="display-logo" src="public/grupo-bid-logo-white.png" alt="Grupo BID" /><div><p class="eyebrow">Indicador activo</p><h2 id="title"></h2><p id="description"></p></div><div class="legend" id="legend"></div><div class="ranklist" id="rankList"></div></div>
 <div class="reader" id="reader"></div>
-<div class="mapwrap" id="mapwrap"><div class="map-stage" id="mapStage"><svg id="mapSvg" viewBox="0 0 980 700" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="mapTitle"><title id="mapTitle">Mapa de América Latina y el Caribe</title><g id="contextCountries"></g><g id="countries"></g><g id="continentOutline"></g><g id="callouts" class="map-callouts"></g></svg><div class="html-callouts" id="htmlCallouts"></div><div class="map-loading" id="mapLoading">Cargando cartografía de alta resolución…</div></div><aside class="caribbean-inset" id="caribbeanInset" aria-label="Ampliación del Caribe"><h3>EL CARIBE · VISTA AMPLIADA</h3><svg id="caribbeanSvg" viewBox="0 0 540 330" role="img" aria-label="Mapa ampliado del Caribe"></svg></aside><aside class="inset"><h3>Caribe</h3><div class="islands" id="islands"><button type="button" class="island-country" data-country="ATG"></button><button type="button" class="island-country" data-country="BHS"></button><button type="button" class="island-country" data-country="BRB"></button><button type="button" class="island-country" data-country="DMA"></button><button type="button" class="island-country" data-country="DOM"></button><button type="button" class="island-country" data-country="GRD"></button><button type="button" class="island-country" data-country="JAM"></button><button type="button" class="island-country" data-country="KNA"></button><button type="button" class="island-country" data-country="LCA"></button><button type="button" class="island-country" data-country="VCT"></button><button type="button" class="island-country" data-country="TTO"></button></div></aside></div>
+<div class="mapwrap" id="mapwrap"><div class="map-stage" id="mapStage"><svg id="mapSvg" viewBox="0 0 980 700" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="mapTitle"><title id="mapTitle">Mapa de América Latina y el Caribe</title><defs><filter id="referenceBordersOnly" x="-3%" y="-3%" width="106%" height="106%" color-interpolation-filters="sRGB"><feColorMatrix in="SourceGraphic" result="whiteMask" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  8 8 8 0 -22.2"/><feComposite in="whiteMask" in2="SourceAlpha" operator="in" result="visibleWhite"/><feComponentTransfer in="visibleWhite"><feFuncR type="constant" value="1"/><feFuncG type="constant" value="1"/><feFuncB type="constant" value="1"/><feFuncA type="discrete" tableValues="0 1"/></feComponentTransfer></filter></defs><image id="referenceMapImage" class="reference-map" preserveAspectRatio="xMidYMid meet"/><g id="contextCountries"></g><g id="countries"></g><g id="continentOutline"></g><image id="referenceBorderImage" class="reference-map" preserveAspectRatio="xMidYMid meet" filter="url(#referenceBordersOnly)"/><g id="callouts" class="map-callouts"></g></svg><div class="html-callouts" id="htmlCallouts"></div><div class="map-loading" id="mapLoading">Cargando cartografía de alta resolución…</div></div><aside class="caribbean-inset" id="caribbeanInset" aria-label="Ampliación del Caribe"><h3>EL CARIBE · VISTA AMPLIADA</h3><svg id="caribbeanSvg" viewBox="0 0 640 400" role="img" aria-label="Mapa ampliado de todos los países del Caribe"></svg></aside><aside class="inset"><h3>Caribe</h3><div class="islands" id="islands"><button type="button" class="island-country" data-country="ATG"></button><button type="button" class="island-country" data-country="BHS"></button><button type="button" class="island-country" data-country="BRB"></button><button type="button" class="island-country" data-country="DMA"></button><button type="button" class="island-country" data-country="DOM"></button><button type="button" class="island-country" data-country="GRD"></button><button type="button" class="island-country" data-country="JAM"></button><button type="button" class="island-country" data-country="KNA"></button><button type="button" class="island-country" data-country="LCA"></button><button type="button" class="island-country" data-country="VCT"></button><button type="button" class="island-country" data-country="TTO"></button></div></aside></div>
 <div class="tooltip" id="tooltip" hidden></div>
 </section>
 <aside class="panel details" id="details"></aside>
@@ -66,40 +84,133 @@ select{width:100%;padding:10px;color:white;border:1px solid #384651;border-radiu
 <script src="firebase-config.js"></script>
 <script>
 const countries=[{"iso3": "ATG", "numericId": "028", "name": "Antigua y Barbuda", "subregion": "Caribe", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": 15.87, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-61"}, {"iso3": "ARG", "numericId": "032", "name": "Argentina", "subregion": "Suramérica", "total": 3682515, "totalPct": 0.37517287681797645, "quantitative": 747676, "quantitativePct": 0.07617287528978357, "qualitative": 2934839, "qualitativePct": 0.2990000015281929, "financing": 0.36, "financingYear": 2024, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-29"}, {"iso3": "BHS", "numericId": "044", "name": "Bahamas", "subregion": "Caribe", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": 18.77, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-55"}, {"iso3": "BRB", "numericId": "052", "name": "Barbados", "subregion": "Caribe", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": 21.74, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-60"}, {"iso3": "BLZ", "numericId": "084", "name": "Belice", "subregion": "Centroamérica", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": 11.99, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-59"}, {"iso3": "BOL", "numericId": "068", "name": "Bolivia", "subregion": "Suramérica", "total": 2911794, "totalPct": 0.74929883364106, "quantitative": 784977, "quantitativePct": 0.2019999871333818, "qualitative": 2126817, "qualitativePct": 0.5472988465076781, "financing": 17.99, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-28"}, {"iso3": "BRA", "numericId": "076", "name": "Brasil", "subregion": "Suramérica", "total": 38711516, "totalPct": 0.5007832274123204, "quantitative": 4019702, "quantitativePct": 0.05200001314326618, "qualitative": 34691814, "qualitativePct": 0.4487832142690542, "financing": 10.04, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-30"}, {"iso3": "CHL", "numericId": "152", "name": "Chile", "subregion": "Suramérica", "total": 3160366, "totalPct": 0.45711433419750724, "quantitative": 283463, "quantitativePct": 0.040999998264323816, "qualitative": 2876903, "qualitativePct": 0.4161143359331834, "financing": 26.31, "financingYear": 2025, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-31"}, {"iso3": "COL", "numericId": "170", "name": "Colombia", "subregion": "Suramérica", "total": 9872227, "totalPct": 0.5774326246610468, "quantitative": 2632901, "quantitativePct": 0.15399999766037542, "qualitative": 7239326, "qualitativePct": 0.42343262700067147, "financing": 6.47, "financingYear": 2024, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-32"}, {"iso3": "CRI", "numericId": "188", "name": "Costa Rica", "subregion": "Centroamérica", "total": 1033726, "totalPct": 0.5770730732429497, "quantitative": 77027, "quantitativePct": 0.04299998995157777, "qualitative": 956699, "qualitativePct": 0.5340730832913718, "financing": 12.75, "financingYear": 2024, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-33"}, {"iso3": "DMA", "numericId": "212", "name": "Dominica", "subregion": "Caribe", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": 12.76, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-56"}, {"iso3": "DOM", "numericId": "214", "name": "República Dominicana", "subregion": "Caribe", "total": 1798955, "totalPct": 0.49104871412443196, "quantitative": 509226, "quantitativePct": 0.13900001528594544, "qualitative": 1289729, "qualitativePct": 0.3520486988384865, "financing": 5.25, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-34"}, {"iso3": "ECU", "numericId": "218", "name": "Ecuador", "subregion": "Suramérica", "total": 3047703, "totalPct": 0.6093878873954187, "quantitative": 990248, "quantitativePct": 0.1979999812047101, "qualitative": 2057455, "qualitativePct": 0.4113879061907086, "financing": 2.2, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-35"}, {"iso3": "SLV", "numericId": "222", "name": "El Salvador", "subregion": "Centroamérica", "total": 1910251, "totalPct": 0.9739097849777585, "quantitative": 508009, "quantitativePct": 0.2589999617624941, "qualitative": 1402242, "qualitativePct": 0.7149098232152644, "financing": 8.56, "financingYear": 2024, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-43"}, {"iso3": "GRD", "numericId": "308", "name": "Granada", "subregion": "Caribe", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": 29.28, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-57"}, {"iso3": "GTM", "numericId": "320", "name": "Guatemala", "subregion": "Centroamérica", "total": 3580494, "totalPct": 0.8837871620721012, "quantitative": 1446317, "quantitativePct": 0.35700001086068994, "qualitative": 2134177, "qualitativePct": 0.5267871512114112, "financing": 2.02, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-36"}, {"iso3": "GUY", "numericId": "328", "name": "Guyana", "subregion": "Suramérica", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": null, "financingYear": null, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-53"}, {"iso3": "HND", "numericId": "340", "name": "Honduras", "subregion": "Centroamérica", "total": 2252276, "totalPct": 0.8857620966235441, "quantitative": 684001, "quantitativePct": 0.2689999626389487, "qualitative": 1568275, "qualitativePct": 0.6167621339845955, "financing": 16.26, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-37"}, {"iso3": "JAM", "numericId": "388", "name": "Jamaica", "subregion": "Caribe", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": 13.61, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-38"}, {"iso3": "MEX", "numericId": "484", "name": "México", "subregion": "México", "total": 26029755, "totalPct": 0.7032410857679874, "quantitative": 5070916, "quantitativePct": 0.13700000148592484, "qualitative": 20958839, "qualitativePct": 0.5662410842820625, "financing": 9.66, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-39"}, {"iso3": "NIC", "numericId": "558", "name": "Nicaragua", "subregion": "Centroamérica", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": null, "financingYear": null, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-54"}, {"iso3": "PAN", "numericId": "591", "name": "Panamá", "subregion": "Centroamérica", "total": 610796, "totalPct": 0.4708434381354848, "quantitative": 163452, "quantitativePct": 0.12600000925042282, "qualitative": 447344, "qualitativePct": 0.344843428885062, "financing": 24.4, "financingYear": 2024, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-40"}, {"iso3": "PRY", "numericId": "600", "name": "Paraguay", "subregion": "Suramérica", "total": 1156021, "totalPct": 0.6926931191536355, "quantitative": 151868, "quantitativePct": 0.09100000659125078, "qualitative": 1004153, "qualitativePct": 0.6016931125623847, "financing": 2.14, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-42"}, {"iso3": "PER", "numericId": "604", "name": "Perú", "subregion": "Suramérica", "total": 7257226, "totalPct": 0.7219058117825247, "quantitative": 3196813, "quantitativePct": 0.31800000218842955, "qualitative": 4060413, "qualitativePct": 0.40390580959409506, "financing": 6.61, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-41"}, {"iso3": "KNA", "numericId": "659", "name": "San Cristóbal y Nieves", "subregion": "Caribe", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": 21.43, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-58"}, {"iso3": "LCA", "numericId": "662", "name": "Santa Lucía", "subregion": "Caribe", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": 14.46, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-51"}, {"iso3": "VCT", "numericId": "670", "name": "San Vicente y las Granadinas", "subregion": "Caribe", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": 14, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-50"}, {"iso3": "SUR", "numericId": "740", "name": "Surinam", "subregion": "Suramérica", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": null, "financingYear": null, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-52"}, {"iso3": "TTO", "numericId": "780", "name": "Trinidad y Tobago", "subregion": "Caribe", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": 15.67, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-49"}, {"iso3": "URY", "numericId": "858", "name": "Uruguay", "subregion": "Suramérica", "total": 527403, "totalPct": 0.41487875445830863, "quantitative": 45764, "quantitativePct": 0.03600000629315729, "qualitative": 481639, "qualitativePct": 0.3788787481651513, "financing": 4.71, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-44"}, {"iso3": "VEN", "numericId": "862", "name": "Venezuela", "subregion": "Suramérica", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": null, "financingYear": null, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-45"}];
-const config={
- quantitative:{label:'Déficit cuantitativo',short:'Viviendas nuevas requeridas',description:'Muestra cuántas viviendas nuevas se requieren. En el Excel corresponde a la columna “Cuantitativo”; son valores absolutos de viviendas, no porcentajes.',field:'quantitative',unit:'viviendas',palette:['#FDE68A','#FDBA4A','#FB923C','#F4512C','#C81E1E'],low:'Menos viviendas requeridas',high:'Más viviendas requeridas',source:'Excel “M1” · Déficit Integral 2023 · Cuantitativo',meaning:'Cada color representa un rango del número de viviendas nuevas requeridas en 2023. Los tonos más intensos indican más viviendas requeridas.'},
- qualitative:{label:'Déficit cualitativo',short:'Viviendas que requieren mejoras',description:'Muestra cuántas viviendas existentes requieren mejoras de calidad. En el Excel corresponde a la columna “Cualitativo”; son valores absolutos de viviendas, no porcentajes.',field:'qualitative',unit:'viviendas',palette:['#DBEAFE','#93C5FD','#4F91E8','#315FD1','#2E248F'],low:'Menos viviendas por mejorar',high:'Más viviendas por mejorar',source:'Excel “M1” · Déficit Integral 2023 · Cualitativo',meaning:'Cada color representa un rango del número de viviendas en déficit cualitativo en 2023. Los tonos más intensos indican más viviendas con necesidad de mejora.'},
- financing:{label:'Acceso al financiamiento',short:'Cartera hipotecaria como % del PIB',description:'Muestra el tamaño de la cartera hipotecaria frente al PIB del país. En el Excel corresponde a “Cartera Hipotecaria como Porcentaje del PIB”; usa el último dato disponible por país.',field:'financing',unit:'% del PIB',palette:['#D9F5E5','#93DCB9','#38B89B','#16847E','#075663'],low:'Menor profundidad hipotecaria',high:'Mayor profundidad hipotecaria',source:'Excel “M1” y pestaña “Cartera Hip % PIB” · último dato disponible',meaning:'Esta gráfica no mide déficit habitacional ni hogares sin crédito. Mide profundidad del mercado hipotecario: a mayor porcentaje, mayor peso de la cartera hipotecaria respecto al PIB.'}
+const BID_TOTAL_PALETTE=['#FDE5EF','#FAC2D8','#F594B8','#EE668F','#DF3D68','#B82055'];
+const BID_QUANTITATIVE_PALETTE=['#FFE2A3','#FFC05A','#FF9436','#FF6A27','#FF4B00','#D82420'];
+const BID_QUALITATIVE_PALETTE=['#D8E7FF','#9AC5F7','#5A9BED','#3972DA','#3155C7','#302693'];
+const UPDATED_HOUSING_DATA={
+ GUY:{total:72000,totalPct:0.3399995278,quantitative:20000,quantitativePct:0.09444431327,qualitative:52000,qualitativePct:0.2455552145},
+ NIC:{total:956981,totalPct:0.9162307224,quantitative:309176,quantitativePct:0.2960106312,qualitative:647805,qualitativePct:0.6202200912}
 };
-const state={category:'quantitative',mode:'regional',selected:'COL',subregion:'Todas'};
+countries.forEach(country=>Object.assign(country,UPDATED_HOUSING_DATA[country.iso3]||{}));
+const config={
+ total:{label:'Déficit habitacional total',short:'Viviendas con déficit sobre el total',description:'Muestra qué porcentaje del total de viviendas del país presenta déficit habitacional. Se calcula como déficit cuantitativo más déficit cualitativo, dividido por el total de viviendas del país.',field:'totalPct',countField:'total',format:'ratio',unit:'% del total de viviendas',palette:BID_TOTAL_PALETTE,low:'Menor proporción de déficit',high:'Mayor proporción de déficit',source:'Excel “M1” · columnas D y E · Déficit Integral 2023',meaning:'El color compara tasas y no tamaños poblacionales. La fórmula es: (viviendas con déficit cuantitativo + viviendas con déficit cualitativo) ÷ total de viviendas del país. Los tonos rosados más intensos indican una proporción mayor de viviendas en déficit.'},
+ quantitative:{label:'Déficit cuantitativo',short:'Viviendas nuevas requeridas sobre el total',description:'Muestra el porcentaje de viviendas nuevas requeridas respecto al total de viviendas del país. Así, un país grande no aparece con mayor déficit solamente por tener más población.',field:'quantitativePct',countField:'quantitative',format:'ratio',unit:'% del total de viviendas',palette:BID_QUANTITATIVE_PALETTE,low:'Menor déficit cuantitativo',high:'Mayor déficit cuantitativo',source:'Excel “M1” · columnas F y G · Déficit Integral 2023',meaning:'Cada color representa la proporción de viviendas nuevas requeridas sobre el total de viviendas del país. Los tonos naranja más intensos señalan una proporción mayor.'},
+ qualitative:{label:'Déficit cualitativo',short:'Viviendas por mejorar sobre el total',description:'Muestra el porcentaje de viviendas que requieren mejoras respecto al total de viviendas del país.',field:'qualitativePct',countField:'qualitative',format:'ratio',unit:'% del total de viviendas',palette:BID_QUALITATIVE_PALETTE,low:'Menor déficit cualitativo',high:'Mayor déficit cualitativo',source:'Excel “M1” · columnas H e I · Déficit Integral 2023',meaning:'Cada color representa la proporción de viviendas con déficit cualitativo sobre el total de viviendas del país. Los tonos azules más intensos señalan una proporción mayor.'},
+ financing:{label:'Cartera Hipotecaria como Porcentaje del PIB',short:'Cartera hipotecaria como porcentaje del PIB',description:'Muestra el tamaño de la cartera hipotecaria como porcentaje del PIB del país. Usa el último dato disponible por país.',field:'financing',format:'percent',unit:'% del PIB',palette:['#EEE5FF','#D8C5FA','#B99AEF','#966DDA','#7447BC','#52288E'],low:'Menor profundidad hipotecaria',high:'Mayor profundidad hipotecaria',source:'Excel “M1” y pestaña “Cartera Hip % PIB” · último dato disponible',meaning:'Esta gráfica no mide déficit habitacional ni hogares sin crédito. Mide profundidad del mercado hipotecario: a mayor porcentaje, mayor peso de la cartera hipotecaria respecto al PIB.'}
+};
+const requestedCategory=new URLSearchParams(location.search).get('category');
+const state={category:config[requestedCategory]?requestedCategory:'total',mode:'regional',selected:'COL',subregion:'Todas'};
 const VALID_SUBREGIONS=['Todas','México','Centroamérica','Caribe','Suramérica'];
 const currentPath=location.pathname.replace(/\/$/,'');
 const isDisplayMode=currentPath===''||currentPath.endsWith('/display')||new URLSearchParams(location.search).get('display')==='1';
 document.getElementById('app').classList.toggle('display-mode',isDisplayMode);
 document.body.classList.toggle('display-body',isDisplayMode);
 const isoMap=new Map(countries.map(c=>[c.iso3,c]));
-const MAP_DATA_URL='https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json';
+const MAP_DATA_URL='https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
+const MAP_DETAIL_DATA_URL='https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json';
+const REFERENCE_MAPS={total:'public/Mapa1.png',quantitative:'public/Mapa1.png',qualitative:'public/Mapa1.png',financing:'public/Mapa1.png'};
+const REFERENCE_SEEDS={
+ MEX:[[.1684,.0985]],BLZ:[[.334,.1616]],GTM:[[.3112,.1783]],HND:[[.3593,.1859]],SLV:[[.3291,.1983]],NIC:[[.3776,.2072]],CRI:[[.3861,.2374]],PAN:[[.4352,.2515]],
+ COL:[[.5218,.3]],VEN:[[.607,.2651]],GUY:[[.6983,.2907]],SUR:[[.7365,.2963]],ECU:[[.4556,.356]],PER:[[.5075,.4377]],BRA:[[.7744,.4539]],BOL:[[.6322,.5152]],PRY:[[.7146,.5843]],URY:[[.754,.6928]],ARG:[[.6504,.732]],CHL:[[.5875,.7811]],
+ BHS:[[.545,.137]],JAM:[[.5032,.1828]],DOM:[[.5845,.1769]],ATG:[[.718,.198]],KNA:[[.708,.192]],DMA:[[.728,.218]],LCA:[[.735,.235]],BRB:[[.753,.232]],VCT:[[.731,.244]],GRD:[[.733,.258]],TTO:[[.718,.276]]
+};
 const CONTEXT_COUNTRY_IDS=new Set([192,238,250,332,630]);
+const CARIBBEAN_CONTEXT_IDS=new Set([192,332,630]);
+const CARIBBEAN_CONTEXT_NAMES=new Map([[192,'Cuba'],[332,'Haití'],[630,'Puerto Rico']]);
 const SVG_NS='http://www.w3.org/2000/svg';
 let lastAnimatedCountry='';
 let mapFeatureByIso=new Map();
+let detailFeatureByIso=new Map();
+let caribbeanContextFeatures=[];
 let firebaseStateRef=null;
 let firebaseConnectedRef=null;
 const fmtInt=n=>new Intl.NumberFormat('es-CO',{maximumFractionDigits:0}).format(n);
 const fmtDec=n=>new Intl.NumberFormat('es-CO',{minimumFractionDigits:1,maximumFractionDigits:2}).format(n);
-function formatValue(v,categoryKey=state.category){if(v==null)return 'Información no disponible';return categoryKey==='financing'?fmtDec(v)+' %':fmtInt(v)}
+function formatValue(v,categoryKey=state.category){if(v==null)return 'Información no disponible';const category=config[categoryKey];if(category?.format==='ratio')return fmtDec(v*100)+' %';if(category?.format==='percent')return fmtDec(v)+' %';return fmtInt(v)}
 function colorIndex(values,value,palette){if(value==null||!values.length)return -1;const s=[...values].sort((a,b)=>a-b);const rank=Math.max(0,s.filter(x=>x<=value).length-1);let idx=Math.round(rank/Math.max(1,s.length-1)*(palette.length-1));return Math.max(0,Math.min(palette.length-1,idx))}
 function quantileColor(values,value,palette){if(value==null)return '#505963';const idx=colorIndex(values,value,palette);return idx>=0?palette[idx]:'#505963'}
+const referenceImageCache=new Map();
+let referenceRenderToken=0;
+function hexToRgb(hex){const value=parseInt(hex.slice(1),16);return[(value>>16)&255,(value>>8)&255,value&255]}
+function nearestReferencePixel(solid,claimed,width,height,x,y,maxRadius=52){
+ const centerX=Math.max(0,Math.min(width-1,Math.round(x))),centerY=Math.max(0,Math.min(height-1,Math.round(y)));
+ for(let radius=0;radius<=maxRadius;radius++){
+  const left=Math.max(0,centerX-radius),right=Math.min(width-1,centerX+radius),top=Math.max(0,centerY-radius),bottom=Math.min(height-1,centerY+radius);
+  for(let px=left;px<=right;px++){
+   const topIndex=top*width+px,bottomIndex=bottom*width+px;
+   if(solid[topIndex]&&!claimed[topIndex])return topIndex;
+   if(solid[bottomIndex]&&!claimed[bottomIndex])return bottomIndex;
+  }
+  for(let py=top+1;py<bottom;py++){
+   const leftIndex=py*width+left,rightIndex=py*width+right;
+   if(solid[leftIndex]&&!claimed[leftIndex])return leftIndex;
+   if(solid[rightIndex]&&!claimed[rightIndex])return rightIndex;
+  }
+ }
+ return-1;
+}
+function paintReferenceComponent(start,color,data,solid,claimed,width,height,queue){
+ let head=0,tail=0;queue[tail++]=start;claimed[start]=1;
+ while(head<tail){
+ const index=queue[head++],offset=index*4,x=index%width;
+  data[offset]=color[0];data[offset+1]=color[1];data[offset+2]=color[2];data[offset+3]=255;
+  let next=index-width;if(next>=0&&solid[next]&&!claimed[next]){claimed[next]=1;queue[tail++]=next}
+  next=index+width;if(next<solid.length&&solid[next]&&!claimed[next]){claimed[next]=1;queue[tail++]=next}
+  next=index-1;if(x>0&&solid[next]&&!claimed[next]){claimed[next]=1;queue[tail++]=next}
+  next=index+1;if(x<width-1&&solid[next]&&!claimed[next]){claimed[next]=1;queue[tail++]=next}
+ }
+}
+function renderReferenceColors(category,c,values){
+ const imageElement=document.getElementById('referenceMapImage'),borderElement=document.getElementById('referenceBorderImage');
+ if(!imageElement||!borderElement)return;
+ const source=REFERENCE_MAPS[category];borderElement.setAttribute('href',source);
+ document.getElementById('app').classList.add('reference-map-active');
+ if(referenceImageCache.has(category)){imageElement.setAttribute('href',referenceImageCache.get(category));return}
+ const token=++referenceRenderToken,image=new Image();
+ image.decoding='async';
+ image.onload=()=>{
+  const width=1536,height=Math.round(image.naturalHeight*width/image.naturalWidth),canvas=document.createElement('canvas');
+  canvas.width=width;canvas.height=height;
+  const context=canvas.getContext('2d',{willReadFrequently:true});
+  context.drawImage(image,0,0,width,height);
+  const pixels=context.getImageData(0,0,width,height),data=pixels.data,total=width*height,solid=new Uint8Array(total),border=new Uint8Array(total),claimed=new Uint8Array(total),queue=new Int32Array(total),contextColor=hexToRgb('#59636F');
+  for(let index=0;index<total;index++){
+   const offset=index*4,red=data[offset],green=data[offset+1],blue=data[offset+2],alpha=data[offset+3],maximum=Math.max(red,green,blue),minimum=Math.min(red,green,blue),isWhiteBorder=alpha>30&&maximum>172&&maximum-minimum<34,isShape=alpha>20&&!isWhiteBorder&&(maximum-minimum>10||maximum<150);
+   if(isWhiteBorder)border[index]=1;
+   if(isShape){solid[index]=1;data[offset]=contextColor[0];data[offset+1]=contextColor[1];data[offset+2]=contextColor[2];data[offset+3]=255}
+   else data[offset+3]=0;
+  }
+  countries.forEach(country=>{
+   const seeds=REFERENCE_SEEDS[country.iso3]||[],color=hexToRgb(quantileColor(values,country[c.field],c.palette));
+   seeds.forEach(([nx,ny])=>{
+    const start=nearestReferencePixel(solid,claimed,width,height,nx*width,ny*height);
+    if(start>=0)paintReferenceComponent(start,color,data,solid,claimed,width,height,queue);
+   });
+  });
+  for(let index=0;index<total;index++)if(border[index]){const offset=index*4;data[offset]=255;data[offset+1]=255;data[offset+2]=255;data[offset+3]=255}
+  context.putImageData(pixels,0,0);
+  const result=canvas.toDataURL('image/png');referenceImageCache.set(category,result);
+  if(token===referenceRenderToken&&state.category===category)imageElement.setAttribute('href',result);
+ };
+ image.onerror=()=>{if(token===referenceRenderToken)imageElement.removeAttribute('href')};
+ image.src=source;
+}
 function legendRanges(values,c){if(!values.length)return '<div class="legendranges"><div><i style="background:#505963"></i><span>Sin valores disponibles en el filtro actual</span></div></div>';const s=[...values].sort((a,b)=>a-b);const n=s.length;return '<div class="legendranges">'+c.palette.map((color,i)=>{let start=Math.floor(i*n/c.palette.length);let end=Math.floor((i+1)*n/c.palette.length)-1;if(end<start)end=start;if(start>=n)start=n-1;if(end>=n)end=n-1;const a=s[start],b=s[end];const label=a===b?formatValue(a):formatValue(a)+' – '+formatValue(b);return '<div><i style="background:'+color+'"></i><span>'+label+'</span></div>'}).join('')+'</div>'}
 function shortCountryName(name){return name.replace('República Dominicana','R. Dominicana').replace('San Cristóbal y Nieves','San Cristóbal').replace('San Vicente y las Granadinas','San Vicente').replace('Trinidad y Tobago','Trinidad y T.')}
 function sortedForIndicator(c){return [...countries].sort((a,b)=>{const av=typeof a[c.field]==='number',bv=typeof b[c.field]==='number';if(av&&bv)return b[c.field]-a[c.field];if(av)return -1;if(bv)return 1;return a.name.localeCompare(b.name,'es')})}
 function svgNode(tag,attrs={}){const node=document.createElementNS(SVG_NS,tag);Object.entries(attrs).forEach(([key,value])=>node.setAttribute(key,value));return node}
+function housingStock(country,c){
+ const ratio=country[c.field],deficit=c.countField?country[c.countField]:null;
+ return typeof ratio==='number'&&ratio>0&&typeof deficit==='number'?Math.round(deficit/ratio):null;
+}
 function renderRankList(sorted,c,values){
  const el=document.getElementById('rankList');
  if(!el)return;
- el.innerHTML='<div class="ranklist-title"><span>Ranking 31 países</span><span>Mayor a menor</span></div><ol class="full-rank">'+sorted.map((country,index)=>{
-  const value=country[c.field],missing=typeof value!=='number',color=missing?'#505963':quantileColor(values,value,c.palette);
-  return '<li class="'+(missing?'missing':'')+'" style="--swatch:'+color+'"><span class="rank-pos">'+(index+1)+'</span><i></i><span class="rank-country">'+country.name+'</span><strong>'+(missing?'ND':formatValue(value))+'</strong></li>';
+ const hasHousingCounts=Boolean(c.countField);
+ el.classList.toggle('financing-rank',!hasHousingCounts);
+ el.innerHTML='<div class="ranklist-title"><span>Ranking 31 países</span><span>Mayor a menor</span></div><div class="rank-metric-key"><span>País</span><span>%</span><span>'+(hasHousingCounts?'Déficit':'Valor')+'</span><span>'+(hasHousingCounts?'Total viv.':'Unidad')+'</span></div><ol class="full-rank">'+sorted.map((country,index)=>{
+  const value=country[c.field],missing=typeof value!=='number',color=missing?'#59636f':quantileColor(values,value,c.palette),absolute=c.countField?country[c.countField]:null,total=housingStock(country,c);
+  return '<li class="'+(missing?'missing':'')+'" style="--swatch:'+color+'"><span class="rank-pos">'+(index+1)+'</span><i></i><span class="rank-country">'+country.name+'</span><strong class="rank-metric rank-pct">'+(missing?'ND':formatValue(value))+'</strong><strong class="rank-metric rank-count">'+(typeof absolute==='number'?fmtInt(absolute):'—')+'</strong><strong class="rank-metric rank-stock">'+(typeof total==='number'?fmtInt(total):'—')+'</strong></li>';
  }).join('')+'</ol>';
 }
 const CALLOUT_POINT_BY_BOX={
@@ -155,13 +266,15 @@ function clampCalloutBox(point,width,height,metrics){
  return{x:Math.max(pad,Math.min(metrics.rect.width-width-pad,point.x)),y:Math.max(pad,Math.min(metrics.rect.height-height-pad,point.y))};
 }
 const DISPLAY_CALLOUT_OFFSETS={
- quantitative:{MEX:{dx:-205,dy:52},BRA:{dx:62,dy:88},PER:{dx:-220,dy:42},COL:{dx:-218,dy:-46},GTM:{dx:-130,dy:-82}},
- qualitative:{MEX:{dx:-205,dy:58},BRA:{dx:62,dy:88},COL:{dx:-218,dy:-46},PER:{dx:-220,dy:42},ARG:{dx:54,dy:60}},
+ total:{SLV:{dx:-140,dy:-54},NIC:{dx:-165,dy:-26},HND:{dx:-150,dy:8},GTM:{dx:-145,dy:44},BOL:{dx:62,dy:44}},
+ quantitative:{GTM:{dx:-170,dy:-66},PER:{dx:-190,dy:28},NIC:{dx:-180,dy:8},HND:{dx:-180,dy:-22},SLV:{dx:-180,dy:42}},
+ qualitative:{MEX:{dx:-190,dy:40},NIC:{dx:-180,dy:22},HND:{dx:-180,dy:-18},SLV:{dx:-180,dy:48},PRY:{dx:-190,dy:28}},
  financing:{GRD:{dx:118,dy:78},CHL:{dx:-190,dy:62},PAN:{dx:-205,dy:-44},BRB:{dx:112,dy:-20},KNA:{dx:104,dy:-24}}
 };
 const DISPLAY_CALLOUT_SLOTS={
- quantitative:{MEX:[.08,.18],GTM:[.15,.27],COL:[.23,.36],PER:[.24,.49],BRA:[.80,.55]},
- qualitative:{MEX:[.08,.18],COL:[.23,.36],PER:[.24,.49],BRA:[.80,.55],ARG:[.66,.80]},
+ total:{GTM:[.055,.18],HND:[.055,.24],SLV:[.055,.30],NIC:[.055,.36],BOL:[.75,.62]},
+ quantitative:{GTM:[.055,.18],HND:[.055,.24],SLV:[.055,.30],NIC:[.055,.36],PER:[.20,.49]},
+ qualitative:{MEX:[.045,.13],HND:[.055,.23],SLV:[.055,.29],NIC:[.055,.35],PRY:[.22,.61]},
  financing:{PAN:[.13,.25],CHL:[.28,.80]}
 };
 function displayCalloutBoxPosition(country,index,pin,boxWidth,boxHeight,metrics,placed){
@@ -198,32 +311,48 @@ function renderCaribbeanInset(top,c,values){
  if(!svg||!isDisplayMode||!window.d3||!mapFeatureByIso.size)return;
  svg.replaceChildren();
  const islandCountries=countries.filter(country=>country.subregion==='Caribe');
- const features=islandCountries.map(country=>mapFeatureByIso.get(country.iso3)).filter(Boolean);
+ const targetFeatures=islandCountries.map(country=>detailFeatureByIso.get(country.iso3)||mapFeatureByIso.get(country.iso3)).filter(Boolean);
+ const features=[...caribbeanContextFeatures,...targetFeatures];
  if(!features.length)return;
+ const caribbeanTop=top.map((country,rank)=>({country,rank,feature:detailFeatureByIso.get(country.iso3)||mapFeatureByIso.get(country.iso3)})).filter(item=>item.country.subregion==='Caribe'&&item.feature);
  const collection={type:'FeatureCollection',features};
- const projection=d3.geoMercator().precision(.08).fitExtent([[18,44],[338,308]],collection);
+ const projection=d3.geoMercator().precision(.06).fitExtent([[18,44],[caribbeanTop.length?430:622,376]],collection);
  const path=d3.geoPath(projection);
  features.forEach(feature=>{
-  const country=isoMap.get(feature.properties.iso3),fill=quantileColor(values,country[c.field],c.palette);
+  const country=isoMap.get(feature.properties?.iso3),fill=country?quantileColor(values,country[c.field],c.palette):'#59636f';
   const centroid=path.centroid(feature),area=path.area(feature);
-  const visualScale=area<4?8.5:area<12?5.4:area<32?3.15:area<85?1.75:1.25;
+  const visualScale=area<1.5?12.5:area<5?7.2:area<16?3.8:area<42?1.9:1;
   const transform=Number.isFinite(centroid[0])&&Number.isFinite(centroid[1])&&visualScale>1?'translate('+centroid[0].toFixed(2)+' '+centroid[1].toFixed(2)+') scale('+visualScale+') translate('+(-centroid[0]).toFixed(2)+' '+(-centroid[1]).toFixed(2)+')':'';
-  svg.appendChild(svgNode('path',{class:'caribbean-shape',d:path(feature),fill,transform}));
+  svg.appendChild(svgNode('path',{class:'caribbean-shape '+(country?'caribbean-data':'caribbean-context'),d:path(feature),fill,transform}));
  });
- const note=svgNode('text',{class:'caribbean-note',x:'18',y:'322'});note.textContent='Detalle ampliado para identificar las islas';svg.appendChild(note);
- const caribbeanTop=top.map((country,rank)=>({country,rank,feature:mapFeatureByIso.get(country.iso3)})).filter(item=>item.country.subregion==='Caribe'&&item.feature).map(item=>({...item,point:path.centroid(item.feature)})).filter(item=>Number.isFinite(item.point[0])&&Number.isFinite(item.point[1])).sort((a,b)=>a.point[1]-b.point[1]);
- const labelYs=[92,158,224];
- caribbeanTop.forEach((item,labelIndex)=>{
-  const {country,rank,point}=item;
-  const color=quantileColor(values,country[c.field],c.palette),x=370,y=labelYs[labelIndex]||92+labelIndex*66,w=155,h=40,elbowX=356,elbowY=y+h/2;
-  svg.appendChild(svgNode('path',{class:'caribbean-leader',d:'M '+point[0].toFixed(1)+' '+point[1].toFixed(1)+' L '+elbowX+' '+elbowY+' L '+x+' '+elbowY}));
-  svg.appendChild(svgNode('circle',{class:'caribbean-pin',cx:point[0],cy:point[1],r:'4.2',fill:color,style:'color:'+color}));
-  svg.appendChild(svgNode('rect',{class:'caribbean-label',x,y,width:w,height:h,rx:'7'}));
-  svg.appendChild(svgNode('circle',{cx:x+15,cy:y+20,r:'9',fill:color,stroke:'#fff','stroke-width':'1'}));
-  const rankText=svgNode('text',{class:'caribbean-rank',x:x+15,y:y+20.5});rankText.textContent=String(rank+1);svg.appendChild(rankText);
-  const name=svgNode('text',{class:'caribbean-label-name',x:x+30,y:y+16});name.textContent=shortCountryName(country.name);svg.appendChild(name);
-  const value=svgNode('text',{class:'caribbean-label-value',x:x+30,y:y+30,fill:color});value.textContent=formatValue(country[c.field]);svg.appendChild(value);
+ const majorLabels=[
+  {name:'Cuba',feature:caribbeanContextFeatures.find(feature=>Number(feature.id)===192)},
+  {name:'Bahamas',feature:detailFeatureByIso.get('BHS')},
+  {name:'Jamaica',feature:detailFeatureByIso.get('JAM')},
+  {name:'Haití',feature:caribbeanContextFeatures.find(feature=>Number(feature.id)===332)},
+  {name:'R. Dominicana',feature:detailFeatureByIso.get('DOM')},
+  {name:'Puerto Rico',feature:caribbeanContextFeatures.find(feature=>Number(feature.id)===630)}
+ ];
+ majorLabels.forEach(item=>{
+  if(!item.feature)return;
+  const point=path.centroid(item.feature);
+  if(!Number.isFinite(point[0])||!Number.isFinite(point[1]))return;
+  const label=svgNode('text',{class:'caribbean-country-name',x:point[0].toFixed(1),y:(point[1]+3).toFixed(1)});label.textContent=item.name;svg.appendChild(label);
  });
+ const labelYs=[96,178,260];
+ const caribbeanLabels=caribbeanTop.map(item=>({...item,point:path.centroid(item.feature)})).filter(item=>Number.isFinite(item.point[0])&&Number.isFinite(item.point[1])).sort((a,b)=>a.point[1]-b.point[1]);
+ caribbeanLabels.forEach((item,labelIndex)=>{
+  const {point}=item;
+  const {country,rank}=item,color=quantileColor(values,country[c.field],c.palette),x=458,y=labelYs[labelIndex]||96+labelIndex*82,w=164,h=46,anchorY=y+h/2,elbowX=x-20;
+  svg.appendChild(svgNode('path',{class:'caribbean-leader',d:'M '+point[0].toFixed(1)+' '+point[1].toFixed(1)+' C '+(point[0]+22).toFixed(1)+' '+point[1].toFixed(1)+' '+(elbowX-18)+' '+anchorY+' '+elbowX+' '+anchorY+' L '+x+' '+anchorY}));
+  svg.appendChild(svgNode('circle',{class:'caribbean-pin',cx:point[0].toFixed(1),cy:point[1].toFixed(1),r:'4',fill:color}));
+  svg.appendChild(svgNode('rect',{class:'caribbean-label',x,y,width:w,height:h,rx:'9'}));
+  svg.appendChild(svgNode('circle',{cx:x+17,cy:y+23,r:'10',fill:color,stroke:'#fff','stroke-width':'1.2'}));
+  const rankText=svgNode('text',{class:'caribbean-rank',x:x+17,y:y+23.5});rankText.textContent=String(rank+1);svg.appendChild(rankText);
+  const name=svgNode('text',{class:'caribbean-label-name',x:x+34,y:y+19});name.textContent=shortCountryName(country.name);svg.appendChild(name);
+  const value=svgNode('text',{class:'caribbean-label-value',x:x+34,y:y+34,fill:color});value.textContent=formatValue(country[c.field]);svg.appendChild(value);
+ });
+ const note=svgNode('text',{class:'caribbean-note',x:'320',y:'394'});note.textContent='Caribe insular completo · Antillas Mayores y Antillas Menores';svg.appendChild(note);
 }
 function renderTopCallouts(top,c,values){
  const group=document.getElementById('callouts'),htmlLayer=document.getElementById('htmlCallouts'),svg=document.getElementById('mapSvg');
@@ -309,22 +438,43 @@ async function loadMapGeometry(){
  const loading=document.getElementById('mapLoading');
  try{
   if(!window.d3||!window.topojson)throw new Error('No cargaron las librerías cartográficas');
-  const response=await fetch(MAP_DATA_URL,{cache:'force-cache'});
-  if(!response.ok)throw new Error('Respuesta '+response.status+' al descargar el mapa');
-  const topology=await response.json();
+  const [response,detailResponse]=await Promise.all([
+   fetch(MAP_DATA_URL,{cache:'force-cache'}),
+   fetch(MAP_DETAIL_DATA_URL,{cache:'force-cache'})
+  ]);
+  if(!response.ok||!detailResponse.ok)throw new Error('No fue posible descargar las siluetas cartograficas');
+  const [topology,detailTopology]=await Promise.all([response.json(),detailResponse.json()]);
   const world=topojson.feature(topology,topology.objects.countries).features;
+  const detailWorld=topojson.feature(detailTopology,detailTopology.objects.countries).features;
   const byNumericId=new Map(countries.map(country=>[Number(country.numericId),country]));
+  const worldByNumericId=new Map(world.map(feature=>[Number(feature.id),feature]));
+  const detailByNumericId=new Map(detailWorld.map(feature=>[Number(feature.id),feature]));
   const targetGeometries=topology.objects.countries.geometries.filter(geometry=>byNumericId.has(Number(geometry.id)));
-  const targetFeatures=[];
-  const contextFeatures=[];
-  world.forEach(feature=>{
-   const numericId=Number(feature.id);
-   const country=byNumericId.get(numericId);
-   if(country){feature.properties={...(feature.properties||{}),iso3:country.iso3};targetFeatures.push(feature);return}
-   if(CONTEXT_COUNTRY_IDS.has(numericId)){const regional=regionalGeometry(feature);if(regional)contextFeatures.push(regional)}
-  });
+  const targetFeatures=countries.map(country=>{
+   const numericId=Number(country.numericId);
+   const feature=worldByNumericId.get(numericId)||detailByNumericId.get(numericId);
+   if(!feature)return null;
+   feature.properties={...(feature.properties||{}),iso3:country.iso3};
+   return feature;
+  }).filter(Boolean);
+  const detailTargetFeatures=countries.map(country=>{
+   const feature=detailByNumericId.get(Number(country.numericId));
+   if(!feature)return null;
+   feature.properties={...(feature.properties||{}),iso3:country.iso3};
+   return feature;
+  }).filter(Boolean);
+  const contextFeatures=[...CONTEXT_COUNTRY_IDS]
+   .map(numericId=>worldByNumericId.get(numericId)||detailByNumericId.get(numericId))
+   .filter(Boolean)
+   .map(regionalGeometry)
+   .filter(Boolean);
+  caribbeanContextFeatures=[...CARIBBEAN_CONTEXT_IDS]
+   .map(numericId=>detailByNumericId.get(numericId)||worldByNumericId.get(numericId))
+   .filter(Boolean)
+   .map(feature=>({...feature,properties:{...(feature.properties||{}),contextName:CARIBBEAN_CONTEXT_NAMES.get(Number(feature.id))||''}}));
   if(targetFeatures.length!==countries.length)throw new Error('La cartografía cargó '+targetFeatures.length+' de '+countries.length+' países');
   mapFeatureByIso=new Map(targetFeatures.map(feature=>[feature.properties.iso3,feature]));
+  detailFeatureByIso=new Map(detailTargetFeatures.map(feature=>[feature.properties.iso3,feature]));
   const collection={type:'FeatureCollection',features:[...contextFeatures,...targetFeatures]};
   const projection=d3.geoMercator().precision(.08).fitExtent([[24,24],[956,676]],collection);
   const path=d3.geoPath(projection);
@@ -335,6 +485,10 @@ async function loadMapGeometry(){
   const svg=document.getElementById('mapSvg');
   svg.setAttribute('viewBox',[x,y,width,height].map(value=>value.toFixed(2)).join(' '));
   svg.dataset.projection='Mercator';
+  const referenceImage=document.getElementById('referenceMapImage');
+  const referenceBorderImage=document.getElementById('referenceBorderImage');
+  const imageX=bounds[0][0].toFixed(2),imageY=bounds[0][1].toFixed(2),imageWidth=(bounds[1][0]-bounds[0][0]).toFixed(2),imageHeight=(bounds[1][1]-bounds[0][1]).toFixed(2);
+  [referenceImage,referenceBorderImage].forEach(image=>{image.setAttribute('x',imageX);image.setAttribute('y',imageY);image.setAttribute('width',imageWidth);image.setAttribute('height',imageHeight)});
   const contextGroup=document.getElementById('contextCountries');
   const countriesGroup=document.getElementById('countries');
   const outlineGroup=document.getElementById('continentOutline');
@@ -355,18 +509,21 @@ function setSyncStatus(title,detail,online=false){const el=document.getElementBy
 function applyExperienceState(next){if(!next)return; if(config[next.category])state.category=next.category; state.mode='regional'; state.selected='COL'; state.subregion='Todas'; render()}
 function firebaseOptions(){return window.BID_FIREBASE||{}}
 function hasFirebaseConfig(){const o=firebaseOptions();return Boolean(o.apiKey&&o.projectId&&o.databaseURL)}
-function firebaseSessionPath(){const raw=(firebaseOptions().sessionId||'maqueta-1-bid').toString();const safe=raw.replace(/[.#$\/\[\]]/g,'-').slice(0,80)||'maqueta-1-bid';return 'bidMapaSessions/'+safe+'/state'}
-function broadcastState(){if(isDisplayMode||!firebaseStateRef)return;firebaseStateRef.set({...toExperienceState(),updatedAt:firebase.database.ServerValue.TIMESTAMP}).catch(err=>setSyncStatus('Error Firebase',err.message,false))}
+function firebaseSessionPath(){const raw=(firebaseOptions().sessionId||'maqueta-1-bid').toString();const safe=raw.replace(/[.#$\/\[\]]/g,'-').slice(0,80)||'maqueta-1-bid';return 'live_reactions/bid-map-state-'+safe}
+function decodeRealtimeState(raw){if(!raw)return null;if(typeof raw.e==='string'){try{return JSON.parse(raw.e)}catch(_){return null}}return raw}
+function realtimePayload(){return{e:JSON.stringify(toExperienceState()),ts:firebase.database.ServerValue.TIMESTAMP}}
+function broadcastState(){if(isDisplayMode||!firebaseStateRef)return;firebaseStateRef.set(realtimePayload()).catch(err=>setSyncStatus('Error Firebase',err.message,false))}
 function commitState(){render();broadcastState()}
-function connectTransport(){if(!hasFirebaseConfig()){setSyncStatus('Configura Firebase','edita firebase-config.js',false);return}if(!window.firebase||!firebase.database){setSyncStatus('SDK Firebase no cargó','revisa conexión a internet',false);return}try{if(!firebase.apps.length)firebase.initializeApp(firebaseOptions());const db=firebase.database();firebaseStateRef=db.ref(firebaseSessionPath());firebaseConnectedRef=db.ref('.info/connected');firebaseConnectedRef.on('value',snap=>{setSyncStatus(snap.val()?(isDisplayMode?'Mesa online':'Control online'):'Sin internet',snap.val()?'Firebase Realtime Database':'esperando conexión',Boolean(snap.val()))});firebaseStateRef.on('value',snap=>{const next=snap.val();if(next)applyExperienceState(next);else if(!isDisplayMode)broadcastState()},err=>setSyncStatus('Error Firebase',err.message,false))}catch(err){setSyncStatus('Error Firebase',err.message,false)}}
+function connectTransport(){if(!hasFirebaseConfig()){setSyncStatus('Configura Firebase','edita firebase-config.js',false);return}if(!window.firebase||!firebase.database){setSyncStatus('SDK Firebase no cargó','revisa conexión a internet',false);return}try{if(!firebase.apps.length)firebase.initializeApp(firebaseOptions());const db=firebase.database();firebaseStateRef=db.ref(firebaseSessionPath());firebaseConnectedRef=db.ref('.info/connected');firebaseConnectedRef.on('value',snap=>{setSyncStatus(snap.val()?(isDisplayMode?'Mesa online':'Control online'):'Sin internet',snap.val()?'Firebase Realtime Database':'esperando conexión',Boolean(snap.val()))});firebaseStateRef.on('value',snap=>{const next=decodeRealtimeState(snap.val());if(next)applyExperienceState(next);else if(!isDisplayMode)broadcastState()},err=>setSyncStatus('Error Firebase',err.message,false))}catch(err){setSyncStatus('Error Firebase',err.message,false)}}
 function render(){
  state.mode='regional'; state.subregion='Todas';
  const c=config[state.category]; const available=countries.filter(x=>typeof x[c.field]==='number'); const filtered=countries.filter(x=>state.subregion==='Todas'||x.subregion===state.subregion); const filteredAvailable=filtered.filter(x=>typeof x[c.field]==='number'); const visible=new Set(filtered.map(x=>x.iso3)); const vals=filtered.map(x=>x[c.field]).filter(x=>typeof x==='number'); const allVals=available.map(x=>x[c.field]); const displayVals=isDisplayMode?allVals:vals; const sortedAll=sortedForIndicator(c); const selected=isoMap.get(state.selected);
+ renderReferenceColors(state.category,c,displayVals);
  document.getElementById('app').classList.toggle('country-view',state.mode==='country');
  document.getElementById('app').classList.toggle('regional-view',state.mode==='regional');
  document.getElementById('coverage').innerHTML='<strong>'+available.length+' / 31</strong><span>países con dato</span>';
  document.getElementById('title').textContent=c.label; document.getElementById('description').textContent=c.description;
- document.getElementById('legend').innerHTML='<div class="scale">'+c.palette.map(x=>'<span style="background:'+x+'"></span>').join('')+'</div><div class="legendlabels"><span>'+c.low+'</span><span>'+c.high+'</span></div>'+legendRanges(displayVals,c)+'<div class="nodata"><i></i> Información no disponible / ND en Excel</div>';
+ document.getElementById('legend').innerHTML='<div class="scale">'+c.palette.map(x=>'<span style="background:'+x+'"></span>').join('')+'</div><div class="legendlabels"><span>'+c.low+'</span><span>'+c.high+'</span></div>'+legendRanges(displayVals,c)+'<div class="nodata"><i></i> Información no disponible / ND en Excel</div>'+(c.countField?'<div class="formula-note"><strong>Fórmula:</strong> % = viviendas con déficit ÷ total de viviendas.</div>':'');
  renderRankList(sortedAll,c,allVals);
  document.getElementById('reader').innerHTML='<article><h3>Cómo leer esta gráfica</h3><p>'+c.meaning+'</p><p class="source">'+c.source+'</p></article><article><h3>Clave para interpretar</h3><p>La escala de colores se recalcula para el indicador y filtro activo. El gris no es cero: significa que el Excel marca ND o no trae dato público oficial.</p></article>';
  document.querySelectorAll('.target-country').forEach(p=>{const d=isoMap.get(p.dataset.iso); if(!d)return; const val=d[c.field]; const isSelected=state.mode==='country'&&d.iso3===state.selected; const fill=quantileColor(displayVals,val,c.palette); p.classList.toggle('selected-country',isSelected); p.style.fill=fill; p.style.color=fill; p.style.opacity=!visible.has(d.iso3)?0.12:((state.mode==='country'&&!isSelected)?0.22:1); p.style.stroke=isDisplayMode?'rgba(255,255,255,.12)':(isSelected?'#fff':'rgba(255,255,255,.55)'); p.style.strokeWidth=isDisplayMode?'.36':(isSelected?'3.6':'.75');});

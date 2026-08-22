@@ -16,7 +16,5 @@ window.BID_FIREBASE = {
   messagingSenderId: "1043864334257",
   appId: "1:1043864334257:web:bcc854d01f1c12fa415790",
 
-  // Usa el mismo sessionId en mesa y tablet para sincronizarlas.
-  // Puedes cambiarlo para tener otra instalación independiente.
   sessionId: "maqueta-1-bid-pruebas",
 };

@@ -3,69 +3,68 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 <title>Control tablet · Mapa BID</title>
 <style>
-:root{--accent:#f47721;--accent-2:#ff9b54;--soft:#fff4ec;--ink:#202226;--muted:#66727f;--line:#e7e2dc;--paper:#fffaf4;--shadow:0 24px 70px rgba(68,52,38,.16)}
+:root{--accent:#df3d68;--accent-2:#9b4b9a;--ink:#08090b;--glass:rgba(236,241,255,.82)}
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);background:linear-gradient(135deg,#fffaf4,#f4f7fb 45%,#eef6f0);touch-action:manipulation}
-body[data-category="qualitative"]{--accent:#267ed9;--accent-2:#59a8ef;--soft:#eef6ff}
-body[data-category="financing"]{--accent:#2f9a58;--accent-2:#59bc7d;--soft:#eef9f1}
-button,input,select{font:inherit}
-button{cursor:pointer}
-.app{max-width:1160px;margin:0 auto;padding:22px}
-.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:14px}
-.brand{display:flex;align-items:center;gap:10px;color:#415063;font-weight:800}.brand span{display:grid;place-items:center;width:34px;height:34px;border-radius:12px;background:var(--soft);color:var(--accent)}
-.status{display:grid;min-width:190px;padding:11px 15px;border:1px solid #e0b2b2;border-radius:999px;background:#fff;color:#7f3b3b}
-.status.online{color:#145b34;border-color:#9bdcb8;background:#f2fff6}
-.status strong{font-size:14px}.status span{font-size:12px;color:inherit;opacity:.78}
-.stage{display:grid;grid-template-columns:270px minmax(0,1fr);gap:22px;align-items:start}
-.intro{min-height:560px;padding:34px 24px;border-radius:30px;background:linear-gradient(180deg,var(--soft),#fff);box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:center}
-.introicon{display:grid;place-items:center;width:86px;height:86px;margin-bottom:24px;border-radius:26px;background:white;border:1px solid var(--line);box-shadow:0 12px 30px rgba(0,0,0,.08);font-size:44px}
-.intro h1{margin:0;color:var(--accent);font-size:clamp(28px,4vw,42px);line-height:1.02}.intro p{margin:16px 0 0;color:#3f444b;font-weight:650;line-height:1.45}
-.device{padding:16px;border:10px solid #1f1f20;border-radius:30px;background:#111;box-shadow:0 18px 60px rgba(0,0,0,.22)}
-.screen{min-height:540px;padding:24px;border-radius:18px;background:linear-gradient(180deg,#fff,#fafafa);overflow:hidden;display:flex;flex-direction:column;justify-content:center}
-.eyebrow{margin:0;color:#697386;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:800}
-.screen h2,.panel h2{margin:4px 0 3px;font-size:19px;text-align:center}.hint{margin:0 0 18px;color:#6f7884;text-align:center;font-size:13px}
-.categorylist{display:grid;gap:14px;margin:24px auto 0;max-width:500px;width:100%}
-.btn{min-height:64px;padding:14px 18px;color:#2c3137;text-align:center;border:1px solid #ececec;border-radius:10px;background:#f7f7f7;box-shadow:0 4px 14px rgba(0,0,0,.05);font-weight:800}
-.btn small{display:none}.btn.active{color:white;border-color:transparent;background:linear-gradient(180deg,var(--accent-2),var(--accent));box-shadow:0 10px 22px color-mix(in srgb,var(--accent) 28%,transparent)}
-.actionrows{display:grid;gap:10px;max-width:430px;margin:0 auto}.rowaction{display:flex;align-items:center;gap:11px;width:100%;padding:12px 14px;color:#2f343b;border:1px solid #e6e6e6;border-radius:11px;background:#fff;text-align:left;box-shadow:0 5px 14px rgba(0,0,0,.05)}.rowaction.active{border-color:color-mix(in srgb,var(--accent) 45%,#fff);background:var(--soft)}.rowaction i{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--soft);font-style:normal}
-.interaction{margin-top:18px;padding:18px;border:2px solid #333;border-radius:12px;background:#fff}.choicegrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}.choice{min-height:118px;display:grid;place-items:center;padding:14px;border:1px solid #eee;border-radius:12px;background:#fff;box-shadow:0 10px 24px rgba(0,0,0,.08);font-weight:800}.choice.active{color:white;background:linear-gradient(180deg,var(--accent-2),var(--accent))}.choice span{display:block;font-size:34px;margin-bottom:7px}
-.subhead{margin:8px 0 10px;text-align:center;font-weight:800;font-size:13px}.regions{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}.region{padding:8px 13px;color:#34383e;border:1px solid #dedede;border-radius:999px;background:#fff;font-size:12px}.region.active{color:white;border-color:transparent;background:var(--accent)}
-.countrytools{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0 10px}input,select{width:100%;min-height:44px;padding:10px 12px;color:#222;border:1px solid #dadde2;border-radius:10px;background:white}
-.countrygrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;max-height:190px;overflow:auto;padding-right:4px}.country{min-height:42px;padding:9px 11px;color:#30343a;text-align:left;border:1px solid #e3e3e3;border-radius:10px;background:#fff}.country.active{color:white;border-color:transparent;background:var(--accent)}
-@media(max-width:900px){.stage{grid-template-columns:1fr}.intro{min-height:auto}.device{border-width:7px}.countrytools{grid-template-columns:1fr}.choicegrid{grid-template-columns:1fr}}
+html,body{min-height:100%}
+body{margin:0;min-height:100vh;font-family:Montserrat,Inter,Segoe UI,Arial,sans-serif;color:#fff;background:linear-gradient(180deg,#ff4b00 0%,#df3d68 24%,#9b4b9a 47%,#2c57de 72%,#0b9bd2 100%);touch-action:manipulation}
+body[data-category="total"]{--accent:#ee668f;--accent-2:#b82055}
+body[data-category="quantitative"]{--accent:#ff4b00;--accent-2:#ff7a2f}
+body[data-category="qualitative"]{--accent:#2c57de;--accent-2:#5a9bed}
+body[data-category="financing"]{--accent:#966dda;--accent-2:#52288e}
+button{font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.app{position:relative;display:flex;flex-direction:column;min-height:100vh;padding:clamp(24px,4vw,58px) clamp(26px,6vw,90px);overflow:hidden}
+.app::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 84% 88%,rgba(0,186,221,.38),transparent 34%),radial-gradient(circle at 12% 8%,rgba(255,123,22,.28),transparent 32%);pointer-events:none}
+.topbar{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center}.brand-logo{display:block;width:clamp(190px,17vw,286px);height:auto;filter:drop-shadow(0 4px 12px rgba(30,17,52,.16))}
+.status{display:grid;min-width:170px;padding:9px 15px;border:1px solid rgba(255,255,255,.52);border-radius:999px;background:rgba(7,11,20,.22);color:#fff;backdrop-filter:blur(12px)}.status.online{background:rgba(255,255,255,.92);color:#145b34}.status strong{font-size:13px}.status span{font-size:10px;opacity:.8}
+.hero{position:relative;z-index:1;margin:clamp(54px,10vh,122px) auto clamp(42px,7vh,84px);text-align:center}.hero h1{margin:0;font-family:Montserrat,Arial,sans-serif;font-size:clamp(48px,7vw,94px);font-weight:900;line-height:.98;letter-spacing:-.06em}.hero p{margin:18px 0 0;font-size:clamp(22px,3vw,38px);font-weight:400}
+.flow{position:relative;z-index:2;display:grid;grid-template-columns:minmax(360px,1.08fr) minmax(330px,.92fr);gap:clamp(28px,5vw,74px);align-items:center;width:min(1500px,100%);margin:auto}
+.question h2{max-width:650px;margin:0 0 26px;font-size:clamp(27px,3.6vw,48px);line-height:1.06}.primary-options{display:grid;grid-template-columns:1fr;gap:16px}.primary-choice{min-height:88px;padding:18px 28px;border:2px solid transparent;border-radius:999px;background:#050506;color:#fff;font-size:clamp(24px,3vw,38px);font-weight:850;box-shadow:0 16px 38px rgba(0,0,0,.18);transition:transform .22s ease,background .22s ease,color .22s ease,box-shadow .22s ease}.primary-choice:active{transform:scale(.985)}.primary-choice.active{border-color:rgba(255,255,255,.85);background:#fff;color:#050506;box-shadow:0 16px 44px rgba(16,29,82,.25),inset 0 0 0 1px rgba(0,0,0,.03)}
+.deficit-panel{position:relative;display:grid;gap:16px;padding:clamp(22px,3vw,38px);border:1px solid rgba(255,255,255,.65);border-radius:42px;background:linear-gradient(145deg,rgba(236,239,255,.9),rgba(213,233,255,.78));box-shadow:inset 0 1px 0 #fff,0 26px 70px rgba(25,31,95,.25);backdrop-filter:blur(18px);transition:opacity .25s ease,transform .25s ease,visibility .25s ease}.deficit-panel::before{content:"";position:absolute;left:-32px;top:50%;width:32px;height:3px;background:#fff;box-shadow:0 0 12px rgba(255,255,255,.5)}.deficit-panel::after{content:"";position:absolute;left:-11px;top:calc(50% - 8px);width:14px;height:14px;border-top:3px solid #fff;border-right:3px solid #fff;transform:rotate(45deg)}
+body[data-flow="financing"] #deficitPanel{visibility:hidden;opacity:0;transform:translateX(28px) scale(.97);pointer-events:none}
+.btn{min-height:72px;padding:15px 24px;border:2px solid rgba(255,255,255,.9);border-radius:999px;background:#fff;color:#090a0c;text-align:center;font-size:clamp(18px,2.2vw,29px);font-weight:850;box-shadow:0 8px 22px rgba(43,56,126,.1);transition:transform .2s ease,background .22s ease,color .22s ease,box-shadow .22s ease}.btn:active{transform:scale(.985)}.btn[data-category="qualitative"].active{background:linear-gradient(90deg,#5a9bed,#2c57de);color:#fff;box-shadow:0 10px 26px rgba(44,87,222,.32)}.btn[data-category="quantitative"].active{background:linear-gradient(90deg,#ff7a2f,#ff4b00);color:#fff;box-shadow:0 10px 26px rgba(255,75,0,.3)}.btn[data-category="total"].active{background:linear-gradient(90deg,#f594b8,#ee668f 52%,#b82055);color:#fff;box-shadow:0 10px 28px rgba(184,32,85,.38)}.btn small{display:none}
+.panel-stack{display:grid}.panel-stack>.deficit-panel{grid-area:1/1}.financing-panel{align-content:center}.financing-panel .btn{min-height:112px;font-size:clamp(22px,2.6vw,34px);line-height:1.08}.financing-panel .btn.active{background:#fff;color:#090a0c;box-shadow:0 14px 34px rgba(23,38,111,.24)}body:not([data-flow="financing"]) #financingPanel{visibility:hidden;opacity:0;transform:translateX(28px) scale(.97);pointer-events:none}
+.current-selection{position:relative;z-index:2;margin:clamp(28px,5vh,54px) auto 0;padding:10px 20px;border:1px solid rgba(255,255,255,.45);border-radius:999px;background:rgba(6,11,24,.18);color:#fff;font-size:13px;text-align:center;backdrop-filter:blur(10px)}
+@media(max-width:760px){.app{padding:22px}.status{min-width:0}.status span{display:none}.hero{margin:42px auto 46px}.flow{grid-template-columns:1fr;gap:28px}.question h2{text-align:center}.primary-choice{min-height:70px}.deficit-panel{border-radius:28px}.deficit-panel::before,.deficit-panel::after{display:none}}
 </style>
 </head>
 <body>
 <main class="app">
   <header class="topbar">
-    <div class="brand"><span>⌂</span>Medir para transformar</div>
+    <div class="brand"><img class="brand-logo" src="public/grupo-bid-logo-white.png" alt="Grupo BID" /></div>
     <div class="status" id="status"><strong>Firebase</strong><span>configuración pendiente</span></div>
   </header>
 
-  <section class="stage">
-    <aside class="intro" id="dimensionIntro">
-      <div class="introicon" id="dimensionIcon">⌂</div>
-      <h1 id="dimensionTitle">Déficit cuantitativo</h1>
-      <p id="dimensionText">Hogares que necesitan una nueva vivienda.</p>
-    </aside>
-
-    <section class="device" aria-label="Control de tablet">
-      <div class="screen">
-        <p class="eyebrow" style="text-align:center">Selecciona una dimensión</p>
-        <h2>Medir para transformar</h2>
-        <p class="hint">Elige el indicador que quieres mostrar en la mesa.</p>
-
-        <div class="categorylist" id="categoryButtons">
-          <button class="btn" data-category="quantitative">Déficit cuantitativo<small>Viviendas nuevas requeridas</small></button>
-          <button class="btn" data-category="qualitative">Déficit cualitativo<small>Viviendas que requieren mejoras</small></button>
-          <button class="btn" data-category="financing">Acceso al financiamiento<small>Cartera hipotecaria / PIB</small></button>
-        </div>
-
-      </div>
-    </section>
+  <section class="hero">
+    <h1>Medir para transformar</h1>
+    <p>Déficit habitacional CEPAL - BID</p>
   </section>
+
+  <section class="flow" aria-label="Selección de información">
+    <div class="question">
+      <h2>¿Qué información deseas consultar?</h2>
+      <div class="primary-options">
+        <button class="primary-choice" data-flow="deficit">Déficit Integral 2023</button>
+        <button class="primary-choice" data-flow="financing">Financiamiento</button>
+      </div>
+    </div>
+    <div class="panel-stack">
+      <div class="deficit-panel" id="deficitPanel">
+        <button class="btn" data-category="qualitative">Déficit cualitativo</button>
+        <button class="btn" data-category="quantitative">Déficit cuantitativo</button>
+        <button class="btn" data-category="total">Déficit habitacional total</button>
+      </div>
+      <div class="deficit-panel financing-panel" id="financingPanel">
+        <button class="btn" data-category="financing">Cartera Hipotecaria<br>como Porcentaje del PIB</button>
+      </div>
+    </div>
+  </section>
+  <div class="current-selection" id="currentSelection">Indicador enviado: Déficit habitacional total</div>
 </main>
 
 <script src="https://www.gstatic.com/firebasejs/12.17.0/firebase-app-compat.js"></script>
@@ -80,37 +79,46 @@ const countries=[
   ['NIC','Nicaragua','Centroamérica'],['PAN','Panamá','Centroamérica'],['PRY','Paraguay','Suramérica'],['PER','Perú','Suramérica'],['KNA','San Cristóbal y Nieves','Caribe'],
   ['LCA','Santa Lucía','Caribe'],['VCT','San Vicente y las Granadinas','Caribe'],['SUR','Surinam','Suramérica'],['TTO','Trinidad y Tobago','Caribe'],['URY','Uruguay','Suramérica'],['VEN','Venezuela','Suramérica']
 ].map(([iso3,name,subregion])=>({iso3,name,subregion}));
-const labels={quantitative:'Déficit cuantitativo',qualitative:'Déficit cualitativo',financing:'Acceso al financiamiento'};
+const labels={total:'Déficit habitacional total',quantitative:'Déficit cuantitativo',qualitative:'Déficit cualitativo',financing:'Cartera Hipotecaria como Porcentaje del PIB'};
 const dimensions={
+  total:{icon:'%',title:'Déficit habitacional total',text:'Proporción de viviendas con déficit cuantitativo o cualitativo sobre el total de viviendas del país.'},
   quantitative:{icon:'⌂',title:'Déficit cuantitativo',text:'Hogares que necesitan una nueva vivienda.'},
   qualitative:{icon:'⌁',title:'Déficit cualitativo',text:'Viviendas que requieren mejoras en materiales, estructura, servicios o habitabilidad.'},
-  financing:{icon:'$',title:'Acceso al financiamiento',text:'Profundidad del mercado hipotecario medida como cartera hipotecaria sobre PIB.'}
+  financing:{icon:'$',title:'Cartera Hipotecaria como Porcentaje del PIB',text:'Profundidad del mercado hipotecario medida como cartera hipotecaria sobre PIB.'}
 };
 const subregions=['Todas','México','Centroamérica','Caribe','Suramérica'];
-const defaultState={category:'quantitative',mode:'regional',countryIso3:'COL',subregion:'Todas'};
+const defaultState={category:'total',mode:'regional',countryIso3:'COL',subregion:'Todas'};
 const state={...defaultState};
+let flowMode='deficit';
 let firebaseStateRef=null;
 let firebaseConnectedRef=null;
+let pendingCategory='';
 
 function setStatus(title,detail,online=false){const el=document.getElementById('status');el.classList.toggle('online',online);el.innerHTML='<strong>'+title+'</strong><span>'+detail+'</span>'}
 function normalizeState(next={}){return{...defaultState,category:labels[next.category]?next.category:state.category}}
-function applyState(next={},renderOnly=false){Object.assign(state,normalizeState(next));render();if(!renderOnly)sendState()}
+function applyState(next={},renderOnly=false){Object.assign(state,normalizeState(next));flowMode=state.category==='financing'?'financing':'deficit';if(!renderOnly)pendingCategory=state.category;render();if(!renderOnly)sendState()}
 function firebaseOptions(){return window.BID_FIREBASE||{}}
 function hasFirebaseConfig(){const o=firebaseOptions();return Boolean(o.apiKey&&o.projectId&&o.databaseURL)}
-function firebaseSessionPath(){const raw=(firebaseOptions().sessionId||'maqueta-1-bid').toString();const safe=raw.replace(/[.#$\/\[\]]/g,'-').slice(0,80)||'maqueta-1-bid';return 'bidMapaSessions/'+safe+'/state'}
-function sendState(){const payload={...normalizeState(state),updatedAt:firebase.database.ServerValue.TIMESTAMP};if(firebaseStateRef){firebaseStateRef.set(payload).then(()=>setStatus('Conectado','sincronizado con Firebase',true)).catch(err=>setStatus('Error Firebase',err.message,false))}render()}
-function connect(){if(!hasFirebaseConfig()){setStatus('Configura Firebase','edita firebase-config.js',false);return}if(!window.firebase||!firebase.database){setStatus('SDK Firebase no cargó','revisa internet',false);return}try{if(!firebase.apps.length)firebase.initializeApp(firebaseOptions());const db=firebase.database();firebaseStateRef=db.ref(firebaseSessionPath());firebaseConnectedRef=db.ref('.info/connected');firebaseConnectedRef.on('value',snap=>setStatus(snap.val()?'Conectado':'Sin internet',snap.val()?'Firebase Realtime Database':'esperando conexión',Boolean(snap.val())));firebaseStateRef.on('value',snap=>{const next=snap.val();if(next)applyState(next,true);else sendState()},err=>setStatus('Error Firebase',err.message,false))}catch(err){setStatus('Error Firebase',err.message,false)}}
+function firebaseSessionPath(){const raw=(firebaseOptions().sessionId||'maqueta-1-bid').toString();const safe=raw.replace(/[.#$\/\[\]]/g,'-').slice(0,80)||'maqueta-1-bid';return 'live_reactions/bid-map-state-'+safe}
+function decodeRealtimeState(raw){if(!raw)return null;if(typeof raw.e==='string'){try{return JSON.parse(raw.e)}catch(_){return null}}return raw}
+function realtimePayload(){return{e:JSON.stringify(normalizeState(state)),ts:firebase.database.ServerValue.TIMESTAMP}}
+function sendState(){if(firebaseStateRef){firebaseStateRef.set(realtimePayload()).then(()=>{pendingCategory='';setStatus('Conectado','sincronizado con Firebase',true)}).catch(err=>{setStatus('Error Firebase',err.message,false);render()})}render()}
+function connect(){if(!hasFirebaseConfig()){setStatus('Configura Firebase','edita firebase-config.js',false);return}if(!window.firebase||!firebase.database){setStatus('SDK Firebase no cargó','revisa internet',false);return}try{if(!firebase.apps.length)firebase.initializeApp(firebaseOptions());const db=firebase.database();firebaseStateRef=db.ref(firebaseSessionPath());firebaseConnectedRef=db.ref('.info/connected');firebaseConnectedRef.on('value',snap=>setStatus(snap.val()?'Conectado':'Sin internet',snap.val()?'Firebase Realtime Database':'esperando conexión',Boolean(snap.val())));firebaseStateRef.on('value',snap=>{const next=decodeRealtimeState(snap.val());if(next){if(pendingCategory&&next.category!==pendingCategory)return;applyState(next,true)}else sendState()},err=>setStatus('Error Firebase',err.message,false))}catch(err){setStatus('Error Firebase',err.message,false)}}
 function render(){
-  const dimension=dimensions[state.category];
   document.body.dataset.category=state.category;
-  document.getElementById('dimensionIcon').textContent=dimension.icon;
-  document.getElementById('dimensionTitle').textContent=dimension.title;
-  document.getElementById('dimensionText').textContent=dimension.text;
+  document.body.dataset.flow=flowMode;
+  document.querySelectorAll('[data-flow]').forEach(btn=>btn.classList.toggle('active',btn.dataset.flow===flowMode));
   document.querySelectorAll('[data-category]').forEach(btn=>btn.classList.toggle('active',btn.dataset.category===state.category));
-
+  document.getElementById('deficitPanel').setAttribute('aria-hidden',flowMode!=='deficit');
+  document.getElementById('financingPanel').setAttribute('aria-hidden',flowMode!=='financing');
+  document.getElementById('currentSelection').textContent='Indicador enviado: '+labels[state.category];
 }
 
 document.querySelectorAll('[data-category]').forEach(btn=>btn.onclick=()=>applyState({category:btn.dataset.category}));
+document.querySelectorAll('[data-flow]').forEach(btn=>btn.onclick=()=>{
+  if(btn.dataset.flow==='financing'){flowMode='financing';applyState({category:'financing'});return}
+  flowMode='deficit';render();
+});
 render();
 connect();
 </script>

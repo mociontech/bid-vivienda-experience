@@ -20,5 +20,10 @@ for (const filename of publicFiles) {
   fs.copyFileSync(path.join(root, filename), path.join(output, filename));
 }
 
-console.log(`Netlify: ${publicFiles.length} archivos preparados en dist/`);
+const assetsSource = path.join(root, 'public');
+const assetsOutput = path.join(output, 'public');
+if (fs.existsSync(assetsSource)) {
+  fs.cpSync(assetsSource, assetsOutput, { recursive: true });
+}
 
+console.log(`Netlify: ${publicFiles.length} archivos y recursos de public preparados en dist/`);

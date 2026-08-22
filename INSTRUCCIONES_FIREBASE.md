@@ -2,11 +2,13 @@
 
 El proyecto ya quedó configurado para Firebase `f1-sap`.
 
-La sincronización tablet → mesa usa este nodo de Realtime Database:
+La sincronización tablet → mesa usa la ruta pública ya habilitada para las pruebas:
 
 ```text
-bidMapaSessions/maqueta-1-bid-pruebas/state
+live_reactions/bid-map-state-maqueta-1-bid-pruebas
 ```
+
+El estado se guarda en `e` como JSON y el momento de actualización en `ts`.
 
 ## 1. Publicar reglas en Realtime Database
 
@@ -21,7 +23,7 @@ Ese archivo conserva tus nodos existentes:
 - `messages`
 - `live_reactions`
 
-Y agrega el nodo nuevo:
+También deja preparado el nodo dedicado:
 
 - `bidMapaSessions`
 
@@ -41,17 +43,13 @@ http://localhost:8080/display
 http://localhost:8080/controller
 ```
 
-Prueba cambiando indicador o país desde `/controller`. En Firebase deberías ver aparecer:
+Prueba cambiando indicador desde `/controller`. En Firebase deberías ver aparecer:
 
 ```text
-bidMapaSessions
-  maqueta-1-bid-pruebas
-    state
-      category
-      mode
-      countryIso3
-      subregion
-      updatedAt
+live_reactions
+  bid-map-state-maqueta-1-bid-pruebas
+    e
+    ts
 ```
 
 ## 3. Desplegar a Firebase Hosting

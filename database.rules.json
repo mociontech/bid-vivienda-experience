@@ -22,7 +22,7 @@
           ".write": true,
           ".validate": "newData.hasChildren(['category', 'mode', 'countryIso3', 'subregion'])",
           "category": {
-            ".validate": "newData.val() === 'quantitative' || newData.val() === 'qualitative' || newData.val() === 'financing'"
+            ".validate": "newData.val() === 'total' || newData.val() === 'quantitative' || newData.val() === 'qualitative' || newData.val() === 'financing'"
           },
           "mode": {
             ".validate": "newData.val() === 'regional' || newData.val() === 'country'"
