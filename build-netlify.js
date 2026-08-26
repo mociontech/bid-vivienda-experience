@@ -8,6 +8,7 @@ const publicFiles = [
   'controller.html',
   'firebase-config.js',
 ];
+const assetDirs = ['public', 'static'];
 
 if (path.dirname(output) !== root) {
   throw new Error('La carpeta de salida debe permanecer dentro del proyecto.');
@@ -20,10 +21,12 @@ for (const filename of publicFiles) {
   fs.copyFileSync(path.join(root, filename), path.join(output, filename));
 }
 
-const assetsSource = path.join(root, 'public');
-const assetsOutput = path.join(output, 'public');
-if (fs.existsSync(assetsSource)) {
-  fs.cpSync(assetsSource, assetsOutput, { recursive: true });
+for (const dirname of assetDirs) {
+  const assetsSource = path.join(root, dirname);
+  const assetsOutput = path.join(output, dirname);
+  if (fs.existsSync(assetsSource)) {
+    fs.cpSync(assetsSource, assetsOutput, { recursive: true });
+  }
 }
 
-console.log(`Netlify: ${publicFiles.length} archivos y recursos de public preparados en dist/`);
+console.log(`Netlify: ${publicFiles.length} archivos y recursos preparados en dist/`);
