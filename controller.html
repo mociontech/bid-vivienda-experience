@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 <title>Control tablet · Mapa BID</title>
 <style>
 :root{--accent:#df3d68;--accent-2:#9b4b9a;--ink:#08090b;--glass:rgba(236,241,255,.82)}
 *{box-sizing:border-box}
 html,body{min-height:100%}
-body{margin:0;min-height:100vh;font-family:Montserrat,Inter,Segoe UI,Arial,sans-serif;color:#fff;background:linear-gradient(180deg,#ff4b00 0%,#df3d68 24%,#9b4b9a 47%,#2c57de 72%,#0b9bd2 100%);touch-action:manipulation}
+body{margin:0;min-height:100vh;font-family:Inter,Segoe UI,Arial,sans-serif;color:#fff;background:linear-gradient(180deg,#ff4b00 0%,#df3d68 24%,#9b4b9a 47%,#2c57de 72%,#0b9bd2 100%);touch-action:manipulation}
 body[data-category="total"]{--accent:#ee668f;--accent-2:#b82055}
 body[data-category="quantitative"]{--accent:#ff4b00;--accent-2:#ff7a2f}
 body[data-category="qualitative"]{--accent:#2c57de;--accent-2:#5a9bed}
@@ -22,7 +22,7 @@ button{font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .topbar{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .brand{display:flex;align-items:center}.brand-logo{display:block;width:clamp(190px,17vw,286px);height:auto;filter:drop-shadow(0 4px 12px rgba(30,17,52,.16))}
 .status{display:grid;min-width:170px;padding:9px 15px;border:1px solid rgba(255,255,255,.52);border-radius:999px;background:rgba(7,11,20,.22);color:#fff;backdrop-filter:blur(12px)}.status.online{background:rgba(255,255,255,.92);color:#145b34}.status strong{font-size:13px}.status span{font-size:10px;opacity:.8}
-.hero{position:relative;z-index:1;margin:clamp(54px,10vh,122px) auto clamp(42px,7vh,84px);text-align:center}.hero h1{margin:0;font-family:Montserrat,Arial,sans-serif;font-size:clamp(48px,7vw,94px);font-weight:900;line-height:.98;letter-spacing:-.06em}.hero p{margin:18px 0 0;font-size:clamp(22px,3vw,38px);font-weight:400}
+.hero{position:relative;z-index:1;margin:clamp(54px,10vh,122px) auto clamp(42px,7vh,84px);text-align:center}.hero h1{margin:0;font-family:Inter,Arial,sans-serif;font-size:clamp(48px,7vw,94px);font-weight:900;line-height:.98;letter-spacing:-.06em}.hero p{margin:18px 0 0;font-size:clamp(22px,3vw,38px);font-weight:400}
 .flow{position:relative;z-index:2;display:grid;grid-template-columns:minmax(360px,1.08fr) minmax(330px,.92fr);gap:clamp(28px,5vw,74px);align-items:center;width:min(1500px,100%);margin:auto}
 .question h2{max-width:650px;margin:0 0 26px;font-size:clamp(27px,3.6vw,48px);line-height:1.06}.primary-options{display:grid;grid-template-columns:1fr;gap:16px}.primary-choice{min-height:88px;padding:18px 28px;border:2px solid transparent;border-radius:999px;background:#050506;color:#fff;font-size:clamp(24px,3vw,38px);font-weight:850;box-shadow:0 16px 38px rgba(0,0,0,.18);transition:transform .22s ease,background .22s ease,color .22s ease,box-shadow .22s ease}.primary-choice:active{transform:scale(.985)}.primary-choice.active{border-color:rgba(255,255,255,.85);background:#fff;color:#050506;box-shadow:0 16px 44px rgba(16,29,82,.25),inset 0 0 0 1px rgba(0,0,0,.03)}
 .deficit-panel{position:relative;display:grid;gap:16px;padding:clamp(22px,3vw,38px);border:1px solid rgba(255,255,255,.65);border-radius:42px;background:linear-gradient(145deg,rgba(236,239,255,.9),rgba(213,233,255,.78));box-shadow:inset 0 1px 0 #fff,0 26px 70px rgba(25,31,95,.25);backdrop-filter:blur(18px);transition:opacity .25s ease,transform .25s ease,visibility .25s ease}.deficit-panel::before{content:"";position:absolute;left:-32px;top:50%;width:32px;height:3px;background:#fff;box-shadow:0 0 12px rgba(255,255,255,.5)}.deficit-panel::after{content:"";position:absolute;left:-11px;top:calc(50% - 8px);width:14px;height:14px;border-top:3px solid #fff;border-right:3px solid #fff;transform:rotate(45deg)}
@@ -30,10 +30,13 @@ body[data-flow="financing"] #deficitPanel{visibility:hidden;opacity:0;transform:
 .btn{min-height:72px;padding:15px 24px;border:2px solid rgba(255,255,255,.9);border-radius:999px;background:#fff;color:#090a0c;text-align:center;font-size:clamp(18px,2.2vw,29px);font-weight:850;box-shadow:0 8px 22px rgba(43,56,126,.1);transition:transform .2s ease,background .22s ease,color .22s ease,box-shadow .22s ease}.btn:active{transform:scale(.985)}.btn[data-category="qualitative"].active{background:linear-gradient(90deg,#5a9bed,#2c57de);color:#fff;box-shadow:0 10px 26px rgba(44,87,222,.32)}.btn[data-category="quantitative"].active{background:linear-gradient(90deg,#ff7a2f,#ff4b00);color:#fff;box-shadow:0 10px 26px rgba(255,75,0,.3)}.btn[data-category="total"].active{background:linear-gradient(90deg,#f594b8,#ee668f 52%,#b82055);color:#fff;box-shadow:0 10px 28px rgba(184,32,85,.38)}.btn small{display:none}
 .panel-stack{display:grid}.panel-stack>.deficit-panel{grid-area:1/1}.financing-panel{align-content:center}.financing-panel .btn{min-height:112px;font-size:clamp(22px,2.6vw,34px);line-height:1.08}.financing-panel .btn.active{background:#fff;color:#090a0c;box-shadow:0 14px 34px rgba(23,38,111,.24)}body:not([data-flow="financing"]) #financingPanel{visibility:hidden;opacity:0;transform:translateX(28px) scale(.97);pointer-events:none}
 .current-selection{position:relative;z-index:2;margin:clamp(28px,5vh,54px) auto 0;padding:10px 20px;border:1px solid rgba(255,255,255,.45);border-radius:999px;background:rgba(6,11,24,.18);color:#fff;font-size:13px;text-align:center;backdrop-filter:blur(10px)}
-@media(max-width:760px){.app{padding:22px}.status{min-width:0}.status span{display:none}.hero{margin:42px auto 46px}.flow{grid-template-columns:1fr;gap:28px}.question h2{text-align:center}.primary-choice{min-height:70px}.deficit-panel{border-radius:28px}.deficit-panel::before,.deficit-panel::after{display:none}}
+.landing{position:relative;z-index:2;width:min(1640px,100%);margin:0 auto clamp(28px,5vh,58px);text-align:center}.landing h2{margin:0 0 clamp(28px,4vh,50px);font-size:clamp(31px,3.4vw,52px);font-weight:800;line-height:1.08;letter-spacing:-.035em}.landing-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,4vw,58px)}.landing-choice{min-height:clamp(86px,10vh,118px);padding:20px 32px;border:2px solid rgba(255,255,255,.96);border-radius:999px;background:#fff;color:#07080a;font-size:clamp(27px,3.2vw,46px);font-weight:800;letter-spacing:-.035em;box-shadow:0 18px 42px rgba(21,27,93,.2);transition:transform .2s ease,box-shadow .2s ease}.landing-choice[data-enter-flow="financing"]{background:#050506;color:#fff;border-color:#050506}.landing-choice:active{transform:scale(.985)}.landing-choice:focus-visible{outline:4px solid rgba(255,255,255,.72);outline-offset:5px}
+body[data-screen="landing"] .hero{margin:clamp(74px,9vh,112px) auto clamp(62px,9vh,106px)}body[data-screen="landing"] .flow,body[data-screen="landing"] .current-selection{display:none}body[data-screen="selector"] .landing{display:none}body[data-screen="selector"] .hero{margin:clamp(44px,6vh,72px) auto clamp(30px,4.5vh,50px)}body[data-screen="selector"] .current-selection{margin-top:16px}
+.deficit-panel::before{left:-58px;width:38px;height:2px;background:rgba(255,255,255,.92);box-shadow:none}.deficit-panel::after{left:-25px;top:calc(50% - 7px);width:11px;height:11px;border-width:2px}
+@media(max-width:760px){.app{padding:22px}.status{min-width:0}.status span{display:none}.hero{margin:42px auto 46px}.flow{grid-template-columns:1fr;gap:28px}.question h2{text-align:center}.primary-choice{min-height:70px}.deficit-panel{border-radius:28px}.deficit-panel::before,.deficit-panel::after{display:none}.landing-options{grid-template-columns:1fr}.landing-choice{min-height:72px}.landing h2{font-size:30px}body[data-screen="landing"] .hero{margin:48px auto 54px}}
 </style>
 </head>
-<body>
+<body data-screen="landing">
 <main class="app">
   <header class="topbar">
     <div class="brand"><img class="brand-logo" src="public/grupo-bid-logo-white.png" alt="Grupo BID" /></div>
@@ -43,6 +46,14 @@ body[data-flow="financing"] #deficitPanel{visibility:hidden;opacity:0;transform:
   <section class="hero">
     <h1>Medir para transformar</h1>
     <p>Déficit habitacional CEPAL - BID</p>
+  </section>
+
+  <section class="landing" id="landing" aria-label="Inicio de la experiencia">
+    <h2>¿Qué información deseas consultar?</h2>
+    <div class="landing-options">
+      <button class="landing-choice" data-enter-flow="deficit">Déficit Integral 2023</button>
+      <button class="landing-choice" data-enter-flow="financing">Financiamiento</button>
+    </div>
   </section>
 
   <section class="flow" aria-label="Selección de información">
@@ -89,7 +100,9 @@ const dimensions={
 const subregions=['Todas','México','Centroamérica','Caribe','Suramérica'];
 const defaultState={category:'total',mode:'regional',countryIso3:'COL',subregion:'Todas'};
 const state={...defaultState};
-let flowMode='deficit';
+const previewParams=new URLSearchParams(location.search);
+let flowMode=previewParams.get('flow')==='financing'?'financing':'deficit';
+let screenMode=previewParams.get('screen')==='selector'?'selector':'landing';
 let firebaseStateRef=null;
 let firebaseConnectedRef=null;
 let pendingCategory='';
@@ -107,6 +120,7 @@ function connect(){if(!hasFirebaseConfig()){setStatus('Configura Firebase','edit
 function render(){
   document.body.dataset.category=state.category;
   document.body.dataset.flow=flowMode;
+  document.body.dataset.screen=screenMode;
   document.querySelectorAll('[data-flow]').forEach(btn=>btn.classList.toggle('active',btn.dataset.flow===flowMode));
   document.querySelectorAll('[data-category]').forEach(btn=>btn.classList.toggle('active',btn.dataset.category===state.category));
   document.getElementById('deficitPanel').setAttribute('aria-hidden',flowMode!=='deficit');
@@ -115,9 +129,14 @@ function render(){
 }
 
 document.querySelectorAll('[data-category]').forEach(btn=>btn.onclick=()=>applyState({category:btn.dataset.category}));
+document.querySelectorAll('[data-enter-flow]').forEach(btn=>btn.onclick=()=>{
+  screenMode='selector';
+  flowMode=btn.dataset.enterFlow;
+  render();
+});
 document.querySelectorAll('[data-flow]').forEach(btn=>btn.onclick=()=>{
-  if(btn.dataset.flow==='financing'){flowMode='financing';applyState({category:'financing'});return}
-  flowMode='deficit';render();
+  flowMode=btn.dataset.flow;
+  render();
 });
 render();
 connect();
