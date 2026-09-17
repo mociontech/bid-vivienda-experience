@@ -1,11 +1,15 @@
 node_modules/
 dist/
+backups/
 .netlify/
 .env
 .env.*
 !.env.example
 *.log
 _preview*.png
+preview-*.png
+.chrome-preview*/
+.codex-screenshots/
 PROMPT_CODEX*.md
 .DS_Store
 Thumbs.db

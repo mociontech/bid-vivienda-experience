@@ -8,9 +8,14 @@
 @font-face{font-family:Inter;src:url("static/Inter_18pt-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:Inter;src:url("static/Inter_18pt-Medium.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
 @font-face{font-family:Inter;src:url("static/Inter_18pt-SemiBold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Inter 18pt SemiBold";src:url("static/Inter_18pt-SemiBold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
 @font-face{font-family:Inter;src:url("static/Inter_18pt-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Inter 18pt Bold";src:url("static/Inter_18pt-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
 @font-face{font-family:Inter;src:url("static/Inter_18pt-ExtraBold.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
 @font-face{font-family:Inter;src:url("static/Inter_18pt-Black.ttf") format("truetype");font-weight:900;font-style:normal;font-display:swap}
+@font-face{font-family:"Inter 18pt Black";src:url("static/Inter_18pt-Black.ttf") format("truetype");font-weight:900;font-style:normal;font-display:swap}
+@font-face{font-family:"Inter 18pt Regular";src:url("static/Inter_18pt-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Inter 18pt Light";src:url("static/Inter_18pt-Light.ttf") format("truetype");font-weight:300;font-style:normal;font-display:swap}
 :root{--bg:#080c10;--panel:#0e151c;--panel2:#111a22;--border:#2d3943;--text:#f5f7fa;--muted:#9cabb7;--nodata:#59636f;--context:#59636f;}
 *{box-sizing:border-box} body{margin:0;min-width:320px;min-height:100vh;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--text);background:radial-gradient(circle at 50% -10%,#22303b,#080c10 56%)}.display-body{overflow:hidden}
 button,select{font:inherit} button{cursor:pointer} .app{padding:22px} .top{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:16px}
@@ -33,7 +38,7 @@ select{width:100%;padding:10px;color:white;border:1px solid #384651;border-radiu
 .reference-map{display:none;pointer-events:none}.reference-map-active .reference-map{display:block}.reference-map-active #contextCountries,.reference-map-active #countries,.reference-map-active #continentOutline{opacity:0!important;pointer-events:none}.reference-map-active .target-country,.reference-map-active .callout-country,.reference-map-active .selected-country{fill:transparent!important;stroke:transparent!important;filter:none!important;opacity:0!important}
 @keyframes countryArrival{0%{opacity:.18;filter:drop-shadow(0 0 0 transparent) brightness(.75);stroke-width:1}38%{opacity:1;filter:drop-shadow(0 0 16px #fff) drop-shadow(0 0 34px currentColor) brightness(1.5);stroke-width:5.2}72%{filter:drop-shadow(0 0 10px #fff) drop-shadow(0 0 26px currentColor) brightness(1.34);stroke-width:4.2}100%{opacity:1;filter:drop-shadow(0 0 7px rgba(255,255,255,.96)) drop-shadow(0 0 20px currentColor) brightness(1.26);stroke-width:3.6}}
 @keyframes calloutIn{from{opacity:0;transform:translateY(8px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
-.ranklist{display:none}.full-rank{display:grid;gap:3px;margin:8px 0 0;padding:0;list-style:none}.full-rank li{display:grid;grid-template-columns:20px 10px minmax(0,1fr) auto;align-items:center;gap:6px;min-height:18px;color:#eef3f6;font-size:10.5px}.full-rank i{display:block;width:9px;height:9px;border-radius:50%;background:var(--swatch,#505963);box-shadow:0 0 8px var(--swatch,#505963)}.full-rank .rank-pos{color:#f4c49c;font-weight:800;text-align:right}.full-rank .rank-country{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.full-rank strong{color:#fff;font-size:10.4px}.full-rank .missing{opacity:.56}.ranklist-title{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin-top:12px;color:#d8e1e7;font-size:11px;font-weight:780;text-transform:uppercase}.ranklist-title span:last-child{color:#9fabb4;font-size:9.5px;font-weight:650;text-align:right}.display-mode{--display-left-column:clamp(292px,17vw,340px);--display-map-shift:-.8vw;--display-map-scale:1.06;position:relative;min-height:100vh;padding:18px;background:linear-gradient(135deg,#2b211c,#bda088 5%,#090909 18%,#050505)}.display-mode .controls{display:none}.display-mode .top{position:absolute;left:38px;top:30px;right:38px;z-index:8;margin:0;pointer-events:none}.display-mode .top h1{display:none}.display-mode .top .eyebrow{display:none;color:#f5d3a9}.display-mode .topcards{display:none}.display-mode .grid{display:block;min-height:calc(100vh - 36px)}.display-mode .visual{min-height:calc(100vh - 36px);padding:0;border:1px solid #2b2b2b;border-radius:30px;background:radial-gradient(circle at 52% 48%,#1b1b18,#050505 68%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.04),0 22px 80px rgba(0,0,0,.42);overflow:hidden}.display-mode .head{position:absolute;left:30px;top:28px;bottom:28px;z-index:5;display:flex;flex-direction:column;width:calc(var(--display-left-column) - 52px);min-height:0;margin:0;pointer-events:none}.display-mode .head h2{font-size:21px;line-height:1.05;color:#fff}.display-mode .head p{max-width:100%;max-height:54px;overflow:hidden;color:#d1d1d1;font-size:11.2px;line-height:1.28}.display-mode .head .eyebrow{color:#ffc078}.display-mode .legend{width:100%;min-width:0;margin-top:12px}.display-mode .legendranges{display:none}.display-mode .legendlabels{font-size:10px}.display-mode .nodata{font-size:10px}.display-mode .ranklist{display:block;min-height:0;overflow:hidden}.display-mode .reader{display:none}.display-mode .mapwrap{height:calc(100vh - 36px);padding:6px 8px 6px 0;border:0;border-radius:30px;background:transparent;display:grid;grid-template-columns:var(--display-left-column) minmax(0,1fr);overflow:hidden}.display-mode .map-stage{grid-column:2;align-self:stretch;min-width:0;min-height:0;height:auto;padding:0;overflow:visible}.display-mode .map-stage svg{width:100%;height:100%;max-width:none;max-height:none;overflow:hidden;shape-rendering:geometricPrecision;filter:drop-shadow(0 28px 28px rgba(0,0,0,.32));transform:translateX(var(--display-map-shift)) scale(var(--display-map-scale));transform-origin:54% 52%}.display-mode .html-callouts{overflow:visible}.display-mode .details{display:none}.display-mode .target-country,.display-mode .island-country{cursor:default}.display-mode .target-country:hover{filter:none}.display-mode .inset{display:none}
+.ranklist{display:none}.full-rank{display:grid;gap:3px;margin:8px 0 0;padding:0;list-style:none}.full-rank li{display:grid;grid-template-columns:20px 10px minmax(0,1fr) auto;align-items:center;gap:6px;min-height:18px;color:#eef3f6;font-size:10.5px}.full-rank i{display:block;width:9px;height:9px;border-radius:50%;background:var(--swatch,#505963);box-shadow:0 0 8px var(--swatch,#505963)}.full-rank .rank-pos{color:#CFE1FF;font-weight:800;text-align:right}.full-rank .rank-country{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.full-rank strong{color:#fff;font-size:10.4px}.full-rank .missing{opacity:.56}.ranklist-title{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin-top:12px;color:#d8e1e7;font-size:11px;font-weight:780;text-transform:uppercase}.ranklist-title span:last-child{color:#9fabb4;font-size:9.5px;font-weight:650;text-align:right}.display-mode{--display-left-column:clamp(292px,17vw,340px);--display-map-shift:-.8vw;--display-map-scale:1.06;position:relative;min-height:100vh;padding:18px;background:linear-gradient(135deg,#2b211c,#bda088 5%,#090909 18%,#050505)}.display-mode .controls{display:none}.display-mode .top{position:absolute;left:38px;top:30px;right:38px;z-index:8;margin:0;pointer-events:none}.display-mode .top h1{display:none}.display-mode .top .eyebrow{display:none;color:#fff}.display-mode .topcards{display:none}.display-mode .grid{display:block;min-height:calc(100vh - 36px)}.display-mode .visual{min-height:calc(100vh - 36px);padding:0;border:1px solid #2b2b2b;border-radius:30px;background:radial-gradient(circle at 52% 48%,#1b1b18,#050505 68%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.04),0 22px 80px rgba(0,0,0,.42);overflow:hidden}.display-mode .head{position:absolute;left:30px;top:28px;bottom:28px;z-index:5;display:flex;flex-direction:column;width:calc(var(--display-left-column) - 52px);min-height:0;margin:0;pointer-events:none}.display-mode .head h2{font-size:21px;line-height:1.05;color:#fff}.display-mode .head p{max-width:100%;max-height:54px;overflow:hidden;color:#d1d1d1;font-size:11.2px;line-height:1.28}.display-mode .head .eyebrow{color:#fff}.display-mode .legend{width:100%;min-width:0;margin-top:12px}.display-mode .legendranges{display:none}.display-mode .legendlabels{font-size:10px}.display-mode .nodata{font-size:10px}.display-mode .ranklist{display:block;min-height:0;overflow:hidden}.display-mode .reader{display:none}.display-mode .mapwrap{height:calc(100vh - 36px);padding:6px 8px 6px 0;border:0;border-radius:30px;background:transparent;display:grid;grid-template-columns:var(--display-left-column) minmax(0,1fr);overflow:hidden}.display-mode .map-stage{grid-column:2;align-self:stretch;min-width:0;min-height:0;height:auto;padding:0;overflow:visible}.display-mode .map-stage svg{width:100%;height:100%;max-width:none;max-height:none;overflow:hidden;shape-rendering:geometricPrecision;filter:drop-shadow(0 28px 28px rgba(0,0,0,.32));transform:translateX(var(--display-map-shift)) scale(var(--display-map-scale));transform-origin:54% 52%}.display-mode .html-callouts{overflow:visible}.display-mode .details{display:none}.display-mode .target-country,.display-mode .island-country{cursor:default}.display-mode .target-country:hover{filter:none}.display-mode .inset{display:none}
 @media(prefers-reduced-motion:reduce){.country{transition:none}.country-arrive,.map-callout,.html-callout{animation:none}}
 .inset{position:absolute;top:14px;right:14px;width:220px;padding:12px;border:1px solid #394752;border-radius:13px;background:rgba(14,22,29,.94)} .inset h3{margin:0 0 8px;font-size:14px} .islands{display:grid;grid-template-columns:1fr 1fr;gap:5px} .island-country{padding:6px 7px;color:#dce4ea;text-align:left;border:1px solid #303d47;border-radius:7px;background:#151e26;font-size:11px} .island-country.active{outline:2px solid white}
 .tooltip{position:absolute;z-index:20;display:grid;gap:4px;min-width:190px;padding:10px 12px;border:1px solid #53616c;border-radius:9px;background:rgba(9,14,19,.97);pointer-events:none} .tooltip[hidden]{display:none} .tooltip small{color:var(--muted)}
@@ -48,22 +53,603 @@ select{width:100%;padding:10px;color:white;border:1px solid #384651;border-radiu
 @media(max-width:1150px){.grid{grid-template-columns:220px 1fr}.display-mode .grid{grid-template-columns:1fr}.details{grid-column:1/-1;min-height:auto}} @media(max-width:740px){.app{padding:12px}.top,.head{flex-direction:column}.topcards{width:100%;flex-direction:column}.grid{grid-template-columns:1fr}.details{grid-column:auto}.legend{width:100%}.reader{grid-template-columns:1fr}.inset{position:static;width:auto;margin:10px}}
 /* Ajustes de exhibición: ranking metodológico y Caribe ampliado */
 .display-mode{--display-left-column:clamp(360px,20vw,420px);--display-map-shift:-14.5vw;--display-map-scale:1.055}
-.full-rank li{grid-template-columns:18px 8px minmax(72px,1fr) 47px 64px 69px;gap:4px;font-size:9.8px}
+.full-rank li{grid-template-columns:18px 8px minmax(72px,1fr) 52px 70px 74px;gap:4px;font-size:9.8px}
 .full-rank i{width:7px;height:7px;background:var(--swatch,#59636f);box-shadow:0 0 7px var(--swatch,#59636f)}
 .full-rank .rank-metric{color:#fff;font-size:9.6px;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
 .full-rank .rank-pct{font-weight:850}.full-rank .rank-count,.full-rank .rank-stock{color:#dce5eb;font-weight:680}
-.ranklist-title span:last-child{font-size:8.8px}.rank-metric-key{display:grid;grid-template-columns:1fr 47px 64px 69px;gap:4px;margin:5px 0 0 30px;color:#8f9ca5;font-size:7.8px;font-weight:750;letter-spacing:.02em;text-align:right;text-transform:uppercase}.rank-metric-key span:first-child{text-align:left}
-.ranklist.financing-rank .rank-metric-key{grid-template-columns:1fr 70px}.ranklist.financing-rank .rank-metric-key span:nth-child(n+3){display:none}.ranklist.financing-rank .full-rank li{grid-template-columns:18px 8px minmax(72px,1fr) 70px}.ranklist.financing-rank .rank-count,.ranklist.financing-rank .rank-stock{display:none}
+.ranklist-title span:last-child{font-size:8.8px}.rank-metric-key{display:grid;grid-template-columns:1fr 52px 70px 74px;gap:4px;margin:5px 0 0 30px;color:#8f9ca5;font-size:7.35px;font-weight:750;letter-spacing:.02em;line-height:1.05;text-align:center;text-transform:uppercase}.rank-metric-key span{display:flex;align-items:end;justify-content:center}.rank-metric-key span:first-child{justify-content:flex-start;text-align:left}
+.ranklist-body{display:grid;grid-template-columns:minmax(300px,1fr) minmax(160px,.46fr);gap:10px;align-items:stretch}.rank-main{display:flex;flex-direction:column;min-width:0;min-height:0}.nd-rank{display:grid;grid-template-rows:repeat(var(--rank-row-count,31),minmax(0,1fr));gap:0;margin:28px 0 0;padding:0;list-style:none}.nd-rank li{display:grid;grid-template-columns:26px 8px minmax(0,1fr);align-items:center;gap:5px;min-height:0;color:#7f8790;font-size:9.8px;font-weight:800;line-height:1}.nd-rank i{display:block;width:7px;height:7px;border-radius:50%;background:#59636f}.nd-rank .rank-pos{color:#CFE1FF;text-align:right}.nd-rank .rank-country{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ranklist.financing-rank .rank-metric-key{grid-template-columns:1fr 86px}.ranklist.financing-rank .rank-metric-key span:nth-child(n+3){display:none}.ranklist.financing-rank .full-rank li{grid-template-columns:18px 8px minmax(72px,1fr) 86px}.ranklist.financing-rank .rank-count,.ranklist.financing-rank .rank-stock{display:none}
 .display-mode .caribbean-inset{top:26px;right:26px;width:clamp(440px,31vw,620px);height:clamp(315px,38vh,410px);padding:8px 12px 10px;border-color:rgba(255,255,255,.34);border-radius:20px;background:linear-gradient(145deg,rgba(28,39,47,.62),rgba(4,8,11,.82))}
 .caribbean-inset h3{top:12px;color:#fff}.caribbean-inset svg{overflow:hidden}.caribbean-shape{stroke:#fff;stroke-width:1.18;stroke-linejoin:round;stroke-linecap:round}.caribbean-context{fill:#59636f}.caribbean-country-name{fill:#f4f7fa;font-family:Inter,Arial,sans-serif;font-size:9px;font-weight:720;letter-spacing:.01em;paint-order:stroke fill;stroke:#071017;stroke-width:1.55px;stroke-linejoin:round}.caribbean-note{fill:rgba(235,241,245,.82);font-size:8px;letter-spacing:.025em;text-anchor:middle}
 @media (min-width:1500px){.display-mode .caribbean-inset{width:clamp(560px,30vw,620px);height:clamp(350px,36vh,400px)}}
 .formula-note{margin-top:6px;color:#d9e2e8;font-size:8.8px;line-height:1.25}.formula-note strong{color:#fff}
 .display-mode .html-pin{width:5px;height:5px;margin:-2.5px 0 0 -2.5px;border:1px solid rgba(255,255,255,.96);background:transparent;font-size:0;line-height:0;box-shadow:0 0 0 1px var(--callout-color),0 0 7px var(--callout-color)}
 .display-logo{display:none}.display-mode .display-logo{display:block;width:clamp(150px,9vw,190px);height:auto;margin:0 0 12px}.display-mode .head .eyebrow{margin-bottom:3px;color:#fff;font-family:Inter,Arial,sans-serif;font-size:12px;font-weight:900;letter-spacing:.055em}.display-mode .head h2{max-width:315px;font-family:Inter,Arial,sans-serif;font-size:clamp(27px,1.72vw,34px);font-weight:900;line-height:.98;letter-spacing:-.045em}.display-mode .head p#description{max-height:62px;margin-top:9px;color:#e2e2e2;font-size:11.3px;font-weight:500;line-height:1.35}.display-mode .full-rank li{min-height:15.5px;font-size:9.1px;line-height:1.04}.display-mode .full-rank .rank-metric{font-size:9px}
-.display-mode{--map-glow:rgba(238,102,143,.72);--map-glow-soft:rgba(238,102,143,.28)}.display-mode[data-category="qualitative"]{--map-glow:rgba(49,85,199,.78);--map-glow-soft:rgba(49,85,199,.3)}.display-mode[data-category="quantitative"]{--map-glow:rgba(255,75,0,.76);--map-glow-soft:rgba(255,75,0,.28)}.display-mode[data-category="total"]{--map-glow:rgba(238,102,143,.76);--map-glow-soft:rgba(238,102,143,.29)}.display-mode[data-category="financing"]{--map-glow:rgba(116,71,188,.78);--map-glow-soft:rgba(116,71,188,.3)}.display-mode.reference-map-active #referenceMapImage{filter:drop-shadow(0 0 3px rgba(255,255,255,.48)) drop-shadow(0 0 13px var(--map-glow)) drop-shadow(0 0 34px var(--map-glow-soft))}.display-mode .caribbean-leader{stroke:rgba(248,246,255,.7);stroke-width:.62;stroke-linecap:round;stroke-linejoin:round}.display-mode .caribbean-pin{stroke-width:.72}.display-mode .caribbean-label{stroke:rgba(255,255,255,.28);stroke-width:.72}.display-mode .caribbean-label-name{font-family:Inter,Arial,sans-serif;font-size:10.8px}.display-mode .caribbean-label-value{font-family:Inter,Arial,sans-serif;font-size:9.8px}
+.display-mode{--map-glow:rgba(46,121,255,.78);--map-glow-soft:rgba(46,121,255,.3)}.display-mode[data-category="qualitative"],.display-mode[data-category="quantitative"],.display-mode[data-category="total"],.display-mode[data-category="financing"]{--map-glow:rgba(46,121,255,.78);--map-glow-soft:rgba(46,121,255,.3)}.display-mode.reference-map-active #referenceMapImage{filter:drop-shadow(0 0 3px rgba(255,255,255,.48)) drop-shadow(0 0 13px var(--map-glow)) drop-shadow(0 0 34px var(--map-glow-soft))}.display-mode .caribbean-leader{stroke:rgba(248,246,255,.7);stroke-width:.62;stroke-linecap:round;stroke-linejoin:round}.display-mode .caribbean-pin{stroke-width:.72}.display-mode .caribbean-label{stroke:rgba(255,255,255,.28);stroke-width:.72}.display-mode .caribbean-label-name{font-family:Inter,Arial,sans-serif;font-size:10.8px}.display-mode .caribbean-label-value{font-family:Inter,Arial,sans-serif;font-size:9.8px}
+
+/* Composición de exhibición BID: referencia de mesa horizontal */
+.display-mode{
+ --display-left-column:clamp(350px,22vw,430px);
+ --display-map-shift:-1.5vw;
+ --display-map-scale:.91;
+ --map-accent:#2E79FF;
+ padding:10px;
+ background:#151515;
+}
+.display-mode[data-category="qualitative"],
+.display-mode[data-category="quantitative"],
+.display-mode[data-category="total"],
+.display-mode[data-category="financing"]{--map-accent:#2E79FF}
+.display-mode .visual{
+ min-height:calc(100vh - 20px);
+ border:0;
+ border-radius:0;
+ background:
+  radial-gradient(ellipse at 51% 48%,color-mix(in srgb,var(--map-accent),transparent 88%) 0,transparent 43%),
+  linear-gradient(112deg,#151515 0 26%,#151a2b 48%,#151515 78%);
+ box-shadow:none;
+ isolation:isolate;
+}
+.display-mode .visual::before{
+ content:"";
+ position:absolute;
+ inset:30% 0 0;
+ z-index:0;
+ background:url("public/bid-city-outline.svg") center bottom/100% auto no-repeat;
+ opacity:.29;
+ pointer-events:none;
+}
+.display-mode .visual::after{
+ content:"";
+ position:absolute;
+ inset:0;
+ z-index:0;
+ background:linear-gradient(180deg,transparent 0 62%,rgba(10,12,17,.2) 74%,rgba(10,11,14,.56) 100%);
+ pointer-events:none;
+}
+.display-mode .mapwrap{
+ position:relative;
+ z-index:1;
+ height:calc(100vh - 20px);
+ grid-template-columns:1fr;
+ padding:0;
+ border-radius:0;
+}
+.display-mode .map-stage{grid-column:1;position:absolute;inset:0;z-index:1}
+.display-mode .map-stage svg{
+ transform:translateX(var(--display-map-shift)) scale(var(--display-map-scale));
+ transform-origin:53% 52%;
+ filter:drop-shadow(0 0 7px rgba(255,255,255,.22)) drop-shadow(0 0 24px var(--map-glow-soft));
+}
+.display-mode.reference-map-active #referenceMapImage{
+ filter:drop-shadow(0 0 2px #fff) drop-shadow(0 0 7px var(--map-glow)) drop-shadow(0 0 19px var(--map-glow-soft));
+}
+.display-mode .head{
+ left:46px;
+ top:44px;
+ bottom:32px;
+ z-index:6;
+ width:clamp(330px,20vw,390px);
+ justify-content:flex-start;
+ gap:0;
+}
+.display-mode .display-logo{width:clamp(165px,10vw,205px);margin:0 0 32px}
+.display-mode .head .eyebrow{margin:0;color:#fff;font-size:16px;font-weight:800;letter-spacing:0}
+.display-mode .head h2{
+ max-width:390px;
+ margin-top:1px;
+ color:var(--map-accent);
+ font-size:clamp(29px,1.9vw,39px);
+ font-weight:800;
+ line-height:.96;
+ letter-spacing:-.045em;
+}
+.display-mode .head p#description{
+ max-width:365px;
+ max-height:72px;
+ margin-top:8px;
+ color:#f0f0f2;
+ font-size:12.5px;
+ font-weight:400;
+ line-height:1.32;
+}
+.display-mode .ranklist{width:100%;margin-top:12px}
+.display-mode .ranklist-title{margin-top:0;color:#fff;font-size:12px;font-weight:800}
+.display-mode .rank-metric-key{color:#9fa7b7;font-size:8px}
+.display-mode .full-rank{gap:2px;margin-top:5px}
+.display-mode .full-rank li{min-height:14px;color:#f3f4f7;font-size:9px;line-height:1}
+.display-mode .full-rank i{box-shadow:none}
+.display-mode .full-rank .rank-pos{color:#CFE1FF}
+.display-mode .full-rank .rank-metric{font-size:8.8px}
+.display-mode .legend{
+ position:fixed;
+ right:48px;
+ bottom:36px;
+ z-index:9;
+ width:clamp(360px,27vw,520px);
+ min-width:0;
+ margin:0;
+}
+.display-mode .scale{height:10px;border:1px solid rgba(255,255,255,.38);border-radius:999px;box-shadow:0 0 12px rgba(255,255,255,.08)}
+.display-mode .legendlabels{color:#c4c7cf;font-size:10.5px}
+.display-mode .nodata{color:#b7bbc5;font-size:10.5px}
+.display-mode .formula-note{color:#b7bbc5;font-size:9px}
+
+/* Rótulos abiertos y líneas rectas, sin tarjetas sobre el mapa */
+.display-mode .html-callout{
+ min-height:34px!important;
+ padding:3px 0!important;
+ border:0!important;
+ border-radius:0!important;
+ background:transparent!important;
+ box-shadow:none!important;
+ backdrop-filter:none!important;
+ -webkit-backdrop-filter:none!important;
+ overflow:visible;
+}
+.display-mode .html-callout::before{display:none}
+.display-mode .html-callout-index{
+ width:17px;height:17px;border:0;background:#fff;color:var(--map-accent);font-size:10px;font-weight:800;box-shadow:none;
+}
+.display-mode .html-callout-name{overflow:visible!important;text-overflow:clip!important;font-size:12px;font-weight:800;text-shadow:0 0 2px #090a0d,0 0 5px #090a0d,0 0 9px #090a0d}
+.display-mode .html-callout-value{color:var(--map-accent)!important;font-size:11px;font-weight:800;text-shadow:0 0 2px #090a0d,0 0 5px #090a0d,0 0 9px #090a0d}
+.display-mode .html-pin{display:grid;place-items:center;width:8px;height:8px;margin:-4px 0 0 -4px;background:#fff;border:1px solid rgba(9,10,14,.65);color:var(--callout-color);font-size:0;font-weight:900;line-height:1;box-shadow:0 0 7px #fff,0 0 12px var(--callout-color)}
+.display-mode .html-callout-lines .connector-halo{display:block;stroke:rgba(255,255,255,.18);stroke-width:3.6px;filter:blur(.15px)}
+.display-mode .html-callout-lines .connector-core{stroke:rgba(255,255,255,.92);stroke-width:1.35px;filter:drop-shadow(0 0 4px var(--callout-color))}
+
+/* Caribe en bloque azul y con señalización limpia como la referencia */
+.display-mode .caribbean-inset{
+ top:42px;
+ right:42px;
+ width:clamp(390px,29vw,560px);
+ height:clamp(205px,28vh,295px);
+ padding:8px 12px 10px;
+ border:1px solid rgba(255,255,255,.86);
+ border-radius:32px;
+ background:linear-gradient(145deg,#192654,#2f5be7 88%);
+ box-shadow:0 15px 36px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.2);
+ backdrop-filter:none;
+ -webkit-backdrop-filter:none;
+}
+.display-mode .caribbean-inset h3{top:10px;font-size:16px;font-weight:800;letter-spacing:0;text-transform:none}
+.display-mode .caribbean-shape{stroke:#fff;stroke-width:1.05;filter:none}
+.display-mode .caribbean-context{fill:#59636f}
+.display-mode .caribbean-leader{stroke:#fff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round}
+.display-mode .caribbean-leader-halo{stroke:rgba(5,9,24,.76);stroke-width:4.5}
+.display-mode .caribbean-leader-core{stroke:color-mix(in srgb,var(--callout-color),#fff 72%);stroke-width:1.45}
+.display-mode .caribbean-pin{fill:#fff!important;stroke:#fff;stroke-width:.6}
+.display-mode .caribbean-pin-halo{fill:transparent!important;stroke:rgba(255,255,255,.82);stroke-width:1.2}
+.display-mode .caribbean-label{fill:transparent;stroke:transparent}
+.display-mode .caribbean-label-name{fill:#fff;font-size:12px;font-weight:800}
+.display-mode .caribbean-label-value{font-size:10px;font-weight:800}
+.display-mode .caribbean-rank{fill:var(--map-accent);font-size:9px;font-weight:800}
+.display-mode .caribbean-note{display:none}
+.display-mode .caribbean-country-name{font-size:7.5px;stroke:#1d2d75;stroke-width:1.4px}
+@media (max-height:800px){
+ .display-mode .head{top:34px;bottom:22px}
+ .display-mode .display-logo{margin-bottom:22px}
+ .display-mode .full-rank li{min-height:12.7px;font-size:8.3px}
+ .display-mode .full-rank .rank-metric{font-size:8.1px}
+ .display-mode .caribbean-inset{top:30px;height:210px}
+ .display-mode .legend{bottom:26px}
+}
+
+/* Composición final basada en los artes entregados en /public. */
+.display-mode{
+ --display-map-shift:6.2vw;
+ --display-map-scale:.965;
+ padding:0;
+ background:#151515;
+}
+.display-mode .visual{
+ min-height:100vh;
+ background:#151515 url("public/fondomap.png") center center/cover no-repeat;
+}
+.display-mode .visual::before,
+.display-mode .visual::after{display:none}
+.display-mode .mapwrap{height:100vh}
+.display-mode .map-stage svg{
+ transform-origin:53% 51%;
+ filter:drop-shadow(0 0 6px rgba(255,255,255,.2)) drop-shadow(0 0 28px var(--map-glow-soft));
+}
+.display-mode .display-logo{display:none}
+.display-mode .head{
+ left:3.82vw;
+ top:15.6vh;
+ bottom:1.4vh;
+ width:clamp(350px,21.5vw,810px);
+ font-family:Inter,Arial,sans-serif;
+ font-weight:400;
+}
+.display-mode .head .eyebrow{
+ font-size:clamp(14px,.92vw,35px);
+ font-family:"Inter 18pt Black",Inter,Arial,sans-serif;
+ font-weight:900;
+ line-height:1;
+}
+.display-mode .head h2{
+ max-width:100%;
+ margin-top:.22em;
+ font-size:clamp(31px,2.1vw,79px);
+ font-family:"Inter 18pt Black",Inter,Arial,sans-serif;
+ font-weight:900;
+ line-height:1.02;
+ letter-spacing:-.018em;
+}
+.display-mode .head p#description{
+ max-width:95%;
+ max-height:none;
+ margin-top:.65em;
+ font-size:clamp(12px,.76vw,29px);
+ font-family:Inter,Arial,sans-serif;
+ font-weight:400;
+ line-height:1.34;
+}
+.display-mode .ranklist{
+ flex:1 1 auto;
+ display:flex;
+ flex-direction:column;
+ width:clamp(560px,34vw,860px);
+ min-height:0;
+ margin-top:clamp(14px,1.55vh,34px);
+ overflow:hidden;
+ font-family:"Inter 18pt Bold",Inter,Arial,sans-serif;
+ font-weight:700;
+}
+.display-mode .ranklist-title{
+ color:#fff!important;
+ font-family:"Inter 18pt Black",Inter,Arial,sans-serif;
+ font-size:clamp(24px,1.45vw,52px);
+ font-weight:900!important;
+ line-height:1;
+ text-shadow:0 1px 3px rgba(0,0,0,.9);
+}
+.display-mode .ranklist-title span{color:#fff!important}
+.display-mode .rank-metric-key{
+ flex:0 0 auto;
+ font-size:clamp(8px,.48vw,18px);
+ font-weight:700;
+ line-height:1.08;
+ align-items:end;
+}
+.display-mode .ranklist-body{
+ flex:1 1 auto;
+ display:grid;
+ grid-template-columns:minmax(330px,1fr) minmax(185px,.5fr);
+ gap:clamp(14px,1.05vw,36px);
+ min-height:0;
+ overflow:hidden;
+}
+.display-mode .rank-main{display:flex;flex-direction:column;min-height:0}
+.display-mode .full-rank{
+ flex:1 1 auto;
+ display:grid;
+ grid-template-rows:repeat(var(--available-row-count,18),minmax(0,1fr));
+ gap:0;
+ min-height:0;
+ margin-top:clamp(8px,.8vh,18px);
+}
+.display-mode .full-rank li{
+ min-height:0;
+ gap:clamp(3px,.3vw,11px);
+ font-family:"Inter 18pt Bold",Inter,Arial,sans-serif;
+ font-size:clamp(11.5px,.68vw,25px);
+ font-weight:700;
+ line-height:1.05;
+}
+.display-mode .full-rank .rank-metric{
+ font-family:"Inter 18pt Bold",Inter,Arial,sans-serif;
+ font-size:clamp(11.3px,.66vw,24px);
+ font-weight:700;
+}
+.display-mode .nd-rank{
+ align-self:stretch;
+ height:calc(100% - clamp(28px,2.7vh,58px));
+ margin-top:clamp(28px,2.7vh,58px);
+ grid-template-rows:repeat(var(--rank-row-count,31),minmax(0,1fr));
+}
+.display-mode .nd-rank li{
+ min-height:0;
+ font-family:"Inter 18pt Bold",Inter,Arial,sans-serif;
+ font-size:clamp(11.5px,.68vw,25px);
+ font-weight:700;
+ line-height:1.05;
+}
+.display-mode .full-rank i{
+ width:clamp(6px,.42vw,16px);
+ height:clamp(6px,.42vw,16px);
+}
+.display-mode .legend{
+ right:1.45vw;
+ bottom:3.4vh;
+ width:clamp(450px,27.8vw,1000px);
+}
+.display-mode .event-tagline{
+ position:fixed;
+ right:2.9vw;
+ bottom:10vh;
+ z-index:8;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ width:clamp(520px,32vw,730px);
+ height:clamp(104px,8vw,180px);
+ color:#fff;
+ font-family:"Inter 18pt Light",Inter,Arial,sans-serif;
+ font-size:clamp(15.5px,1.24vw,31px);
+ font-weight:300;
+ line-height:1.19;
+ letter-spacing:clamp(4px,.36vw,8.2px);
+ text-align:right;
+ text-transform:uppercase;
+ pointer-events:none;
+ text-shadow:0 1px 5px rgba(0,0,0,.62);
+}
+.display-mode .event-tagline::after{
+ content:"";
+ position:absolute;
+ top:50%;
+ left:calc(100% + 7px);
+ width:clamp(34px,2.2vw,52px);
+ height:1px;
+ background:rgba(255,255,255,.9);
+ box-shadow:0 0 4px rgba(255,255,255,.18);
+}
+.display-mode .scale{height:clamp(9px,.48vw,18px)}
+.scale-ranges{display:none}
+.display-mode .scale-ranges{
+ display:grid;
+ grid-template-columns:repeat(8,minmax(0,1fr));
+ gap:0;
+ margin-top:3px;
+ color:#d8dde6;
+ font-size:clamp(6.5px,.39vw,13px);
+ font-weight:650;
+ line-height:1;
+ text-align:center;
+ white-space:nowrap;
+ text-shadow:0 1px 3px rgba(0,0,0,.8);
+}
+.display-mode .scale-ranges span{
+ overflow:hidden;
+ text-overflow:clip;
+}
+.display-mode .legendlabels,
+.display-mode .nodata{font-size:clamp(9.5px,.56vw,21px)}
+.display-mode .formula-note{font-size:clamp(8px,.48vw,18px)}
+
+.display-mode .html-callout{
+ grid-template-columns:clamp(18px,1.05vw,40px) minmax(0,1fr);
+ column-gap:clamp(6px,.42vw,16px);
+ align-items:start;
+ min-height:clamp(42px,5vh,105px)!important;
+ padding:0 0 clamp(6px,.45vh,10px)!important;
+}
+.display-mode .html-callout-index{
+ width:clamp(18px,1.05vw,40px);
+ height:clamp(18px,1.05vw,40px);
+ font-size:clamp(10px,.64vw,24px);
+}
+.display-mode .html-callout-name{font-size:clamp(12px,.82vw,31px);line-height:1.02}
+.display-mode .html-callout-value{font-size:clamp(11px,.76vw,29px);line-height:1.02}
+.display-mode .html-callout-lines .connector-halo{stroke:rgba(255,255,255,.12);filter:none}
+.display-mode .html-callout-lines .connector-core{stroke:#fff;stroke-width:clamp(1.15px,.08vw,2.4px);filter:drop-shadow(0 1px 2px rgba(0,0,0,.62))}
+.display-mode .html-pin{
+ display:block;
+ width:clamp(10px,.53vw,20px);
+ height:clamp(10px,.53vw,20px);
+ margin:0;
+ transform:translate(-50%,-50%);
+ border:1px solid rgba(255,255,255,.96);
+ border-radius:50%;
+ background:#fff;
+ box-shadow:0 0 clamp(5px,.32vw,12px) rgba(255,255,255,.96);
+ font-size:0;
+ overflow:visible;
+}
+.display-mode .html-pin::before,
+.display-mode .html-pin::after{display:none}
+
+.display-mode .caribbean-inset{
+ top:3.15vh;
+ right:2.8vw;
+ width:clamp(500px,30vw,1120px);
+ height:auto;
+ aspect-ratio:1089/560;
+ padding:0;
+ border:0;
+ border-radius:clamp(34px,2vw,76px);
+ overflow:hidden;
+ background:transparent!important;
+ box-shadow:0 18px 48px rgba(0,0,0,.34);
+}
+.display-mode .caribbean-inset::before{
+ content:"";
+ position:absolute;
+ inset:0;
+ z-index:0;
+ border-radius:inherit;
+ background:#2657e4 url("public/fondmini.png") center/100% 100% no-repeat;
+ opacity:.23;
+ pointer-events:none;
+}
+.display-mode .caribbean-inset h3{
+ z-index:2;
+ top:6.8%;
+ font-size:clamp(14px,.92vw,35px);
+ font-family:"Inter 18pt Black",Inter,Arial,sans-serif;
+ font-weight:900;
+ line-height:1;
+}
+.display-mode .caribbean-inset svg{position:absolute;inset:0;z-index:1;width:100%;height:100%}
+.display-mode .caribbean-shape{stroke-width:clamp(1px,.065vw,1.9px)}
+.display-mode .caribbean-leader{stroke-width:clamp(.9px,.065vw,2px)}
+.display-mode .caribbean-leader-halo{stroke-width:clamp(3.5px,.24vw,7px)}
+.display-mode .caribbean-leader-core{stroke-width:clamp(1.1px,.08vw,2.4px)}
+.display-mode .caribbean-label-name{font-size:14px}
+.display-mode .caribbean-label-value{font-size:12px}
+.display-mode .caribbean-rank{font-size:10.5px}
+
+@media (max-width:1450px), (max-height:820px){
+ .display-mode{--display-map-shift:5.4vw;--display-map-scale:.95}
+ .display-mode .head{top:14.8vh;width:clamp(300px,22vw,350px)}
+ .display-mode .head h2{font-size:clamp(27px,2vw,34px)}
+ .display-mode .head p#description{font-size:11px}
+ .display-mode .full-rank li{min-height:0;font-size:clamp(8.4px,.54vw,10px)}
+ .display-mode .full-rank .rank-metric{font-size:clamp(8.2px,.52vw,9.8px)}
+ .display-mode .caribbean-inset{top:2.6vh;width:clamp(390px,27vw,470px)}
+ .display-mode .legend{bottom:2.8vh;width:clamp(330px,24vw,420px)}
+}
+.display-mode .head{
+ left:clamp(42px,3.82vw,145px)!important;
+ top:clamp(92px,13.6vh,273px)!important;
+ bottom:clamp(16px,1.4vh,30px)!important;
+ width:clamp(520px,67vw,1129px)!important;
+}
+.display-mode .head .eyebrow{
+ font-size:clamp(17px,1.15vw,42px)!important;
+ line-height:1!important;
+}
+.display-mode .head h2{
+ max-width:clamp(520px,67vw,1129px)!important;
+ min-height:0;
+ margin-top:clamp(2px,.28vh,8px)!important;
+ color:var(--map-accent)!important;
+ font-size:clamp(36px,2.72vw,92px)!important;
+ line-height:.98!important;
+ letter-spacing:0!important;
+ text-wrap:balance;
+}
+.display-mode .head h2 .title-line{display:block}
+.display-mode .head h2 .title-accent{color:var(--map-accent)}
+.display-mode .head h2 .title-white{color:#fff}
+.display-mode .head p#description{
+ max-width:clamp(430px,30vw,760px)!important;
+ margin-top:clamp(10px,1vh,20px)!important;
+ font-size:clamp(14px,.9vw,32px)!important;
+ line-height:1.22!important;
+ text-align:justify!important;
+ text-align-last:left;
+ text-wrap:pretty;
+}
+.display-mode .ranklist{
+ width:clamp(500px,30.5vw,790px)!important;
+ margin-top:clamp(20px,2.25vh,44px)!important;
+}
+.display-mode .ranklist .ranklist-title,
+.display-mode .ranklist .ranklist-title span{
+ color:#fff!important;
+ opacity:1!important;
+ font-family:"Inter 18pt Black",Inter,Arial,sans-serif!important;
+ font-size:clamp(14px,.92vw,30px)!important;
+ font-weight:900!important;
+ line-height:1!important;
+ letter-spacing:0!important;
+ text-transform:uppercase!important;
+ text-shadow:0 1px 4px rgba(0,0,0,.95)!important;
+}
+.display-mode .rank-metric-key{
+ margin:clamp(13px,1.42vh,28px) 0 0 clamp(30px,2vw,52px)!important;
+ color:#aeb6c0!important;
+ font-size:clamp(7.4px,.48vw,17px)!important;
+ line-height:1.22!important;
+ align-items:center!important;
+}
+.display-mode .rank-metric-key span{
+ align-items:center!important;
+ min-height:clamp(13px,.85vh,24px);
+}
+.display-mode .full-rank{
+ margin-top:clamp(10px,1.05vh,22px)!important;
+}
+.display-mode .nd-rank{
+ display:grid!important;
+ grid-template-rows:repeat(var(--available-row-count,18),minmax(0,1fr))!important;
+ gap:0!important;
+ height:100%!important;
+ margin-top:0!important;
+ padding:calc(clamp(13px,1.42vh,28px) + clamp(13px,.85vh,24px) + clamp(10px,1.05vh,22px)) 0 0!important;
+ transform:translateX(var(--nd-list-shift));
+}
+.display-mode .nd-rank-panel{
+ --nd-list-shift:clamp(16px,.9vw,34px);
+ --nd-title-width:clamp(132px,8.7vw,245px);
+ position:relative;
+ min-height:0;
+ height:100%;
+}
+.display-mode .nd-rank-title{
+ position:absolute;
+ left:calc(var(--nd-list-shift) + clamp(10px,.55vw,18px));
+ top:var(--nd-title-top,54%);
+ z-index:2;
+ width:var(--nd-title-width);
+ max-width:var(--nd-title-width);
+ color:#fff!important;
+ font-family:"Inter 18pt Black",Inter,Arial,sans-serif!important;
+ font-size:clamp(10.5px,.72vw,24px)!important;
+ font-weight:900!important;
+ line-height:1.02!important;
+ letter-spacing:0!important;
+ text-align:left!important;
+ text-shadow:0 1px 4px rgba(0,0,0,.95)!important;
+ transform:translateY(calc(-100% - clamp(5px,.38vh,12px)));
+}
+.display-mode .nd-rank li{
+ display:grid;
+ grid-template-columns:clamp(28px,1.45vw,48px) clamp(7px,.42vw,16px) minmax(0,1fr);
+ align-items:center;
+ gap:clamp(5px,.35vw,12px);
+}
+.display-mode .full-rank .rank-pos,
+.display-mode .nd-rank .rank-pos{
+ display:block;
+ text-align:right!important;
+ font-variant-numeric:tabular-nums;
+ font-feature-settings:"tnum" 1;
+}
+.display-mode .nd-rank i{
+ justify-self:center;
+ margin:0;
+}
+.callout-editor{position:fixed;right:16px;bottom:16px;z-index:80;display:grid;gap:10px;width:min(360px,calc(100vw - 32px));padding:14px;border:1px solid rgba(255,255,255,.34);border-radius:12px;background:rgba(7,10,16,.92);color:#fff;box-shadow:0 18px 48px rgba(0,0,0,.42);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.callout-editor[hidden]{display:none}.callout-editor strong{font-size:14px}.callout-editor span,.callout-editor p{margin:0;color:#c8d0da;font-size:11px;line-height:1.35}.callout-editor-row{display:flex;align-items:center;justify-content:space-between;gap:10px}.callout-editor-buttons{display:flex;flex-wrap:wrap;gap:6px}.callout-editor button{padding:7px 9px;border:1px solid rgba(255,255,255,.28);border-radius:8px;background:rgba(255,255,255,.08);color:#fff;font-size:11px;font-weight:750}.callout-editor button.active{border-color:#fff;background:#fff;color:#070a10}.callout-editor-range{display:grid;grid-template-columns:78px 1fr 44px;align-items:center;gap:8px;color:#dfe7ee;font-size:11px;font-weight:750}.callout-editor-range input{width:100%;accent-color:#fff}.callout-editor-range span{text-align:right;color:#fff}.callout-editor textarea{width:100%;height:92px;padding:8px;border:1px solid rgba(255,255,255,.24);border-radius:8px;background:rgba(0,0,0,.42);color:#dfe7ee;font:10px/1.35 Consolas,monospace;resize:vertical}.callout-editor .danger{color:#ffd5d5;border-color:rgba(255,146,146,.45)}.callout-editor{max-height:calc(100vh - 32px);overflow:auto}.html-line-handle,.caribbean-line-handle{display:none}.editing-callouts .html-callouts{pointer-events:none}.editing-callouts .caribbean-inset{pointer-events:auto}.editing-callouts .html-callout,.editing-callouts .html-pin,.editing-callouts .html-line-handle,.editing-callouts .caribbean-edit-hit,.editing-callouts .caribbean-edit-pin,.editing-callouts .caribbean-edit-line{cursor:grab;outline:1px dashed rgba(255,255,255,.58);outline-offset:4px;pointer-events:auto}.editing-callouts .html-line-handle{z-index:4;display:block;position:absolute;width:13px;height:13px;margin:0;transform:translate(-50%,-50%);border:2px solid #fff;border-radius:50%;background:var(--callout-color);box-shadow:0 0 0 3px rgba(0,0,0,.45),0 0 12px var(--callout-color);pointer-events:auto}.editing-callouts .html-line-handle::after{content:"línea";position:absolute;left:15px;top:-5px;color:#fff;font-size:10px;font-weight:900;text-shadow:0 1px 4px #000;white-space:nowrap}.editing-callouts .caribbean-line-handle{display:block;fill:var(--callout-color);stroke:#fff;stroke-width:2;filter:drop-shadow(0 0 4px var(--callout-color));pointer-events:all}.editing-callouts .html-callout.is-editing,.editing-callouts .html-pin.is-editing,.editing-callouts .html-line-handle.is-editing,.editing-callouts .caribbean-edit-hit.is-editing,.editing-callouts .caribbean-edit-pin.is-editing,.editing-callouts .caribbean-edit-line.is-editing{cursor:grabbing;outline-color:#fff}.editing-callouts .html-callout::after{content:attr(data-edit-label);position:absolute;left:0;top:-18px;color:#fff;font-size:10px;font-weight:800;text-shadow:0 1px 4px #000;white-space:nowrap}.editing-callouts .caribbean-edit-hit,.editing-callouts .caribbean-edit-pin,.editing-callouts .caribbean-edit-line{pointer-events:all}
+.display-mode .visual::before{content:""!important;display:block!important;position:absolute!important;left:0!important;top:0!important;z-index:5!important;width:clamp(310px,24vw,470px)!important;height:clamp(112px,10vh,150px)!important;background:linear-gradient(100deg,#151515 0%,#15171d 72%,rgba(21,23,29,0) 100%)!important;opacity:1!important;pointer-events:none!important}
+.display-mode .head{left:46px!important;top:clamp(38px,5.3vh,64px)!important;width:clamp(430px,31vw,570px)!important}
+.display-mode .display-logo{display:block!important;width:clamp(210px,15vw,290px)!important;height:auto!important;margin:0 0 clamp(36px,4.2vh,58px)!important}
+.display-mode .head .eyebrow{font-family:"Inter 18pt SemiBold",Inter,Arial,sans-serif!important;font-size:clamp(18px,1.18vw,23px)!important;font-weight:600!important;line-height:.98!important;letter-spacing:0!important;text-transform:uppercase!important;color:#fff!important}
+.display-mode .head h2{max-width:620px!important;margin-top:5px!important;font-family:"Inter 18pt Black",Inter,Arial,sans-serif!important;font-size:clamp(36px,2.52vw,49px)!important;font-weight:900!important;line-height:.96!important;letter-spacing:0!important;color:var(--map-accent)!important;white-space:nowrap!important}
+.display-mode[data-category="financing"] .head h2{max-width:620px!important;font-size:clamp(36px,2.52vw,49px)!important;line-height:.96!important}
+.display-mode[data-category="financing"] .head h2 .title-line{display:block!important;white-space:nowrap!important}
+.display-mode[data-category="financing"] .head h2 .title-accent{color:var(--map-accent)!important}
+.display-mode[data-category="financing"] .head h2 .title-white{color:#fff!important}
+.display-mode .head p#description{max-width:560px!important;max-height:none!important;margin-top:13px!important;color:#fff!important;font-family:"Inter 18pt Regular",Inter,Arial,sans-serif!important;font-size:clamp(16px,1.02vw,20px)!important;font-weight:400!important;line-height:1.18!important;text-align:left!important;text-align-last:auto!important;word-spacing:normal!important}
+.display-mode[data-category="quantitative"] .head p#description,
+.display-mode[data-category="total"] .head p#description,
+.display-mode[data-category="financing"] .head p#description{font-size:clamp(16px,1.02vw,20px)!important;line-height:1.18!important;max-width:560px!important}
+.display-mode .html-callout-name{font-family:"Inter 18pt Black",Inter,Arial,sans-serif!important;font-weight:900!important;font-size:clamp(13px,.9vw,18px)!important;line-height:1.03!important;letter-spacing:0!important}
+.display-mode .html-callout-value{font-family:"Inter 18pt Bold",Inter,Arial,sans-serif!important;font-weight:700!important;font-size:clamp(12px,.84vw,17px)!important;line-height:1.03!important;letter-spacing:0!important}
+.display-mode .html-callout-index{font-family:"Inter 18pt Bold",Inter,Arial,sans-serif!important;font-weight:700!important}
 </style>
 </head>
 <body>
+<div class="callout-editor" id="calloutEditor" hidden>
+<div class="callout-editor-row"><strong>Editor manual de flechas</strong><span id="calloutEditorStatus">local</span></div>
+<div class="callout-editor-buttons" id="calloutEditorCategories"></div>
+<div class="callout-editor-buttons" id="calloutEditorSides">
+<button type="button" data-edit-side="left">Linea izquierda</button>
+<button type="button" data-edit-side="right">Linea derecha</button>
+<button type="button" data-edit-side="top">Linea arriba</button>
+<button type="button" data-edit-side="bottom">Linea abajo</button>
+</div>
+<label class="callout-editor-range">Linea <input id="calloutLineWidth" type="range" min=".6" max="4" step=".05"><span id="calloutLineWidthValue"></span></label>
+<label class="callout-editor-range">Punto mapa <input id="calloutPinSize" type="range" min="4" max="28" step=".5"><span id="calloutPinSizeValue"></span></label>
+<label class="callout-editor-range">Punto Caribe <input id="calloutCaribbeanPinSize" type="range" min="2" max="12" step=".25"><span id="calloutCaribbeanPinSizeValue"></span></label>
+<textarea id="calloutExport" readonly></textarea>
+<div class="callout-editor-row"><button type="button" id="copyCalloutLayout">Copiar JSON</button><button type="button" class="danger" id="resetCalloutLayout">Reset mapa</button></div>
+<p>Arrastra el nombre, el punto o el control de línea. Se guarda en este navegador y el JSON sirve para dejarlo fijo.</p>
+</div>
 <div id="app" class="app">
 <header class="top"><div><p class="eyebrow">Maqueta 1 · Medir para transformar</p><h1>Mapa regional interactivo</h1></div><div class="topcards"><div class="sync offline" id="syncStatus"><strong>Firebase</strong><span>configuración pendiente</span></div><div class="coverage" id="coverage"></div></div></header>
 <section class="grid">
@@ -74,7 +660,7 @@ select{width:100%;padding:10px;color:white;border:1px solid #384651;border-radiu
 <div class="block"><h2>Subregión</h2><div class="regions" id="regions"></div></div>
 </aside>
 <section class="panel visual">
-<div class="head"><img class="display-logo" src="public/grupo-bid-logo-white.png" alt="Grupo BID" /><div><p class="eyebrow">Indicador activo</p><h2 id="title"></h2><p id="description"></p></div><div class="legend" id="legend"></div><div class="ranklist" id="rankList"></div></div>
+<div class="head"><img class="display-logo" src="public/grupo-bid-logo-white.png" alt="Grupo BID" /><div><p class="eyebrow">Indicador activo</p><h2 id="title"></h2><p id="description"></p></div><div class="event-tagline" aria-hidden="true">Nuevas herramientas<br>de información para<br>abordar el déficit<br>de vivienda en LAC</div><div class="legend" id="legend"></div><div class="ranklist" id="rankList"></div></div>
 <div class="reader" id="reader"></div>
 <div class="mapwrap" id="mapwrap"><div class="map-stage" id="mapStage"><svg id="mapSvg" viewBox="0 0 980 700" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="mapTitle"><title id="mapTitle">Mapa de América Latina y el Caribe</title><defs><filter id="referenceBordersOnly" x="-3%" y="-3%" width="106%" height="106%" color-interpolation-filters="sRGB"><feColorMatrix in="SourceGraphic" result="whiteMask" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  8 8 8 0 -22.2"/><feComposite in="whiteMask" in2="SourceAlpha" operator="in" result="visibleWhite"/><feComponentTransfer in="visibleWhite"><feFuncR type="constant" value="1"/><feFuncG type="constant" value="1"/><feFuncB type="constant" value="1"/><feFuncA type="discrete" tableValues="0 1"/></feComponentTransfer></filter></defs><image id="referenceMapImage" class="reference-map" preserveAspectRatio="xMidYMid meet"/><g id="contextCountries"></g><g id="countries"></g><g id="continentOutline"></g><image id="referenceBorderImage" class="reference-map" preserveAspectRatio="xMidYMid meet" filter="url(#referenceBordersOnly)"/><g id="callouts" class="map-callouts"></g></svg><div class="html-callouts" id="htmlCallouts"></div><div class="map-loading" id="mapLoading">Cargando cartografía de alta resolución…</div></div><aside class="caribbean-inset" id="caribbeanInset" aria-label="Ampliación del Caribe"><h3>EL CARIBE · VISTA AMPLIADA</h3><svg id="caribbeanSvg" viewBox="0 0 640 400" role="img" aria-label="Mapa ampliado de todos los países del Caribe"></svg></aside><aside class="inset"><h3>Caribe</h3><div class="islands" id="islands"><button type="button" class="island-country" data-country="ATG"></button><button type="button" class="island-country" data-country="BHS"></button><button type="button" class="island-country" data-country="BRB"></button><button type="button" class="island-country" data-country="DMA"></button><button type="button" class="island-country" data-country="DOM"></button><button type="button" class="island-country" data-country="GRD"></button><button type="button" class="island-country" data-country="JAM"></button><button type="button" class="island-country" data-country="KNA"></button><button type="button" class="island-country" data-country="LCA"></button><button type="button" class="island-country" data-country="VCT"></button><button type="button" class="island-country" data-country="TTO"></button></div></aside></div>
 <div class="tooltip" id="tooltip" hidden></div>
@@ -89,28 +675,437 @@ select{width:100%;padding:10px;color:white;border:1px solid #384651;border-radiu
 <script src="firebase-config.js"></script>
 <script>
 const countries=[{"iso3": "ATG", "numericId": "028", "name": "Antigua y Barbuda", "subregion": "Caribe", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": 15.87, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-61"}, {"iso3": "ARG", "numericId": "032", "name": "Argentina", "subregion": "Suramérica", "total": 3682515, "totalPct": 0.37517287681797645, "quantitative": 747676, "quantitativePct": 0.07617287528978357, "qualitative": 2934839, "qualitativePct": 0.2990000015281929, "financing": 0.36, "financingYear": 2024, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-29"}, {"iso3": "BHS", "numericId": "044", "name": "Bahamas", "subregion": "Caribe", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": 18.77, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-55"}, {"iso3": "BRB", "numericId": "052", "name": "Barbados", "subregion": "Caribe", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": 21.74, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-60"}, {"iso3": "BLZ", "numericId": "084", "name": "Belice", "subregion": "Centroamérica", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": 11.99, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-59"}, {"iso3": "BOL", "numericId": "068", "name": "Bolivia", "subregion": "Suramérica", "total": 2911794, "totalPct": 0.74929883364106, "quantitative": 784977, "quantitativePct": 0.2019999871333818, "qualitative": 2126817, "qualitativePct": 0.5472988465076781, "financing": 17.99, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-28"}, {"iso3": "BRA", "numericId": "076", "name": "Brasil", "subregion": "Suramérica", "total": 38711516, "totalPct": 0.5007832274123204, "quantitative": 4019702, "quantitativePct": 0.05200001314326618, "qualitative": 34691814, "qualitativePct": 0.4487832142690542, "financing": 10.04, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-30"}, {"iso3": "CHL", "numericId": "152", "name": "Chile", "subregion": "Suramérica", "total": 3160366, "totalPct": 0.45711433419750724, "quantitative": 283463, "quantitativePct": 0.040999998264323816, "qualitative": 2876903, "qualitativePct": 0.4161143359331834, "financing": 26.31, "financingYear": 2025, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-31"}, {"iso3": "COL", "numericId": "170", "name": "Colombia", "subregion": "Suramérica", "total": 9872227, "totalPct": 0.5774326246610468, "quantitative": 2632901, "quantitativePct": 0.15399999766037542, "qualitative": 7239326, "qualitativePct": 0.42343262700067147, "financing": 6.47, "financingYear": 2024, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-32"}, {"iso3": "CRI", "numericId": "188", "name": "Costa Rica", "subregion": "Centroamérica", "total": 1033726, "totalPct": 0.5770730732429497, "quantitative": 77027, "quantitativePct": 0.04299998995157777, "qualitative": 956699, "qualitativePct": 0.5340730832913718, "financing": 12.75, "financingYear": 2024, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-33"}, {"iso3": "DMA", "numericId": "212", "name": "Dominica", "subregion": "Caribe", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": 12.76, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-56"}, {"iso3": "DOM", "numericId": "214", "name": "República Dominicana", "subregion": "Caribe", "total": 1798955, "totalPct": 0.49104871412443196, "quantitative": 509226, "quantitativePct": 0.13900001528594544, "qualitative": 1289729, "qualitativePct": 0.3520486988384865, "financing": 5.25, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-34"}, {"iso3": "ECU", "numericId": "218", "name": "Ecuador", "subregion": "Suramérica", "total": 3047703, "totalPct": 0.6093878873954187, "quantitative": 990248, "quantitativePct": 0.1979999812047101, "qualitative": 2057455, "qualitativePct": 0.4113879061907086, "financing": 2.2, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-35"}, {"iso3": "SLV", "numericId": "222", "name": "El Salvador", "subregion": "Centroamérica", "total": 1910251, "totalPct": 0.9739097849777585, "quantitative": 508009, "quantitativePct": 0.2589999617624941, "qualitative": 1402242, "qualitativePct": 0.7149098232152644, "financing": 8.56, "financingYear": 2024, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-43"}, {"iso3": "GRD", "numericId": "308", "name": "Granada", "subregion": "Caribe", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": 29.28, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-57"}, {"iso3": "GTM", "numericId": "320", "name": "Guatemala", "subregion": "Centroamérica", "total": 3580494, "totalPct": 0.8837871620721012, "quantitative": 1446317, "quantitativePct": 0.35700001086068994, "qualitative": 2134177, "qualitativePct": 0.5267871512114112, "financing": 2.02, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-36"}, {"iso3": "GUY", "numericId": "328", "name": "Guyana", "subregion": "Suramérica", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": null, "financingYear": null, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-53"}, {"iso3": "HND", "numericId": "340", "name": "Honduras", "subregion": "Centroamérica", "total": 2252276, "totalPct": 0.8857620966235441, "quantitative": 684001, "quantitativePct": 0.2689999626389487, "qualitative": 1568275, "qualitativePct": 0.6167621339845955, "financing": 16.26, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-37"}, {"iso3": "JAM", "numericId": "388", "name": "Jamaica", "subregion": "Caribe", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": 13.61, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-38"}, {"iso3": "MEX", "numericId": "484", "name": "México", "subregion": "México", "total": 26029755, "totalPct": 0.7032410857679874, "quantitative": 5070916, "quantitativePct": 0.13700000148592484, "qualitative": 20958839, "qualitativePct": 0.5662410842820625, "financing": 9.66, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-39"}, {"iso3": "NIC", "numericId": "558", "name": "Nicaragua", "subregion": "Centroamérica", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": null, "financingYear": null, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-54"}, {"iso3": "PAN", "numericId": "591", "name": "Panamá", "subregion": "Centroamérica", "total": 610796, "totalPct": 0.4708434381354848, "quantitative": 163452, "quantitativePct": 0.12600000925042282, "qualitative": 447344, "qualitativePct": 0.344843428885062, "financing": 24.4, "financingYear": 2024, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-40"}, {"iso3": "PRY", "numericId": "600", "name": "Paraguay", "subregion": "Suramérica", "total": 1156021, "totalPct": 0.6926931191536355, "quantitative": 151868, "quantitativePct": 0.09100000659125078, "qualitative": 1004153, "qualitativePct": 0.6016931125623847, "financing": 2.14, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-42"}, {"iso3": "PER", "numericId": "604", "name": "Perú", "subregion": "Suramérica", "total": 7257226, "totalPct": 0.7219058117825247, "quantitative": 3196813, "quantitativePct": 0.31800000218842955, "qualitative": 4060413, "qualitativePct": 0.40390580959409506, "financing": 6.61, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-41"}, {"iso3": "KNA", "numericId": "659", "name": "San Cristóbal y Nieves", "subregion": "Caribe", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": 21.43, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-58"}, {"iso3": "LCA", "numericId": "662", "name": "Santa Lucía", "subregion": "Caribe", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": 14.46, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-51"}, {"iso3": "VCT", "numericId": "670", "name": "San Vicente y las Granadinas", "subregion": "Caribe", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": 14, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-50"}, {"iso3": "SUR", "numericId": "740", "name": "Surinam", "subregion": "Suramérica", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": null, "financingYear": null, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-52"}, {"iso3": "TTO", "numericId": "780", "name": "Trinidad y Tobago", "subregion": "Caribe", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": 15.67, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-49"}, {"iso3": "URY", "numericId": "858", "name": "Uruguay", "subregion": "Suramérica", "total": 527403, "totalPct": 0.41487875445830863, "quantitative": 45764, "quantitativePct": 0.03600000629315729, "qualitative": 481639, "qualitativePct": 0.3788787481651513, "financing": 4.71, "financingYear": 2023, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-44"}, {"iso3": "VEN", "numericId": "862", "name": "Venezuela", "subregion": "Suramérica", "total": null, "totalPct": null, "quantitative": null, "quantitativePct": null, "qualitative": null, "qualitativePct": null, "financing": null, "financingYear": null, "profileUrl": "https://www.iadb.org/document.cfm?id=EZIDB0000577-1540040855-45"}];
-const BID_TOTAL_PALETTE=['#FDE5EF','#FAC2D8','#F594B8','#EE668F','#DF3D68','#B82055'];
-const BID_QUANTITATIVE_PALETTE=['#FFE2A3','#FFC05A','#FF9436','#FF6A27','#FF4B00','#D82420'];
-const BID_QUALITATIVE_PALETTE=['#D8E7FF','#9AC5F7','#5A9BED','#3972DA','#3155C7','#302693'];
+const BID_BLUE_PALETTE=['#CFE1FF','#B9D3FF','#A2C5FF','#89B4FF','#5C97FF','#2E79FF','#0F57D7','#0D3B7E'];
+const BID_TOTAL_PALETTE=BID_BLUE_PALETTE;
+const BID_QUANTITATIVE_PALETTE=BID_BLUE_PALETTE;
+const BID_QUALITATIVE_PALETTE=BID_BLUE_PALETTE;
+const BID_FINANCING_PALETTE=BID_BLUE_PALETTE;
 const UPDATED_HOUSING_DATA={
  GUY:{total:72000,totalPct:0.3399995278,quantitative:20000,quantitativePct:0.09444431327,qualitative:52000,qualitativePct:0.2455552145},
  NIC:{total:956981,totalPct:0.9162307224,quantitative:309176,quantitativePct:0.2960106312,qualitative:647805,qualitativePct:0.6202200912}
 };
 countries.forEach(country=>Object.assign(country,UPDATED_HOUSING_DATA[country.iso3]||{}));
 const config={
- total:{label:'Déficit habitacional total',short:'Viviendas con déficit sobre el total',description:'Muestra qué porcentaje del total de viviendas del país presenta déficit habitacional. Se calcula como déficit cuantitativo más déficit cualitativo, dividido por el total de viviendas del país.',field:'totalPct',countField:'total',format:'ratio',unit:'% del total de viviendas',palette:BID_TOTAL_PALETTE,low:'Menor proporción de déficit',high:'Mayor proporción de déficit',source:'Excel “M1” · columnas D y E · Déficit Integral 2023',meaning:'El color compara tasas y no tamaños poblacionales. La fórmula es: (viviendas con déficit cuantitativo + viviendas con déficit cualitativo) ÷ total de viviendas del país. Los tonos rosados más intensos indican una proporción mayor de viviendas en déficit.'},
- quantitative:{label:'Déficit cuantitativo',short:'Viviendas nuevas requeridas sobre el total',description:'Muestra el porcentaje de viviendas nuevas requeridas respecto al total de viviendas del país. Así, un país grande no aparece con mayor déficit solamente por tener más población.',field:'quantitativePct',countField:'quantitative',format:'ratio',unit:'% del total de viviendas',palette:BID_QUANTITATIVE_PALETTE,low:'Menor déficit cuantitativo',high:'Mayor déficit cuantitativo',source:'Excel “M1” · columnas F y G · Déficit Integral 2023',meaning:'Cada color representa la proporción de viviendas nuevas requeridas sobre el total de viviendas del país. Los tonos naranja más intensos señalan una proporción mayor.'},
- qualitative:{label:'Déficit cualitativo',short:'Viviendas por mejorar sobre el total',description:'Muestra el porcentaje de viviendas que requieren mejoras respecto al total de viviendas del país.',field:'qualitativePct',countField:'qualitative',format:'ratio',unit:'% del total de viviendas',palette:BID_QUALITATIVE_PALETTE,low:'Menor déficit cualitativo',high:'Mayor déficit cualitativo',source:'Excel “M1” · columnas H e I · Déficit Integral 2023',meaning:'Cada color representa la proporción de viviendas con déficit cualitativo sobre el total de viviendas del país. Los tonos azules más intensos señalan una proporción mayor.'},
- financing:{label:'Cartera Hipotecaria como Porcentaje del PIB',short:'Cartera hipotecaria como porcentaje del PIB',description:'Muestra el tamaño de la cartera hipotecaria como porcentaje del PIB del país. Usa el último dato disponible por país.',field:'financing',format:'percent',unit:'% del PIB',palette:['#EEE5FF','#D8C5FA','#B99AEF','#966DDA','#7447BC','#52288E'],low:'Menor profundidad hipotecaria',high:'Mayor profundidad hipotecaria',source:'Excel “M1” y pestaña “Cartera Hip % PIB” · último dato disponible',meaning:'Esta gráfica no mide déficit habitacional ni hogares sin crédito. Mide profundidad del mercado hipotecario: a mayor porcentaje, mayor peso de la cartera hipotecaria respecto al PIB.'}
+ total:{label:'Déficit habitacional total',short:'Viviendas con déficit sobre el total',description:'Muestra el porcentaje total de viviendas del país que requieren una solución habitacional, ya sea por falta de vivienda adecuada o por carencias en la vivienda actual.',field:'totalPct',countField:'total',format:'ratio',unit:'% del total de viviendas',rankPercentLabel:'% viv.',rankCountLabel:'Déficit',rankBaseLabel:'Total viv.',palette:BID_TOTAL_PALETTE,low:'Menor proporción de déficit',high:'Mayor proporción de déficit',source:'Excel “M1” · columnas D y E · Déficit Integral 2023',meaning:'El color compara tasas y no tamaños poblacionales. La fórmula es: (viviendas con déficit cuantitativo + viviendas con déficit cualitativo) ÷ total de viviendas del país. Los tonos rosados más intensos indican una proporción mayor de viviendas en déficit.'},
+ quantitative:{label:'Déficit cuantitativo',short:'Viviendas nuevas requeridas sobre el total',description:'Muestra el porcentaje de hogares o familias que necesitan una vivienda adecuada de uso residencial exclusivo.',field:'quantitativePct',countField:'quantitative',format:'ratio',unit:'% del total de viviendas',rankPercentLabel:'% viv.',rankCountLabel:'Nuevas req.',rankBaseLabel:'Total viv.',palette:BID_QUANTITATIVE_PALETTE,low:'Menor déficit cuantitativo',high:'Mayor déficit cuantitativo',source:'Excel “M1” · columnas F y G · Déficit Integral 2023',meaning:'Cada color representa la proporción de viviendas nuevas requeridas sobre el total de viviendas del país. Los tonos naranja más intensos señalan una proporción mayor.'},
+ qualitative:{label:'Déficit cualitativo',short:'Viviendas por mejorar sobre el total',description:'Muestra el porcentaje de viviendas que requieren mejoras por carencias de materialidad, espacio, servicios, seguridad de la tenencia o asequibilidad económica.',field:'qualitativePct',countField:'qualitative',format:'ratio',unit:'% del total de viviendas',rankPercentLabel:'% viv.',rankCountLabel:'Déficit cual.',rankBaseLabel:'Total viv.',palette:BID_QUALITATIVE_PALETTE,low:'Menor déficit cualitativo',high:'Mayor déficit cualitativo',source:'Excel “M1” · columnas H e I · Déficit Integral 2023',meaning:'Cada color representa la proporción de viviendas con déficit cualitativo sobre el total de viviendas del país. Los tonos azules más intensos señalan una proporción mayor.'},
+ financing:{label:'Cartera Hipotecaria como Porcentaje del PIB',short:'Cartera hipotecaria como porcentaje del PIB',description:'Muestra la proporción del valor total de los créditos hipotecarios vigentes respecto del producto interno bruto de cada país.',field:'financing',format:'percent',unit:'% del PIB',rankPercentLabel:'% PIB',palette:BID_FINANCING_PALETTE,low:'Menor profundidad hipotecaria',high:'Mayor profundidad hipotecaria',source:'Excel “M1” y pestaña “Cartera Hip % PIB” · último dato disponible',meaning:'Esta gráfica no mide déficit habitacional ni hogares sin crédito. Mide profundidad del mercado hipotecario: a mayor porcentaje, mayor peso de la cartera hipotecaria respecto al PIB.'}
 };
-const requestedCategory=new URLSearchParams(location.search).get('category');
+const urlParams=new URLSearchParams(location.search);
+const requestedCategory=urlParams.get('category');
+const previewMode=urlParams.get('preview')==='1';
 const state={category:config[requestedCategory]?requestedCategory:'total',mode:'regional',selected:'COL',subregion:'Todas'};
 const VALID_SUBREGIONS=['Todas','México','Centroamérica','Caribe','Suramérica'];
 const currentPath=location.pathname.replace(/\/$/,'');
-const isDisplayMode=currentPath===''||currentPath.endsWith('/display')||new URLSearchParams(location.search).get('display')==='1';
+const isDisplayMode=currentPath===''||currentPath.endsWith('/display')||urlParams.get('display')==='1';
+const isCalloutEditMode=isDisplayMode&&urlParams.get('edit')==='1';
 document.getElementById('app').classList.toggle('display-mode',isDisplayMode);
 document.body.classList.toggle('display-body',isDisplayMode);
+document.body.classList.toggle('editing-callouts',isCalloutEditMode);
 const isoMap=new Map(countries.map(c=>[c.iso3,c]));
+ const CALLOUT_EDITOR_STORAGE_KEY='bid-map-callout-layout-v7';
+const MANUAL_CALLOUT_LAYOUT={
+ qualitative:{
+  main:{
+    MEX:{label:{x:.306,y:.0856,side:'left'},pin:{x:.4318,y:.1177},line:{x:.3272,y:.1177}},
+    HND:{pin:{x:.5157,y:.2174},label:{x:.4829,y:.1212,side:'top'},line:{x:.5154,y:.1937}},
+    SLV:{label:{x:.3583,y:.1993,side:'left'},pin:{x:.4916,y:.2302}},
+   NIC:{pin:{x:.5126,y:.2455},label:{x:.4216,y:.2479,side:'left'}},
+   PRY:{pin:{x:.6469,y:.5686},label:{x:.4916,y:.5374,side:'left'}}
+  },
+  style:{lineWidth:.95,pinSize:6}
+ },
+ quantitative:{
+  main:{
+    HND:{pin:{x:.5179,y:.2144},label:{x:.486,y:.1258,side:'top'}},
+   SLV:{pin:{x:.4929,y:.2312},label:{x:.3731,y:.2337,side:'left'}},
+    NIC:{pin:{x:.507,y:.2461},label:{x:.4749,y:.3061,side:'bottom'}},
+   PER:{pin:{x:.5597,y:.4394},label:{x:.491,y:.4081,side:'left'}},
+    GTM:{pin:{x:.4796,y:.2206},label:{x:.4472,y:.0554,side:'top'}}
+  },
+  style:{lineWidth:.95,pinSize:6}
+ },
+ total:{
+  main:{
+    GTM:{pin:{x:.4797,y:.2165},label:{x:.4471,y:.035,side:'top'}},
+    SLV:{pin:{x:.4926,y:.2275},label:{x:.3705,y:.23,side:'left'}},
+    HND:{pin:{x:.5181,y:.2171},label:{x:.4868,y:.1131,side:'top'}},
+    NIC:{pin:{x:.5127,y:.2461},label:{x:.4332,y:.2477,side:'left'}},
+    BOL:{label:{x:.4879,y:.4731,side:'left'}}
+  },
+  style:{lineWidth:.95,pinSize:6}
+ },
+ financing:{
+  main:{
+   PAN:{pin:{x:.5337,y:.2826},label:{x:.4,y:.2523,side:'left'}},
+   CHL:{label:{x:.4947,y:.7315,side:'left'}}
+  },
+  caribbean:{
+   GRD:{label:{x:.7728,y:.9}},
+   BRB:{label:{x:.7637,y:.7266}},
+   KNA:{label:{x:.7595,y:.5496}}
+  },
+  style:{lineWidth:.95,pinSize:6}
+ }
+};
+let activeEditedCallout='';
+let calloutManualLayout=readCalloutManualLayout();
+function cssLengthToPx(raw,basisX,basisY=basisX){
+ const value=(raw||'').toString().trim();
+ const amount=parseFloat(value);
+ if(!Number.isFinite(amount))return 0;
+ if(value.endsWith('vw'))return amount*window.innerWidth/100;
+ if(value.endsWith('vh'))return amount*window.innerHeight/100;
+ if(value.endsWith('%'))return amount*basisX/100;
+ if(value.endsWith('px'))return amount;
+ return amount;
+}
+function cloneCalloutLayout(layout){
+ try{return JSON.parse(JSON.stringify(layout||{}))}catch(_){return{}}
+}
+function mergeCalloutLayout(base,override){
+ const merged=cloneCalloutLayout(base);
+ Object.entries(override||{}).forEach(([category,categoryLayout])=>{
+  if(!categoryLayout||typeof categoryLayout!=='object')return;
+  if(!merged[category]||typeof merged[category]!=='object')merged[category]={};
+  Object.entries(categoryLayout).forEach(([kind,items])=>{
+   if(!items||typeof items!=='object')return;
+   merged[category][kind]={...(merged[category][kind]||{}),...items};
+  });
+ });
+ return merged;
+}
+function readCalloutManualLayout(){
+ try{const raw=localStorage.getItem(CALLOUT_EDITOR_STORAGE_KEY);const parsed=raw?JSON.parse(raw):{};return mergeCalloutLayout(MANUAL_CALLOUT_LAYOUT,parsed&&typeof parsed==='object'?parsed:{})}catch(_){return cloneCalloutLayout(MANUAL_CALLOUT_LAYOUT)}
+}
+function saveCalloutManualLayout(){
+ try{localStorage.setItem(CALLOUT_EDITOR_STORAGE_KEY,JSON.stringify(calloutManualLayout))}catch(_){}
+ updateCalloutEditorPanel();
+}
+function cleanRatio(value){return Math.round(clampValue(value,0,1)*10000)/10000}
+function manualBucket(kind){
+ const category=state.category;
+ if(!calloutManualLayout[category]||typeof calloutManualLayout[category]!=='object')calloutManualLayout[category]={};
+ if(!calloutManualLayout[category][kind]||typeof calloutManualLayout[category][kind]!=='object')calloutManualLayout[category][kind]={};
+ return calloutManualLayout[category][kind];
+}
+function manualEntry(kind,iso){
+ const bucket=manualBucket(kind);
+ if(!bucket[iso]||typeof bucket[iso]!=='object')bucket[iso]={};
+ return bucket[iso];
+}
+function getManualEntry(kind,iso){
+ return calloutManualLayout[state.category]?.[kind]?.[iso]||null;
+}
+function styleBucket(){
+ const category=state.category;
+ if(!calloutManualLayout[category]||typeof calloutManualLayout[category]!=='object')calloutManualLayout[category]={};
+ if(!calloutManualLayout[category].style||typeof calloutManualLayout[category].style!=='object')calloutManualLayout[category].style={};
+ return calloutManualLayout[category].style;
+}
+function calloutStyle(){
+ return{
+  lineWidth:Number(calloutManualLayout[state.category]?.style?.lineWidth)||1.35,
+  pinSize:Number(calloutManualLayout[state.category]?.style?.pinSize)||8,
+  caribbeanPinSize:Number(calloutManualLayout[state.category]?.style?.caribbeanPinSize)||3.1
+ };
+}
+function updateCalloutStyle(part,value){
+ styleBucket()[part]=Math.round(Number(value)*100)/100;
+ saveCalloutManualLayout();
+ render();
+}
+function applyManualMainCallout(country,pin,boxPoint,boxWidth,boxHeight,metrics){
+ const manual=getManualEntry('main',country.iso3);
+ if(manual?.pin){
+  pin.x=clampValue(metrics.rect.width*manual.pin.x,6,metrics.rect.width-6);
+  pin.y=clampValue(metrics.rect.height*manual.pin.y,6,metrics.rect.height-6);
+ }
+ if(manual?.label){
+  boxPoint.x=clampValue(metrics.rect.width*manual.label.x,8,metrics.rect.width-boxWidth-8);
+  boxPoint.y=clampValue(metrics.rect.height*manual.label.y,8,metrics.rect.height-boxHeight-8);
+  boxPoint.side=manual.label.side||inferCalloutSide(pin,boxPoint,boxWidth,boxHeight);
+  boxPoint.lineY=pin.y;
+ }else if(!boxPoint.side){
+  boxPoint.side=inferCalloutSide(pin,boxPoint,boxWidth,boxHeight);
+ }
+ return{pin,boxPoint};
+}
+function inferCalloutSide(pin,box,width,height){
+ const centerX=box.x+width*.5,centerY=box.y+height*.5;
+ if(centerY<pin.y-height*.55&&Math.abs(centerX-pin.x)<width*.65)return'top';
+ if(centerY>pin.y+height*.55&&Math.abs(centerX-pin.x)<width*.65)return'bottom';
+ return centerX<pin.x?'left':'right';
+}
+function setManualMainPin(iso,pin,metrics){
+ const entry=manualEntry('main',iso);
+ entry.pin={x:cleanRatio(pin.x/metrics.rect.width),y:cleanRatio(pin.y/metrics.rect.height)};
+}
+function setManualMainLabel(iso,box,metrics){
+ const entry=manualEntry('main',iso);
+ entry.label={x:cleanRatio(box.x/metrics.rect.width),y:cleanRatio(box.y/metrics.rect.height),side:box.side||'left'};
+}
+function manualMainLinePoint(iso,anchor,pin,metrics){
+ const line=getManualEntry('main',iso)?.line;
+ if(line)return{x:clampValue(metrics.rect.width*line.x,6,metrics.rect.width-6),y:clampValue(metrics.rect.height*line.y,6,metrics.rect.height-6)};
+ return{x:(anchor.x+pin.x)/2,y:(anchor.y+pin.y)/2};
+}
+function setManualMainLine(iso,point,metrics){
+ const entry=manualEntry('main',iso);
+ entry.line={x:cleanRatio(point.x/metrics.rect.width),y:cleanRatio(point.y/metrics.rect.height)};
+}
+function updateMainConnector(iso,boxWidth,boxHeight){
+ const bubble=document.querySelector('.html-callout[data-callout="'+iso+'"]');
+ const pinNode=document.querySelector('.html-pin[data-callout-pin="'+iso+'"]');
+ const lineHandle=document.querySelector('.html-line-handle[data-line-handle="'+iso+'"]');
+ if(!bubble||!pinNode)return;
+ const metrics=svgMetrics(document.getElementById('mapSvg'));
+ const pin={x:parseFloat(pinNode.style.left)||0,y:parseFloat(pinNode.style.top)||0};
+ const box={x:parseFloat(bubble.style.left)||0,y:parseFloat(bubble.style.top)||0};
+ const side=bubble.dataset.side||inferCalloutSide(pin,box,boxWidth,boxHeight);
+ const anchor=displayCalloutAnchor({...box,lineY:pin.y},boxWidth,boxHeight,side);
+ const linePoint=manualMainLinePoint(iso,anchor,pin,metrics);
+ const path=connectorPath(anchor,pin,side,isoMap.get(iso),getManualEntry('main',iso)?.line?linePoint:null);
+ document.querySelectorAll('[data-main-connector="'+iso+'"]').forEach(node=>node.setAttribute('d',path));
+ if(lineHandle){
+  lineHandle.style.left=linePoint.x.toFixed(1)+'px';
+  lineHandle.style.top=linePoint.y.toFixed(1)+'px';
+ }
+}
+function applyMainCalloutVisualStyle(pinNode,lineWidth,pinSize){
+ const dotSize=Math.max(4,Number(pinSize)||8);
+ pinNode.style.width=dotSize.toFixed(1)+'px';
+ pinNode.style.height=dotSize.toFixed(1)+'px';
+ pinNode.style.margin='0';
+ pinNode.style.transform='translate(-50%,-50%)';
+ pinNode.style.boxShadow='0 0 '+Math.max(5,dotSize*.65).toFixed(1)+'px #fff,0 0 '+Math.max(9,dotSize*1.25).toFixed(1)+'px var(--callout-color)';
+}
+function connectorStrokeStyle(lineWidth,haloScale=3.4){
+ const width=Math.max(.4,Number(lineWidth)||1.35);
+ return{core:width.toFixed(2),halo:Math.max(width*haloScale,width+1.6).toFixed(2)};
+}
+function bindManualMainCallout(country,bubble,pinNode,lineHandle,boxWidth,boxHeight,metrics){
+ if(!isCalloutEditMode)return;
+ const iso=country.iso3;
+ const label=shortCountryName(country.name);
+ bubble.dataset.editLabel=label;
+ bubble.dataset.callout=iso;
+ pinNode.dataset.calloutPin=iso;
+ if(lineHandle)lineHandle.dataset.lineHandle=iso;
+ const startDrag=(event,kind,node)=>{
+  event.preventDefault();
+  event.stopPropagation();
+  activeEditedCallout=iso;
+  node.classList.add('is-editing');
+  updateCalloutEditorPanel();
+  const startX=event.clientX,startY=event.clientY;
+  const initialPin={x:parseFloat(pinNode.style.left)||0,y:parseFloat(pinNode.style.top)||0};
+  const initialBox={x:parseFloat(bubble.style.left)||0,y:parseFloat(bubble.style.top)||0};
+  const initialLine=lineHandle?{x:parseFloat(lineHandle.style.left)||0,y:parseFloat(lineHandle.style.top)||0}:null;
+  const move=moveEvent=>{
+   const dx=moveEvent.clientX-startX,dy=moveEvent.clientY-startY;
+   if(kind==='pin'){
+    const pin={x:clampValue(initialPin.x+dx,6,metrics.rect.width-6),y:clampValue(initialPin.y+dy,6,metrics.rect.height-6)};
+    pinNode.style.left=pin.x.toFixed(1)+'px';
+    pinNode.style.top=pin.y.toFixed(1)+'px';
+     setManualMainPin(iso,pin,metrics);
+    }else if(kind==='line'&&lineHandle&&initialLine){
+     const point={x:clampValue(initialLine.x+dx,6,metrics.rect.width-6),y:clampValue(initialLine.y+dy,6,metrics.rect.height-6)};
+     lineHandle.style.left=point.x.toFixed(1)+'px';
+     lineHandle.style.top=point.y.toFixed(1)+'px';
+     setManualMainLine(iso,point,metrics);
+    }else{
+    const box={x:clampValue(initialBox.x+dx,8,metrics.rect.width-boxWidth-8),y:clampValue(initialBox.y+dy,8,metrics.rect.height-boxHeight-8)};
+    const pin={x:parseFloat(pinNode.style.left)||0,y:parseFloat(pinNode.style.top)||0};
+    box.side=inferCalloutSide(pin,box,boxWidth,boxHeight);
+    bubble.style.left=box.x.toFixed(1)+'px';
+    bubble.style.top=box.y.toFixed(1)+'px';
+    bubble.dataset.side=box.side;
+    setManualMainLabel(iso,box,metrics);
+   }
+   updateMainConnector(iso,boxWidth,boxHeight);
+   updateCalloutEditorPanel();
+  };
+  const stop=()=>{
+   node.classList.remove('is-editing');
+   saveCalloutManualLayout();
+   document.removeEventListener('pointermove',move);
+   document.removeEventListener('pointerup',stop);
+  };
+  document.addEventListener('pointermove',move);
+  document.addEventListener('pointerup',stop,{once:true});
+ };
+ bubble.onpointerdown=event=>startDrag(event,'label',bubble);
+ pinNode.onpointerdown=event=>startDrag(event,'pin',pinNode);
+ if(lineHandle)lineHandle.onpointerdown=event=>startDrag(event,'line',lineHandle);
+}
+function setManualSide(side){
+ if(!activeEditedCallout)return;
+ const bubble=document.querySelector('.html-callout[data-callout="'+activeEditedCallout+'"]');
+ const pinNode=document.querySelector('.html-pin[data-callout-pin="'+activeEditedCallout+'"]');
+ if(!bubble||!pinNode)return;
+ const metrics=svgMetrics(document.getElementById('mapSvg'));
+ const boxWidth=parseFloat(bubble.style.width)||bubble.offsetWidth;
+ const boxHeight=parseFloat(bubble.style.minHeight)||bubble.offsetHeight;
+ const box={x:parseFloat(bubble.style.left)||0,y:parseFloat(bubble.style.top)||0,side};
+ bubble.dataset.side=side;
+ setManualMainLabel(activeEditedCallout,box,metrics);
+ updateMainConnector(activeEditedCallout,boxWidth,boxHeight);
+ saveCalloutManualLayout();
+}
+function caribbeanPointFromEvent(svg,event){
+ const point=svg.createSVGPoint();
+ point.x=event.clientX;
+ point.y=event.clientY;
+ return point.matrixTransform(svg.getScreenCTM().inverse());
+}
+function applyManualCaribbeanCallout(country,point,label){
+ const manual=getManualEntry('caribbean',country.iso3);
+ if(manual?.pin){point[0]=manual.pin.x*640;point[1]=manual.pin.y*400}
+ if(manual?.label){label.x=manual.label.x*640;label.y=manual.label.y*400}
+ return{point,label};
+}
+function setManualCaribbeanPin(iso,point){
+ const entry=manualEntry('caribbean',iso);
+ entry.pin={x:cleanRatio(point[0]/640),y:cleanRatio(point[1]/400)};
+}
+function setManualCaribbeanLabel(iso,label){
+ const entry=manualEntry('caribbean',iso);
+ entry.label={x:cleanRatio(label.x/640),y:cleanRatio(label.y/400)};
+}
+function caribbeanLinePoint(iso,point,label){
+ const line=getManualEntry('caribbean',iso)?.line;
+ if(line)return{x:clampValue(line.x*640,6,634),y:clampValue(line.y*400,6,394)};
+ return{x:Math.max(point[0]+34,Math.min(label.x-22,468)),y:label.y+20};
+}
+function setManualCaribbeanLine(iso,line){
+ const entry=manualEntry('caribbean',iso);
+ entry.line={x:cleanRatio(line.x/640),y:cleanRatio(line.y/400)};
+}
+function caribbeanRoute(point,label,line){
+ if(line)return'M '+point[0].toFixed(1)+' '+point[1].toFixed(1)+' L '+line.x.toFixed(1)+' '+line.y.toFixed(1)+' L 620 '+line.y.toFixed(1);
+ const elbowX=Math.max(point[0]+34,Math.min(label.x-22,468));
+ const lineY=label.y+20;
+ return'M '+point[0].toFixed(1)+' '+point[1].toFixed(1)+' H '+elbowX.toFixed(1)+' V '+lineY.toFixed(1)+' H 620';
+}
+function updateCaribbeanConnector(group){
+ const point=[parseFloat(group.dataset.pinX)||0,parseFloat(group.dataset.pinY)||0];
+ const label={x:parseFloat(group.dataset.labelX)||492,y:parseFloat(group.dataset.labelY)||112};
+ const line={x:parseFloat(group.dataset.lineX)||0,y:parseFloat(group.dataset.lineY)||0};
+ const route=caribbeanRoute(point,label,getManualEntry('caribbean',group.dataset.caribbeanCallout)?.line?line:null);
+ group.querySelectorAll('.caribbean-leader').forEach(node=>node.setAttribute('d',route));
+ group.querySelectorAll('.caribbean-line-handle').forEach(node=>{node.setAttribute('cx',line.x.toFixed(1));node.setAttribute('cy',line.y.toFixed(1))});
+ group.querySelectorAll('.caribbean-pin').forEach(node=>{node.setAttribute('cx',point[0].toFixed(1));node.setAttribute('cy',point[1].toFixed(1))});
+ const rank=group.querySelector('.caribbean-rank');
+ const rankDot=group.querySelector('.caribbean-rank-dot');
+ const name=group.querySelector('.caribbean-label-name');
+ const value=group.querySelector('.caribbean-label-value');
+ const hit=group.querySelector('.caribbean-edit-hit');
+ if(rankDot){rankDot.setAttribute('cx',label.x);rankDot.setAttribute('cy',(label.y-8).toFixed(1))}
+ if(rank){rank.setAttribute('x',label.x);rank.setAttribute('y',(label.y-7.5).toFixed(1))}
+ if(name){name.setAttribute('x',(label.x+15).toFixed(1));name.setAttribute('y',(label.y-5).toFixed(1))}
+ if(value){value.setAttribute('x',(label.x+15).toFixed(1));value.setAttribute('y',(label.y+10).toFixed(1))}
+ if(hit){hit.setAttribute('x',(label.x-12).toFixed(1));hit.setAttribute('y',(label.y-24).toFixed(1))}
+}
+function applyCaribbeanCalloutVisualStyle(group,lineWidth,pinSize){
+ const strokes=connectorStrokeStyle(lineWidth,3.6);
+ const radius=Math.max(1.4,Number(pinSize)||3.1);
+ group.querySelectorAll('.caribbean-leader-core').forEach(node=>node.style.strokeWidth=strokes.core+'px');
+ group.querySelectorAll('.caribbean-leader-halo').forEach(node=>node.style.strokeWidth=strokes.halo+'px');
+ group.querySelectorAll('.caribbean-pin:not(.caribbean-pin-halo)').forEach(node=>node.setAttribute('r',radius.toFixed(2)));
+ group.querySelectorAll('.caribbean-pin-halo').forEach(node=>node.setAttribute('r',Math.max(radius+2.3,radius*1.7).toFixed(2)));
+}
+function bindManualCaribbeanCallout(group,country){
+ if(!isCalloutEditMode)return;
+ const svg=document.getElementById('caribbeanSvg');
+ const iso=country.iso3;
+ const startDrag=(event,kind,node)=>{
+  event.preventDefault();
+  event.stopPropagation();
+  activeEditedCallout=iso;
+  node.classList.add('is-editing');
+  updateCalloutEditorPanel();
+  const start=caribbeanPointFromEvent(svg,event);
+  const initialPin=[parseFloat(group.dataset.pinX)||0,parseFloat(group.dataset.pinY)||0];
+  const initialLabel={x:parseFloat(group.dataset.labelX)||492,y:parseFloat(group.dataset.labelY)||112};
+  const initialLine={x:parseFloat(group.dataset.lineX)||0,y:parseFloat(group.dataset.lineY)||0};
+  const move=moveEvent=>{
+   const current=caribbeanPointFromEvent(svg,moveEvent),dx=current.x-start.x,dy=current.y-start.y;
+   if(kind==='pin'){
+    const point=[clampValue(initialPin[0]+dx,6,634),clampValue(initialPin[1]+dy,6,394)];
+    group.dataset.pinX=point[0].toFixed(1);
+    group.dataset.pinY=point[1].toFixed(1);
+    setManualCaribbeanPin(iso,point);
+    }else if(kind==='line'){
+     const line={x:clampValue(initialLine.x+dx,6,634),y:clampValue(initialLine.y+dy,6,394)};
+     group.dataset.lineX=line.x.toFixed(1);
+     group.dataset.lineY=line.y.toFixed(1);
+     setManualCaribbeanLine(iso,line);
+    }else{
+    const label={x:clampValue(initialLabel.x+dx,14,570),y:clampValue(initialLabel.y+dy,34,374)};
+    group.dataset.labelX=label.x.toFixed(1);
+    group.dataset.labelY=label.y.toFixed(1);
+    setManualCaribbeanLabel(iso,label);
+   }
+   updateCaribbeanConnector(group);
+   updateCalloutEditorPanel();
+  };
+  const stop=()=>{
+   node.classList.remove('is-editing');
+   saveCalloutManualLayout();
+   document.removeEventListener('pointermove',move);
+   document.removeEventListener('pointerup',stop);
+  };
+  document.addEventListener('pointermove',move);
+  document.addEventListener('pointerup',stop,{once:true});
+ };
+  const hit=group.querySelector('.caribbean-edit-hit');
+  const pins=group.querySelectorAll('.caribbean-edit-pin');
+  const line=group.querySelector('.caribbean-edit-line');
+  if(hit)hit.onpointerdown=event=>startDrag(event,'label',hit);
+  pins.forEach(pin=>pin.onpointerdown=event=>startDrag(event,'pin',pin));
+   if(line)line.onpointerdown=event=>startDrag(event,'line',line);
+}
+function updateCalloutEditorPanel(){
+ if(!isCalloutEditMode)return;
+ const editor=document.getElementById('calloutEditor'),exportBox=document.getElementById('calloutExport'),status=document.getElementById('calloutEditorStatus');
+ if(!editor)return;
+ editor.hidden=false;
+ if(status)status.textContent=(activeEditedCallout?activeEditedCallout+' - ':'')+config[state.category].label;
+ document.querySelectorAll('[data-edit-category]').forEach(button=>button.classList.toggle('active',button.dataset.editCategory===state.category));
+ const selectedSide=getManualEntry('main',activeEditedCallout)?.label?.side||'';
+ document.querySelectorAll('[data-edit-side]').forEach(button=>{
+  button.classList.toggle('active',button.dataset.editSide===selectedSide);
+  button.disabled=!activeEditedCallout;
+ });
+ const style=calloutStyle();
+ const controls=[
+  ['calloutLineWidth','calloutLineWidthValue',style.lineWidth,'px'],
+  ['calloutPinSize','calloutPinSizeValue',style.pinSize,'px'],
+  ['calloutCaribbeanPinSize','calloutCaribbeanPinSizeValue',style.caribbeanPinSize,'r']
+ ];
+ controls.forEach(([inputId,valueId,value,suffix])=>{
+  const input=document.getElementById(inputId),label=document.getElementById(valueId);
+  if(input&&document.activeElement!==input)input.value=String(value);
+  if(label)label.textContent=String(value)+suffix;
+ });
+ if(exportBox)exportBox.value='const MANUAL_CALLOUT_LAYOUT = '+JSON.stringify(calloutManualLayout,null,2)+';';
+}
+function initCalloutEditor(){
+ if(!isCalloutEditMode)return;
+ const editor=document.getElementById('calloutEditor'),categories=document.getElementById('calloutEditorCategories');
+ if(!editor||!categories)return;
+ editor.hidden=false;
+ categories.innerHTML=Object.entries(config).map(([key,item])=>'<button type="button" data-edit-category="'+key+'">'+item.label+'</button>').join('');
+ categories.querySelectorAll('[data-edit-category]').forEach(button=>button.onclick=()=>{state.category=button.dataset.editCategory;commitState()});
+ document.querySelectorAll('[data-edit-side]').forEach(button=>button.onclick=()=>setManualSide(button.dataset.editSide));
+ document.getElementById('calloutLineWidth').oninput=e=>updateCalloutStyle('lineWidth',e.target.value);
+ document.getElementById('calloutPinSize').oninput=e=>updateCalloutStyle('pinSize',e.target.value);
+ document.getElementById('calloutCaribbeanPinSize').oninput=e=>updateCalloutStyle('caribbeanPinSize',e.target.value);
+ document.getElementById('resetCalloutLayout').onclick=()=>{delete calloutManualLayout[state.category];activeEditedCallout='';saveCalloutManualLayout();render()};
+ document.getElementById('copyCalloutLayout').onclick=async()=>{const text=document.getElementById('calloutExport').value;try{await navigator.clipboard.writeText(text)}catch(_){document.getElementById('calloutExport').select()}};
+ updateCalloutEditorPanel();
+}
 const MAP_DATA_URL='https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
 const MAP_DETAIL_DATA_URL='https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json';
 const REFERENCE_MAPS={total:'public/Mapa1.png',quantitative:'public/Mapa1.png',qualitative:'public/Mapa1.png',financing:'public/Mapa1.png'};
@@ -132,7 +1127,9 @@ let firebaseConnectedRef=null;
 const fmtInt=n=>new Intl.NumberFormat('es-CO',{maximumFractionDigits:0}).format(n);
 const fmtDec=n=>new Intl.NumberFormat('es-CO',{minimumFractionDigits:1,maximumFractionDigits:2}).format(n);
 function formatValue(v,categoryKey=state.category){if(v==null)return 'Información no disponible';const category=config[categoryKey];if(category?.format==='ratio')return fmtDec(v*100)+' %';if(category?.format==='percent')return fmtDec(v)+' %';return fmtInt(v)}
-function colorIndex(values,value,palette){if(value==null||!values.length)return -1;const s=[...values].sort((a,b)=>a-b);const rank=Math.max(0,s.filter(x=>x<=value).length-1);let idx=Math.round(rank/Math.max(1,s.length-1)*(palette.length-1));return Math.max(0,Math.min(palette.length-1,idx))}
+function formatLegendPercent(v,c){const value=c.format==='ratio'?v*100:v;const digits=Math.abs(value)<10?1:0;return new Intl.NumberFormat('es-CO',{minimumFractionDigits:0,maximumFractionDigits:digits}).format(value)+'%'}
+function numericExtent(values){const nums=values.filter(value=>typeof value==='number'&&Number.isFinite(value));if(!nums.length)return null;return{min:Math.min(...nums),max:Math.max(...nums)}}
+function colorIndex(values,value,palette){if(value==null||!values.length)return -1;const extent=numericExtent(values);if(!extent)return -1;if(extent.max===extent.min)return palette.length-1;const step=(extent.max-extent.min)/palette.length;let idx=Math.floor((value-extent.min)/step);if(value>=extent.max)idx=palette.length-1;return Math.max(0,Math.min(palette.length-1,idx))}
 function quantileColor(values,value,palette){if(value==null)return '#505963';const idx=colorIndex(values,value,palette);return idx>=0?palette[idx]:'#505963'}
 const referenceImageCache=new Map();
 let referenceRenderToken=0;
@@ -200,9 +1197,14 @@ function renderReferenceColors(category,c,values){
  image.onerror=()=>{if(token===referenceRenderToken)imageElement.removeAttribute('href')};
  image.src=source;
 }
-function legendRanges(values,c){if(!values.length)return '<div class="legendranges"><div><i style="background:#505963"></i><span>Sin valores disponibles en el filtro actual</span></div></div>';const s=[...values].sort((a,b)=>a-b);const n=s.length;return '<div class="legendranges">'+c.palette.map((color,i)=>{let start=Math.floor(i*n/c.palette.length);let end=Math.floor((i+1)*n/c.palette.length)-1;if(end<start)end=start;if(start>=n)start=n-1;if(end>=n)end=n-1;const a=s[start],b=s[end];const label=a===b?formatValue(a):formatValue(a)+' – '+formatValue(b);return '<div><i style="background:'+color+'"></i><span>'+label+'</span></div>'}).join('')+'</div>'}
+function legendScaleRanges(values,c){const extent=numericExtent(values);if(!extent||extent.max===extent.min)return '';const step=(extent.max-extent.min)/c.palette.length;return '<div class="scale-ranges">'+c.palette.map((_,i)=>{const a=extent.min+step*i,b=i===c.palette.length-1?extent.max:extent.min+step*(i+1);return '<span>'+formatLegendPercent(a,c)+'-'+formatLegendPercent(b,c)+'</span>'}).join('')+'</div>'}
+function legendRanges(values,c){const extent=numericExtent(values);if(!extent)return '<div class="legendranges"><div><i style="background:#505963"></i><span>Sin valores disponibles en el filtro actual</span></div></div>';if(extent.max===extent.min)return '<div class="legendranges"><div><i style="background:'+c.palette[c.palette.length-1]+'"></i><span>'+formatValue(extent.min)+'</span></div></div>';const step=(extent.max-extent.min)/c.palette.length;return '<div class="legendranges">'+c.palette.map((color,i)=>{const a=extent.min+step*i,b=i===c.palette.length-1?extent.max:extent.min+step*(i+1);const label=formatValue(a)+' - '+formatValue(b);return '<div><i style="background:'+color+'"></i><span>'+label+'</span></div>'}).join('')+'</div>'}
 function shortCountryName(name){return name.replace('República Dominicana','R. Dominicana').replace('San Cristóbal y Nieves','San Cristóbal').replace('San Vicente y las Granadinas','San Vicente').replace('Trinidad y Tobago','Trinidad y T.')}
-function sortedForIndicator(c){return [...countries].sort((a,b)=>{const av=typeof a[c.field]==='number',bv=typeof b[c.field]==='number';if(av&&bv)return b[c.field]-a[c.field];if(av)return -1;if(bv)return 1;return a.name.localeCompare(b.name,'es')})}
+const DEFICIT_EXCLUDED_ISO=new Set(['ATG','DMA','GRD','KNA','LCA','VCT']);
+function sortedForIndicator(c){
+ const source=c.countField?countries.filter(country=>!DEFICIT_EXCLUDED_ISO.has(country.iso3)):countries;
+ return [...source].sort((a,b)=>{const av=typeof a[c.field]==='number',bv=typeof b[c.field]==='number';if(av&&bv)return b[c.field]-a[c.field];if(av)return -1;if(bv)return 1;return a.name.localeCompare(b.name,'es')});
+}
 function svgNode(tag,attrs={}){const node=document.createElementNS(SVG_NS,tag);Object.entries(attrs).forEach(([key,value])=>node.setAttribute(key,value));return node}
 function housingStock(country,c){
  const ratio=country[c.field],deficit=c.countField?country[c.countField]:null;
@@ -212,20 +1214,56 @@ function renderRankList(sorted,c,values){
  const el=document.getElementById('rankList');
  if(!el)return;
  const hasHousingCounts=Boolean(c.countField);
+ const percentLabel=c.rankPercentLabel||'%';
+ const countLabel=c.rankCountLabel||'Déficit';
+ const baseLabel=c.rankBaseLabel||'Total viv.';
+ const availableRows=sorted.filter(country=>typeof country[c.field]==='number');
+ const missingRows=sorted.filter(country=>typeof country[c.field]!=='number');
  el.classList.toggle('financing-rank',!hasHousingCounts);
- el.innerHTML='<div class="ranklist-title"><span>Ranking 31 países</span><span>Mayor a menor</span></div><div class="rank-metric-key"><span>País</span><span>%</span><span>'+(hasHousingCounts?'Déficit':'Valor')+'</span><span>'+(hasHousingCounts?'Total viv.':'Unidad')+'</span></div><ol class="full-rank">'+sorted.map((country,index)=>{
-  const value=country[c.field],missing=typeof value!=='number',color=missing?'#59636f':quantileColor(values,value,c.palette),absolute=c.countField?country[c.countField]:null,total=housingStock(country,c);
-  return '<li class="'+(missing?'missing':'')+'" style="--swatch:'+color+'"><span class="rank-pos">'+(index+1)+'</span><i></i><span class="rank-country">'+country.name+'</span><strong class="rank-metric rank-pct">'+(missing?'ND':formatValue(value))+'</strong><strong class="rank-metric rank-count">'+(typeof absolute==='number'?fmtInt(absolute):'—')+'</strong><strong class="rank-metric rank-stock">'+(typeof total==='number'?fmtInt(total):'—')+'</strong></li>';
- }).join('')+'</ol>';
+ const visualRowCount=hasHousingCounts?31:Math.max(sorted.length,1);
+ const firstMissingRow=Math.max(1,availableRows.length-missingRows.length+1);
+ const ndTitleTop=missingRows.length?Math.max(0,Math.min(92,((firstMissingRow-1)/Math.max(availableRows.length,1))*100)):0;
+ el.style.setProperty('--rank-row-count',String(visualRowCount));
+ el.style.setProperty('--available-row-count',String(Math.max(availableRows.length,1)));
+ el.style.setProperty('--missing-row-count',String(Math.max(missingRows.length,1)));
+ el.style.setProperty('--nd-title-top',ndTitleTop.toFixed(2)+'%');
+ const availableHtml=availableRows.map((country,index)=>{
+  const value=country[c.field],color=quantileColor(values,value,c.palette),absolute=c.countField?country[c.countField]:null,total=housingStock(country,c);
+  return '<li style="--swatch:'+color+'"><span class="rank-pos">'+(index+1)+'</span><i></i><span class="rank-country">'+country.name+'</span><strong class="rank-metric rank-pct">'+formatValue(value)+'</strong><strong class="rank-metric rank-count">'+(typeof absolute==='number'?fmtInt(absolute):'—')+'</strong><strong class="rank-metric rank-stock">'+(typeof total==='number'?fmtInt(total):'—')+'</strong></li>';
+ }).join('');
+ const missingHtml=missingRows.map((country,index)=>{
+  const rank=availableRows.length+index+1;
+  const row=Math.max(1,availableRows.length-missingRows.length+index+1);
+  return '<li class="missing" style="grid-row:'+row+'"><span class="rank-pos">'+rank+'</span><i></i><span class="rank-country">'+country.name+'</span></li>';
+ }).join('');
+ el.innerHTML='<div class="ranklist-title"><span>Ranking</span></div><div class="ranklist-body"><div class="rank-main"><div class="rank-metric-key"><span>País</span><span>'+percentLabel+'</span><span>'+countLabel+'</span><span>'+baseLabel+'</span></div><ol class="full-rank">'+availableHtml+'</ol></div>'+(missingRows.length?'<div class="nd-rank-panel"><div class="nd-rank-title">Países sin información disponible</div><ol class="nd-rank">'+missingHtml+'</ol></div>':'')+'</div>';
+}
+function renderDisplayTitle(c){
+ const title=document.getElementById('title');
+ if(!title)return;
+ if(state.category==='financing'){
+  title.innerHTML='<span class="title-line title-accent">Cartera hipotecaria</span><span class="title-line title-white">como porcentaje PIB</span>';
+  return;
+ }
+ if(state.category==='total'){
+  title.textContent='Déficit habitacional total';
+  return;
+ }
+ title.textContent=c.label;
 }
 const CALLOUT_POINT_BY_BOX={
  GTM:[.50,.52],PAN:[.52,.50],KNA:[.50,.50],BRB:[.50,.50],GRD:[.50,.50]
 };
+const CALLOUT_POINT_BY_CATEGORY={
+ total:{GTM:[.54,.56],HND:[.42,.42],NIC:[.64,.62],SLV:[.58,.56]},
+ quantitative:{GTM:[.54,.56],HND:[.40,.42],NIC:[.66,.62],SLV:[.58,.56]},
+ financing:{PAN:[.55,.50],KNA:[.50,.50],BRB:[.50,.50],GRD:[.50,.50]}
+};
 function calloutPoint(country){
  const feature=mapFeatureByIso.get(country.iso3),pathEl=document.getElementById('map-'+country.iso3);
- const manual=CALLOUT_POINT_BY_BOX[country.iso3];
+ const manual=(CALLOUT_POINT_BY_CATEGORY[state.category]||{})[country.iso3]||CALLOUT_POINT_BY_BOX[country.iso3];
  if(pathEl&&manual){const b=pathEl.getBBox();return{x:b.x+b.width*manual[0],y:b.y+b.height*manual[1]}}
- if(feature&&window.bidMapPath){const p=window.bidMapPath.centroid(feature);if(Number.isFinite(p[0])&&Number.isFinite(p[1]))return {x:p[0],y:p[1]}}
+ if(feature&&window.bidMapPath){const p=window.bidMapPath.centroid(feature);if(Number.isFinite(p[0])&&Number.isFinite(p[1]))return{x:p[0],y:p[1]}}
  if(pathEl){const b=pathEl.getBBox();return{x:b.x+b.width/2,y:b.y+b.height/2}}
  return null;
 }
@@ -250,21 +1288,40 @@ function svgMetrics(svg){
  const viewBox=svg.viewBox.baseVal,rect=svg.getBoundingClientRect();
  const width=svg.clientWidth||rect.width,height=svg.clientHeight||rect.height;
  const scale=Math.min(width/viewBox.width,height/viewBox.height);
- return{viewBox,rect:{width,height},scale,offsetX:(width-viewBox.width*scale)/2,offsetY:(height-viewBox.height*scale)/2};
+ return{viewBox,rect:{width,height,left:rect.left,top:rect.top},scale,offsetX:(width-viewBox.width*scale)/2,offsetY:(height-viewBox.height*scale)/2};
 }
 function svgToLocal(metrics,x,y){
  return{x:(x-metrics.viewBox.x)*metrics.scale+metrics.offsetX,y:(y-metrics.viewBox.y)*metrics.scale+metrics.offsetY};
 }
 function displayMapTransform(metrics){
- if(!isDisplayMode)return{scale:1,shiftX:0,originX:0,originY:0};
- const style=getComputedStyle(document.getElementById('app'));
- const scale=parseFloat(style.getPropertyValue('--display-map-scale'))||1;
- const rawShift=style.getPropertyValue('--display-map-shift').trim();
- const shiftX=rawShift.endsWith('vw')?(parseFloat(rawShift)||0)*window.innerWidth/100:(parseFloat(rawShift)||0);
- return{scale,shiftX,originX:metrics.rect.width*.54,originY:metrics.rect.height*.52};
+ if(!isDisplayMode)return{scale:1,scaleX:1,scaleY:1,shiftX:0,shiftY:0,rotate:0,originX:0,originY:0};
+ const app=document.getElementById('app');
+ const appStyle=app?getComputedStyle(app):null;
+ const svg=document.getElementById('mapSvg');
+ const svgStyle=svg?getComputedStyle(svg):null;
+ const originParts=(svgStyle?.transformOrigin||'53% 51%').split(/\s+/);
+ const originX=cssLengthToPx(originParts[0]||'53%',metrics.rect.width);
+ const originY=cssLengthToPx(originParts[1]||'51%',metrics.rect.height);
+ return{
+  scale:parseFloat(appStyle?.getPropertyValue('--display-map-scale'))||1,
+  scaleX:1,
+  scaleY:1,
+  shiftX:cssLengthToPx(appStyle?.getPropertyValue('--display-map-shift')||'0',metrics.rect.width),
+  shiftY:0,
+  rotate:0,
+  originX,
+  originY
+ };
 }
 function applyDisplayMapTransform(point,transform){
- return{x:transform.originX+(point.x-transform.originX)*transform.scale+transform.shiftX,y:transform.originY+(point.y-transform.originY)*transform.scale};
+ const scaledX=(point.x-transform.originX)*transform.scale*transform.scaleX;
+ const scaledY=(point.y-transform.originY)*transform.scale*transform.scaleY;
+ const angle=(transform.rotate||0)*Math.PI/180;
+ const cos=Math.cos(angle),sin=Math.sin(angle);
+ return{
+  x:transform.originX+scaledX*cos-scaledY*sin+transform.shiftX,
+  y:transform.originY+scaledX*sin+scaledY*cos+transform.shiftY
+ };
 }
 function clampCalloutBox(point,width,height,metrics){
  const pad=8;
@@ -276,28 +1333,101 @@ const DISPLAY_CALLOUT_OFFSETS={
  qualitative:{MEX:{dx:-190,dy:40},NIC:{dx:-180,dy:22},HND:{dx:-180,dy:-18},SLV:{dx:-180,dy:48},PRY:{dx:-190,dy:28}},
  financing:{GRD:{dx:118,dy:78},CHL:{dx:-190,dy:62},PAN:{dx:-205,dy:-44},BRB:{dx:112,dy:-20},KNA:{dx:104,dy:-24}}
 };
-const DISPLAY_CALLOUT_SLOTS={
- total:{GTM:[.055,.18],HND:[.055,.24],SLV:[.055,.30],NIC:[.055,.36],BOL:[.75,.62]},
- quantitative:{GTM:[.055,.18],HND:[.055,.24],SLV:[.055,.30],NIC:[.055,.36],PER:[.20,.49]},
- qualitative:{MEX:[.045,.13],HND:[.055,.23],SLV:[.055,.29],NIC:[.055,.35],PRY:[.22,.61]},
- financing:{PAN:[.13,.25],CHL:[.28,.80]}
+/*
+ * Distribución editorial BID de los llamados del top 5.
+ * Cada indicador reparte sus rótulos entre la parte superior, izquierda,
+ * derecha e inferior. Esto evita concentrarlos sobre Centroamérica y deja
+ * libres el título, el ranking, la ampliación del Caribe y la leyenda.
+ */
+const DISPLAY_CALLOUT_LAYOUT={
+ total:{
+  GTM:{side:'top',x:.47,y:.035},
+  HND:{side:'left',x:.30,label:'above'},
+  SLV:{side:'left',x:.37,label:'below'},
+  NIC:{side:'left',x:.44,label:'below'},
+  BOL:{side:'left',x:.49,y:.47}
+ },
+ quantitative:{
+  GTM:{side:'top',alignToPin:true,y:.035},
+  HND:{side:'left',x:.30,label:'above'},
+  SLV:{side:'left',x:.37,label:'below'},
+  NIC:{side:'left',x:.44,label:'below'},
+  PER:{side:'left',x:.49,y:.47}
+ },
+ qualitative:{
+  MEX:{side:'left',x:.205,y:.025},
+  HND:{side:'left',x:.26,label:'above'},
+  SLV:{side:'left',x:.34,label:'below'},
+  NIC:{side:'left',x:.42,label:'below'},
+  PRY:{side:'left',x:.49,y:.61}
+ },
+ financing:{
+  PAN:{side:'left',x:.40,y:.22},
+  CHL:{side:'left',x:.49,y:.61}
+ }
+};
+const DISPLAY_PIN_OFFSETS={
+ total:{GTM:{dy:-.024},SLV:{dy:.012},NIC:{dy:.024}},
+ quantitative:{GTM:{dx:-.008,dy:-.006},HND:{dx:-.011},SLV:{dx:.0195,dy:.012},NIC:{dy:.024}},
+ qualitative:{HND:{dx:-.011},SLV:{dx:.0195,dy:.012},NIC:{dy:.024}}
 };
 function displayCalloutBoxPosition(country,index,pin,boxWidth,boxHeight,metrics,placed){
- const slots=DISPLAY_CALLOUT_SLOTS[state.category]||{};
- const slot=slots[country.iso3];
+ const layouts=DISPLAY_CALLOUT_LAYOUT[state.category]||{};
+ const layout=layouts[country.iso3]||{side:pin.x<metrics.rect.width*.55?'left':'right'};
  const offsets=DISPLAY_CALLOUT_OFFSETS[state.category]||{};
  const offset=offsets[country.iso3]||{};
- let x=slot?metrics.rect.width*slot[0]:pin.x+(Number.isFinite(offset.dx)?offset.dx:(pin.x>metrics.rect.width*.54?58:-boxWidth-58));
- let y=slot?metrics.rect.height*slot[1]:pin.y+(Number.isFinite(offset.dy)?offset.dy:(-boxHeight/2+index*8));
  const pad=10;
+ const gap=Math.max(8,metrics.rect.width*.005);
+ let x;
+ let y;
+ if(layout.side==='top'){
+  x=layout.alignToPin?pin.x-boxWidth*.5:Number.isFinite(layout.x)?metrics.rect.width*layout.x:pin.x-boxWidth*.5;
+  y=metrics.rect.height*(Number.isFinite(layout.y)?layout.y:.04);
+ }else if(layout.side==='bottom'){
+  x=Number.isFinite(layout.x)?metrics.rect.width*layout.x:pin.x-boxWidth*.5;
+  y=metrics.rect.height*(Number.isFinite(layout.y)?layout.y:.72);
+ }else if(layout.side==='right'){
+  x=metrics.rect.width*(Number.isFinite(layout.x)?layout.x:.77);
+  y=layout.label==='below'?pin.y+Math.max(8,metrics.rect.height*.008):layout.pinAligned===false&&Number.isFinite(layout.y)?metrics.rect.height*layout.y:pin.y-boxHeight+2;
+ }else{
+  x=metrics.rect.width*(Number.isFinite(layout.x)?layout.x:.27);
+  y=layout.label==='below'?pin.y+Math.max(8,metrics.rect.height*.008):layout.pinAligned===false&&Number.isFinite(layout.y)?metrics.rect.height*layout.y:pin.y-boxHeight+2;
+ }
+ if(!Number.isFinite(x))x=pin.x+(Number.isFinite(offset.dx)?offset.dx:-boxWidth-58);
+ if(!Number.isFinite(y))y=pin.y+(Number.isFinite(offset.dy)?offset.dy:-boxHeight*.5);
  x=Math.max(pad,Math.min(metrics.rect.width-boxWidth-pad,x));
  y=Math.max(pad,Math.min(metrics.rect.height-boxHeight-pad,y));
- if(!slot)placed.forEach(prev=>{
-   const sameColumn=Math.abs((prev.x+prev.w/2)-(x+boxWidth/2))<Math.max(prev.w,boxWidth)*.72;
-   const overlaps=y<prev.y+prev.h+10&&y+boxHeight+10>prev.y;
-   if(sameColumn&&overlaps)y=Math.min(metrics.rect.height-boxHeight-pad,prev.y+prev.h+12);
-  });
- return{x,y};
+ const title=document.querySelector('.display-mode .head > div');
+ const titleRect=title?.getBoundingClientRect();
+ const exclusions=[];
+ if(titleRect)exclusions.push({
+  x:titleRect.left-metrics.rect.left-8,
+  y:titleRect.top-metrics.rect.top-6,
+  w:titleRect.width+16,
+  h:titleRect.height+12
+ });
+ const inset=document.getElementById('caribbeanInset');
+ const insetRect=inset?.getBoundingClientRect();
+ if(insetRect)exclusions.push({x:insetRect.left-metrics.rect.left-10,y:insetRect.top-metrics.rect.top-10,w:insetRect.width+20,h:insetRect.height+20});
+ const legend=document.querySelector('.display-mode .legend');
+ const legendRect=legend?.getBoundingClientRect();
+ if(legendRect)exclusions.push({x:legendRect.left-metrics.rect.left-8,y:legendRect.top-metrics.rect.top-8,w:legendRect.width+16,h:legendRect.height+16});
+ const intersects=(ax,ay,aw,ah,bx,by,bw,bh,extra=0)=>ax<bx+bw+extra&&ax+aw+extra>bx&&ay<by+bh+extra&&ay+ah+extra>by;
+ const candidates=[{x,y}];
+ const horizontal=layout.side==='top'||layout.side==='bottom';
+ for(let step=1;step<=5;step++){
+  const distance=step*(horizontal?boxWidth+gap:boxHeight+gap);
+  candidates.push(horizontal?{x:x-distance,y}:{x,y:y-distance});
+  candidates.push(horizontal?{x:x+distance,y}:{x,y:y+distance});
+ }
+ const free=candidates.map(candidate=>({
+  x:Math.max(pad,Math.min(metrics.rect.width-boxWidth-pad,candidate.x)),
+  y:Math.max(pad,Math.min(metrics.rect.height-boxHeight-pad,candidate.y))
+ })).find(candidate=>{
+  if(exclusions.some(zone=>intersects(candidate.x,candidate.y,boxWidth,boxHeight,zone.x,zone.y,zone.w,zone.h,4)))return false;
+  return !placed.some(prev=>intersects(candidate.x,candidate.y,boxWidth,boxHeight,prev.x,prev.y,prev.w,prev.h,gap));
+ });
+ return{x:free?.x??x,y:free?.y??y,side:layout.side,lineY:pin.y,label:layout.label||'above'};
 }
 function clampValue(value,min,max){return Math.max(min,Math.min(max,value))}
 function calloutAnchor(pin,box,width,height){
@@ -306,22 +1436,44 @@ function calloutAnchor(pin,box,width,height){
  if(pin.y<box.y)return{x:clampValue(pin.x,box.x+12,box.x+width-12),y:box.y};
  return{x:clampValue(pin.x,box.x+12,box.x+width-12),y:box.y+height};
 }
-function connectorPath(anchor,pin){
- const horizontal=Math.abs(anchor.x-pin.x)>=Math.abs(anchor.y-pin.y);
- const elbow=horizontal?{x:anchor.x+(pin.x>anchor.x?26:-26),y:anchor.y}:{x:anchor.x,y:anchor.y+(pin.y>anchor.y?22:-22)};
- return 'M '+pin.x.toFixed(1)+' '+pin.y.toFixed(1)+' L '+elbow.x.toFixed(1)+' '+elbow.y.toFixed(1)+' L '+anchor.x.toFixed(1)+' '+anchor.y.toFixed(1);
+function displayCalloutAnchor(box,width,height,side){
+ const underlineInset=Math.min(34,width*.24);
+ const lineY=Number.isFinite(box.lineY)?box.lineY:box.y+height-2;
+ if(side==='right')return{x:box.x+width-underlineInset,y:lineY};
+ if(side==='top')return{x:box.x+width*.5,y:box.y+height};
+ if(side==='bottom')return{x:box.x+width*.5,y:box.y};
+ return{x:box.x+underlineInset,y:lineY};
+}
+function connectorPath(anchor,pin,side,country,linePoint){
+ if(isDisplayMode){
+  const ax=anchor.x.toFixed(1),ay=anchor.y.toFixed(1),px=pin.x.toFixed(1),py=pin.y.toFixed(1);
+  if(linePoint){
+   const lx=linePoint.x.toFixed(1),ly=linePoint.y.toFixed(1);
+   return 'M '+ax+' '+ay+' L '+lx+' '+ly+' L '+px+' '+py;
+  }
+  if(side==='top'||side==='bottom'){
+   if(Math.abs(anchor.x-pin.x)<2)return 'M '+ax+' '+ay+' V '+py;
+   const elbowY=side==='top'?Math.max(anchor.y+18,pin.y-18):Math.min(anchor.y-18,pin.y+18);
+   return 'M '+ax+' '+ay+' V '+elbowY.toFixed(1)+' H '+px+' V '+py;
+  }
+  if(Math.abs(anchor.y-pin.y)<2)return 'M '+ax+' '+ay+' H '+px;
+  const elbowX=side==='right'?Math.min(anchor.x-14,pin.x+18):Math.max(anchor.x+14,pin.x-18);
+  return 'M '+ax+' '+ay+' H '+elbowX.toFixed(1)+' V '+py+' H '+px;
+ }
+ return 'M '+pin.x.toFixed(1)+' '+pin.y.toFixed(1)+' L '+anchor.x.toFixed(1)+' '+anchor.y.toFixed(1);
 }
 function renderCaribbeanInset(top,c,values){
  const svg=document.getElementById('caribbeanSvg');
  if(!svg||!isDisplayMode||!window.d3||!mapFeatureByIso.size)return;
  svg.replaceChildren();
+ const visualStyle=calloutStyle();
  const islandCountries=countries.filter(country=>country.subregion==='Caribe');
  const targetFeatures=islandCountries.map(country=>detailFeatureByIso.get(country.iso3)||mapFeatureByIso.get(country.iso3)).filter(Boolean);
  const features=[...caribbeanContextFeatures,...targetFeatures];
  if(!features.length)return;
  const caribbeanTop=top.map((country,rank)=>({country,rank,feature:detailFeatureByIso.get(country.iso3)||mapFeatureByIso.get(country.iso3)})).filter(item=>item.country.subregion==='Caribe'&&item.feature);
  const collection={type:'FeatureCollection',features};
- const projection=d3.geoMercator().precision(.06).fitExtent([[18,44],[caribbeanTop.length?430:622,376]],collection);
+ const projection=d3.geoMercator().precision(.06).fitExtent([[12,76],[caribbeanTop.length?455:628,388]],collection);
  const path=d3.geoPath(projection);
  features.forEach(feature=>{
   const country=isoMap.get(feature.properties?.iso3),fill=country?quantileColor(values,country[c.field],c.palette):'#59636f';
@@ -344,23 +1496,31 @@ function renderCaribbeanInset(top,c,values){
   if(!Number.isFinite(point[0])||!Number.isFinite(point[1]))return;
   const label=svgNode('text',{class:'caribbean-country-name',x:(point[0]+item.dx).toFixed(1),y:(point[1]+item.dy).toFixed(1),'text-anchor':item.anchor});label.textContent=item.name;svg.appendChild(label);
  });
- const labelYs=[96,178,260];
+ const caribbeanLabelLayout={
+  KNA:{x:492,y:112},
+  BRB:{x:492,y:202},
+  GRD:{x:492,y:292}
+ };
+ const labelYs=[112,202,292];
  const caribbeanLabels=caribbeanTop.map(item=>({...item,point:path.centroid(item.feature)})).filter(item=>Number.isFinite(item.point[0])&&Number.isFinite(item.point[1])).sort((a,b)=>a.point[1]-b.point[1]);
  caribbeanLabels.forEach((item,labelIndex)=>{
-  const {point}=item;
-  const {country,rank}=item,color=quantileColor(values,country[c.field],c.palette),x=458,y=labelYs[labelIndex]||96+labelIndex*82,w=164,h=46,anchorY=y+h/2;
-  const startX=point[0]+4,startY=point[1],railX=x-58+labelIndex*13,direction=anchorY>=startY?1:-1;
-  const route='M '+startX.toFixed(1)+' '+startY.toFixed(1)+
-   ' C '+(startX+13).toFixed(1)+' '+startY.toFixed(1)+' '+(railX-12).toFixed(1)+' '+startY.toFixed(1)+' '+railX.toFixed(1)+' '+(startY+direction*10).toFixed(1)+
-   ' C '+railX.toFixed(1)+' '+(anchorY-direction*12).toFixed(1)+' '+(railX+8).toFixed(1)+' '+anchorY+' '+(railX+18).toFixed(1)+' '+anchorY+
-   ' L '+x+' '+anchorY;
-  svg.appendChild(svgNode('path',{class:'caribbean-leader',d:route}));
-  svg.appendChild(svgNode('circle',{class:'caribbean-pin',cx:point[0].toFixed(1),cy:point[1].toFixed(1),r:'2.25',fill:color}));
-  svg.appendChild(svgNode('rect',{class:'caribbean-label',x,y,width:w,height:h,rx:'9'}));
-  svg.appendChild(svgNode('circle',{cx:x+17,cy:y+23,r:'10',fill:color,stroke:'#fff','stroke-width':'1.2'}));
-  const rankText=svgNode('text',{class:'caribbean-rank',x:x+17,y:y+23.5});rankText.textContent=String(rank+1);svg.appendChild(rankText);
-  const name=svgNode('text',{class:'caribbean-label-name',x:x+34,y:y+19});name.textContent=shortCountryName(country.name);svg.appendChild(name);
-  const value=svgNode('text',{class:'caribbean-label-value',x:x+34,y:y+34,fill:color});value.textContent=formatValue(country[c.field]);svg.appendChild(value);
+  const {country,rank}=item,color=quantileColor(values,country[c.field],c.palette),slot=caribbeanLabelLayout[country.iso3]||{};
+  const manual=applyManualCaribbeanCallout(country,[...item.point],{x:slot.x||492,y:slot.y||labelYs[labelIndex]||112+labelIndex*90});
+   const point=manual.point,label=manual.label,line=caribbeanLinePoint(country.iso3,point,label),route=caribbeanRoute(point,label,getManualEntry('caribbean',country.iso3)?.line?line:null);
+   const itemGroup=svgNode('g',{class:'caribbean-callout-item','data-caribbean-callout':country.iso3,'data-pin-x':point[0].toFixed(1),'data-pin-y':point[1].toFixed(1),'data-label-x':label.x.toFixed(1),'data-label-y':label.y.toFixed(1),'data-line-x':line.x.toFixed(1),'data-line-y':line.y.toFixed(1)});
+  svg.appendChild(itemGroup);
+   itemGroup.appendChild(svgNode('path',{class:'caribbean-leader caribbean-leader-halo',d:route}));
+   itemGroup.appendChild(svgNode('path',{class:'caribbean-leader caribbean-leader-core',d:route,style:'--callout-color:'+color}));
+   itemGroup.appendChild(svgNode('circle',{class:'caribbean-line-handle caribbean-edit-line',cx:line.x.toFixed(1),cy:line.y.toFixed(1),r:'6.5',style:'--callout-color:'+color}));
+   itemGroup.appendChild(svgNode('circle',{class:'caribbean-pin caribbean-pin-halo caribbean-edit-pin',cx:point[0].toFixed(1),cy:point[1].toFixed(1),r:'5.4',fill:'transparent'}));
+  itemGroup.appendChild(svgNode('circle',{class:'caribbean-pin caribbean-edit-pin',cx:point[0].toFixed(1),cy:point[1].toFixed(1),r:'3.1',fill:'#fff'}));
+  itemGroup.appendChild(svgNode('circle',{class:'caribbean-rank-dot',cx:label.x,cy:label.y-8,r:'8.5',fill:'#fff'}));
+  const rankText=svgNode('text',{class:'caribbean-rank',x:label.x,y:label.y-7.5});rankText.textContent=String(rank+1);itemGroup.appendChild(rankText);
+  const name=svgNode('text',{class:'caribbean-label-name',x:label.x+15,y:label.y-5});name.textContent=shortCountryName(country.name);itemGroup.appendChild(name);
+  const value=svgNode('text',{class:'caribbean-label-value',x:label.x+15,y:label.y+10,fill:'#fff'});value.textContent=formatValue(country[c.field]);itemGroup.appendChild(value);
+  itemGroup.appendChild(svgNode('rect',{class:'caribbean-edit-hit',x:label.x-12,y:label.y-24,width:'142',height:'44',fill:'transparent'}));
+  applyCaribbeanCalloutVisualStyle(itemGroup,visualStyle.lineWidth,visualStyle.caribbeanPinSize);
+  bindManualCaribbeanCallout(itemGroup,country);
  });
  const note=svgNode('text',{class:'caribbean-note',x:'320',y:'394'});note.textContent='Caribe insular completo · Antillas Mayores y Antillas Menores';svg.appendChild(note);
 }
@@ -372,6 +1532,8 @@ function renderTopCallouts(top,c,values){
  htmlLayer.replaceChildren();
  const metrics=svgMetrics(svg);
  const transform=displayMapTransform(metrics);
+ const visualStyle=calloutStyle();
+ const strokeStyle=connectorStrokeStyle(visualStyle.lineWidth);
  const lineLayer=svgNode('svg',{class:'html-callout-lines',viewBox:'0 0 '+metrics.rect.width+' '+metrics.rect.height,preserveAspectRatio:'none'});
  htmlLayer.appendChild(lineLayer);
  document.querySelectorAll('.callout-country').forEach(path=>path.classList.remove('callout-country'));
@@ -382,23 +1544,40 @@ function renderTopCallouts(top,c,values){
   const point=calloutPoint(country);
   if(!point)return;
   const color=quantileColor(values,country[c.field],c.palette),box=calloutBoxPosition(country,index,point,viewBox);
-  const pin=applyDisplayMapTransform(svgToLocal(metrics,point.x,point.y),transform),rawBoxPoint=applyDisplayMapTransform(svgToLocal(metrics,box.x,box.y),transform),boxWidth=isDisplayMode?Math.max(132,Math.min(148,metrics.rect.width*.094)):Math.max(136,box.w*metrics.scale),boxHeight=isDisplayMode?35:Math.max(38,box.h*metrics.scale),boxPoint=isDisplayMode?displayCalloutBoxPosition(country,index,pin,boxWidth,boxHeight,metrics,placed):clampCalloutBox(rawBoxPoint,boxWidth,boxHeight,metrics);
-  const anchor=calloutAnchor(pin,boxPoint,boxWidth,boxHeight);
-  const connector=connectorPath(anchor,pin);
-  lineLayer.appendChild(svgNode('path',{class:'connector-halo',d:connector}));
-  lineLayer.appendChild(svgNode('path',{class:'connector-core',d:connector}));
+  const basePin=applyDisplayMapTransform(svgToLocal(metrics,point.x,point.y),transform);
+  const displayPinOffset=isDisplayMode?((DISPLAY_PIN_OFFSETS[state.category]||{})[country.iso3]||{}):{};
+  let pin={x:basePin.x+metrics.rect.width*(displayPinOffset.dx||0),y:basePin.y+metrics.rect.height*(displayPinOffset.dy||0)};
+  const rawBoxPoint=applyDisplayMapTransform(svgToLocal(metrics,box.x,box.y),transform),boxWidth=isDisplayMode?Math.max(124,Math.min(255,metrics.rect.width*.0645)):Math.max(136,box.w*metrics.scale),boxHeight=isDisplayMode?Math.max(40,Math.min(88,metrics.rect.height*.046)):Math.max(38,box.h*metrics.scale);
+  let boxPoint=isDisplayMode?displayCalloutBoxPosition(country,index,pin,boxWidth,boxHeight,metrics,placed):clampCalloutBox(rawBoxPoint,boxWidth,boxHeight,metrics);
+  if(isDisplayMode)({pin,boxPoint}=applyManualMainCallout(country,pin,boxPoint,boxWidth,boxHeight,metrics));
+   const anchor=isDisplayMode?displayCalloutAnchor(boxPoint,boxWidth,boxHeight,boxPoint.side):calloutAnchor(pin,boxPoint,boxWidth,boxHeight);
+   const linePoint=isDisplayMode?manualMainLinePoint(country.iso3,anchor,pin,metrics):null;
+   const connector=connectorPath(anchor,pin,boxPoint.side,country,getManualEntry('main',country.iso3)?.line?linePoint:null);
+  lineLayer.appendChild(svgNode('path',{class:'connector-halo',d:connector,style:'--callout-color:'+color+';stroke-width:'+strokeStyle.halo+'px','data-main-connector':country.iso3}));
+  lineLayer.appendChild(svgNode('path',{class:'connector-core',d:connector,style:'--callout-color:'+color+';stroke-width:'+strokeStyle.core+'px','data-main-connector':country.iso3}));
   const countryPath=document.getElementById('map-'+country.iso3);
   if(countryPath)countryPath.classList.add('callout-country');
   const pinNode=document.createElement('span');
   pinNode.className='html-pin';
+  pinNode.dataset.calloutPin=country.iso3;
   pinNode.textContent=String(index+1);
-  pinNode.style.cssText='--callout-color:'+color+';left:'+pin.x.toFixed(1)+'px;top:'+pin.y.toFixed(1)+'px';
-  const bubble=document.createElement('div');
+   pinNode.style.cssText='--callout-color:'+color+';left:'+pin.x.toFixed(1)+'px;top:'+pin.y.toFixed(1)+'px';
+   applyMainCalloutVisualStyle(pinNode,visualStyle.lineWidth,visualStyle.pinSize);
+   const lineHandle=isDisplayMode?document.createElement('span'):null;
+   if(lineHandle){
+    lineHandle.className='html-line-handle';
+    lineHandle.dataset.lineHandle=country.iso3;
+    lineHandle.style.cssText='--callout-color:'+color+';left:'+linePoint.x.toFixed(1)+'px;top:'+linePoint.y.toFixed(1)+'px';
+   }
+   const bubble=document.createElement('div');
   bubble.className='html-callout';
   bubble.dataset.callout=country.iso3;
+  if(boxPoint.side)bubble.dataset.side=boxPoint.side;
   bubble.style.cssText='--callout-color:'+color+';left:'+boxPoint.x.toFixed(1)+'px;top:'+boxPoint.y.toFixed(1)+'px;width:'+boxWidth.toFixed(1)+'px;min-height:'+boxHeight.toFixed(1)+'px';
   bubble.innerHTML='<span class="html-callout-index">'+(index+1)+'</span><span><span class="html-callout-name">'+shortCountryName(country.name)+'</span><span class="html-callout-value">'+formatValue(country[c.field])+'</span></span>';
-  htmlLayer.append(pinNode,bubble);
+   if(lineHandle)htmlLayer.append(pinNode,lineHandle,bubble);
+   else htmlLayer.append(pinNode,bubble);
+   bindManualMainCallout(country,bubble,pinNode,lineHandle,boxWidth,boxHeight,metrics);
   placed.push({x:boxPoint.x,y:boxPoint.y,w:boxWidth,h:boxHeight});
   count++;
  });
@@ -524,7 +1703,7 @@ function decodeRealtimeState(raw){if(!raw)return null;if(typeof raw.e==='string'
 function realtimePayload(){return{e:JSON.stringify(toExperienceState()),ts:firebase.database.ServerValue.TIMESTAMP}}
 function broadcastState(){if(isDisplayMode||!firebaseStateRef)return;firebaseStateRef.set(realtimePayload()).catch(err=>setSyncStatus('Error Firebase',err.message,false))}
 function commitState(){render();broadcastState()}
-function connectTransport(){if(!hasFirebaseConfig()){setSyncStatus('Configura Firebase','edita firebase-config.js',false);return}if(!window.firebase||!firebase.database){setSyncStatus('SDK Firebase no cargó','revisa conexión a internet',false);return}try{if(!firebase.apps.length)firebase.initializeApp(firebaseOptions());const db=firebase.database();firebaseStateRef=db.ref(firebaseSessionPath());firebaseConnectedRef=db.ref('.info/connected');firebaseConnectedRef.on('value',snap=>{setSyncStatus(snap.val()?(isDisplayMode?'Mesa online':'Control online'):'Sin internet',snap.val()?'Firebase Realtime Database':'esperando conexión',Boolean(snap.val()))});firebaseStateRef.on('value',snap=>{const next=decodeRealtimeState(snap.val());if(next)applyExperienceState(next);else if(!isDisplayMode)broadcastState()},err=>setSyncStatus('Error Firebase',err.message,false))}catch(err){setSyncStatus('Error Firebase',err.message,false)}}
+function connectTransport(){if(previewMode){setSyncStatus('Vista previa','categoría fija por URL',false);return}if(!hasFirebaseConfig()){setSyncStatus('Configura Firebase','edita firebase-config.js',false);return}if(!window.firebase||!firebase.database){setSyncStatus('SDK Firebase no cargó','revisa conexión a internet',false);return}try{if(!firebase.apps.length)firebase.initializeApp(firebaseOptions());const db=firebase.database();firebaseStateRef=db.ref(firebaseSessionPath());firebaseConnectedRef=db.ref('.info/connected');firebaseConnectedRef.on('value',snap=>{setSyncStatus(snap.val()?(isDisplayMode?'Mesa online':'Control online'):'Sin internet',snap.val()?'Firebase Realtime Database':'esperando conexión',Boolean(snap.val()))});firebaseStateRef.on('value',snap=>{const next=decodeRealtimeState(snap.val());if(next)applyExperienceState(next);else if(!isDisplayMode)broadcastState()},err=>setSyncStatus('Error Firebase',err.message,false))}catch(err){setSyncStatus('Error Firebase',err.message,false)}}
 function render(){
  state.mode='regional'; state.subregion='Todas';
  const c=config[state.category]; const available=countries.filter(x=>typeof x[c.field]==='number'); const filtered=countries.filter(x=>state.subregion==='Todas'||x.subregion===state.subregion); const filteredAvailable=filtered.filter(x=>typeof x[c.field]==='number'); const visible=new Set(filtered.map(x=>x.iso3)); const vals=filtered.map(x=>x[c.field]).filter(x=>typeof x==='number'); const allVals=available.map(x=>x[c.field]); const displayVals=isDisplayMode?allVals:vals; const sortedAll=sortedForIndicator(c); const selected=isoMap.get(state.selected);
@@ -533,14 +1712,15 @@ function render(){
  document.getElementById('app').classList.toggle('country-view',state.mode==='country');
  document.getElementById('app').classList.toggle('regional-view',state.mode==='regional');
  document.getElementById('coverage').innerHTML='<strong>'+available.length+' / 31</strong><span>países con dato</span>';
- document.getElementById('title').textContent=c.label; document.getElementById('description').textContent=c.description;
- document.getElementById('legend').innerHTML='<div class="scale">'+c.palette.map(x=>'<span style="background:'+x+'"></span>').join('')+'</div><div class="legendlabels"><span>'+c.low+'</span><span>'+c.high+'</span></div>'+legendRanges(displayVals,c)+'<div class="nodata"><i></i> Información no disponible / ND en Excel</div>'+(c.countField?'<div class="formula-note"><strong>Fórmula:</strong> % = viviendas con déficit ÷ total de viviendas.</div>':'');
+  renderDisplayTitle(c); document.getElementById('description').textContent=c.description;
+ document.getElementById('legend').innerHTML='<div class="scale">'+c.palette.map(x=>'<span style="background:'+x+'"></span>').join('')+'</div>'+legendScaleRanges(displayVals,c)+'<div class="legendlabels"><span>'+c.low+'</span><span>'+c.high+'</span></div>'+legendRanges(displayVals,c)+'<div class="nodata"><i></i> Información no disponible / ND en Excel</div>'+(c.countField?'<div class="formula-note"><strong>Fórmula:</strong> % = viviendas con déficit ÷ total de viviendas.</div>':'');
  renderRankList(sortedAll,c,allVals);
  document.getElementById('reader').innerHTML='<article><h3>Cómo leer esta gráfica</h3><p>'+c.meaning+'</p><p class="source">'+c.source+'</p></article><article><h3>Clave para interpretar</h3><p>La escala de colores se recalcula para el indicador y filtro activo. El gris no es cero: significa que el Excel marca ND o no trae dato público oficial.</p></article>';
  document.querySelectorAll('.target-country').forEach(p=>{const d=isoMap.get(p.dataset.iso); if(!d)return; const val=d[c.field]; const isSelected=state.mode==='country'&&d.iso3===state.selected; const fill=quantileColor(displayVals,val,c.palette); p.classList.toggle('selected-country',isSelected); p.style.fill=fill; p.style.color=fill; p.style.opacity=!visible.has(d.iso3)?0.12:((state.mode==='country'&&!isSelected)?0.22:1); p.style.stroke=isDisplayMode?'rgba(255,255,255,.12)':(isSelected?'#fff':'rgba(255,255,255,.55)'); p.style.strokeWidth=isDisplayMode?'.36':(isSelected?'3.6':'.75');});
  renderTopCallouts(sortedAll.filter(x=>typeof x[c.field]==='number').slice(0,5),c,allVals);
  animateSelectedCountry();
  document.querySelectorAll('[data-category]').forEach(b=>b.classList.toggle('active',b.dataset.category===state.category)); document.querySelectorAll('[data-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mode===state.mode)); document.querySelectorAll('[data-subregion]').forEach(b=>b.classList.toggle('active',b.dataset.subregion===state.subregion)); document.querySelectorAll('[data-country]').forEach(b=>{const d=isoMap.get(b.dataset.country);b.textContent=d?d.name:b.dataset.country;b.classList.toggle('active',b.dataset.country===state.selected&&state.mode==='country')}); document.getElementById('countrySelect').value=state.selected;
+ updateCalloutEditorPanel();
  if(state.mode==='regional'){
   const top=[...filteredAvailable].sort((a,b)=>b[c.field]-a[c.field]).slice(0,5);
   const scope=state.subregion==='Todas'?'los 31 países':state.subregion;
@@ -558,6 +1738,7 @@ document.getElementById('countrySelect').innerHTML=countries.map(x=>'<option val
 document.getElementById('regions').innerHTML=['Todas','México','Centroamérica','Caribe','Suramérica'].map(x=>'<button data-subregion="'+x+'">'+x+'</button>').join('');
 document.querySelectorAll('[data-category]').forEach(b=>b.onclick=()=>{state.category=b.dataset.category;commitState()});document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{state.mode=b.dataset.mode;commitState()});document.querySelectorAll('[data-subregion]').forEach(b=>b.onclick=()=>{state.subregion=b.dataset.subregion;commitState()});document.getElementById('countrySelect').onchange=e=>{state.selected=e.target.value;state.mode='country';commitState()};
 document.querySelectorAll('[data-country]').forEach(b=>b.onclick=()=>{if(isDisplayMode)return;state.selected=b.dataset.country;state.mode='country';commitState()});
+initCalloutEditor();
 let resizeRenderTimer=null;
 window.addEventListener('resize',()=>{clearTimeout(resizeRenderTimer);resizeRenderTimer=setTimeout(render,120)});
 render();

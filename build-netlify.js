@@ -7,6 +7,7 @@ const publicFiles = [
   'index.html',
   'controller.html',
   'firebase-config.js',
+  '_redirects',
 ];
 const assetDirs = ['public', 'static'];
 

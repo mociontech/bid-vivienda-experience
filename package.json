@@ -5,6 +5,7 @@
   "description": "Maqueta BID con display para mesa touch y controlador tablet sincronizados por Firebase Realtime Database.",
   "scripts": {
     "build": "node build-netlify.js",
+    "backup:firestore": "node backup-firestore.js",
     "start": "node server.js"
   }
 }

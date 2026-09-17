@@ -6,40 +6,310 @@
 <title>Control tablet · Mapa BID</title>
 <style>
 @font-face{font-family:Inter;src:url("static/Inter_18pt-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Inter 18pt Regular";src:url("static/Inter_18pt-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:Inter;src:url("static/Inter_18pt-Medium.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
 @font-face{font-family:Inter;src:url("static/Inter_18pt-SemiBold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Inter 18pt SemiBold";src:url("static/Inter_18pt-SemiBold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
 @font-face{font-family:Inter;src:url("static/Inter_18pt-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Inter 18pt Bold";src:url("static/Inter_18pt-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
 @font-face{font-family:Inter;src:url("static/Inter_18pt-ExtraBold.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
 @font-face{font-family:Inter;src:url("static/Inter_18pt-Black.ttf") format("truetype");font-weight:900;font-style:normal;font-display:swap}
+@font-face{font-family:"Inter 18pt Black";src:url("static/Inter_18pt-Black.ttf") format("truetype");font-weight:900;font-style:normal;font-display:swap}
 :root{--accent:#df3d68;--accent-2:#9b4b9a;--ink:#08090b;--glass:rgba(236,241,255,.82)}
 *{box-sizing:border-box}
-html,body{min-height:100%}
-body{margin:0;min-height:100vh;font-family:Inter,Segoe UI,Arial,sans-serif;color:#fff;background:linear-gradient(180deg,#ff4b00 0%,#df3d68 24%,#9b4b9a 47%,#2c57de 72%,#0b9bd2 100%);touch-action:manipulation}
-body[data-category="total"]{--accent:#ee668f;--accent-2:#b82055}
-body[data-category="quantitative"]{--accent:#ff4b00;--accent-2:#ff7a2f}
-body[data-category="qualitative"]{--accent:#2c57de;--accent-2:#5a9bed}
-body[data-category="financing"]{--accent:#966dda;--accent-2:#52288e}
+html,body{width:100%;min-height:100%;overflow:hidden}
+body{margin:0;min-height:100vh;font-family:"Inter 18pt Regular",Inter,Segoe UI,Arial,sans-serif;color:#fff;background:linear-gradient(180deg,#00A3E0 0%,#006DFF 20%,#2E5BFF 44%,#9A4B95 66%,#DB4568 82%,#FF5000 100%);touch-action:manipulation}
+body[data-category="total"]{--accent:#00A3E0;--accent-2:#2E79FF}
+body[data-category="quantitative"]{--accent:#00A3E0;--accent-2:#2E79FF}
+body[data-category="qualitative"]{--accent:#00A3E0;--accent-2:#2E79FF}
+body[data-category="financing"]{--accent:#00A3E0;--accent-2:#2E79FF}
 button{font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
-.app{position:relative;display:flex;flex-direction:column;min-height:100vh;padding:clamp(24px,4vw,58px) clamp(26px,6vw,90px);overflow:hidden}
-.app::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 84% 88%,rgba(0,186,221,.38),transparent 34%),radial-gradient(circle at 12% 8%,rgba(255,123,22,.28),transparent 32%);pointer-events:none}
+.app{position:relative;display:flex;flex-direction:column;width:100vw;height:100dvh;min-height:0;padding:clamp(52px,4.48vw,86px) clamp(52px,4.48vw,86px) clamp(18px,1.25vw,24px);overflow:hidden}
+.app::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 62%,rgba(255,255,255,.12),transparent 38%),radial-gradient(circle at 16% 10%,rgba(0,186,221,.18),transparent 34%);pointer-events:none}
 .topbar{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{display:flex;align-items:center}.brand-logo{display:block;width:clamp(190px,17vw,286px);height:auto;filter:drop-shadow(0 4px 12px rgba(30,17,52,.16))}
-.status{display:grid;min-width:170px;padding:9px 15px;border:1px solid rgba(255,255,255,.52);border-radius:999px;background:rgba(7,11,20,.22);color:#fff;backdrop-filter:blur(12px)}.status.online{background:rgba(255,255,255,.92);color:#145b34}.status strong{font-size:13px}.status span{font-size:10px;opacity:.8}
-.hero{position:relative;z-index:1;margin:clamp(54px,10vh,122px) auto clamp(42px,7vh,84px);text-align:center}.hero h1{margin:0;font-family:Inter,Arial,sans-serif;font-size:clamp(48px,7vw,94px);font-weight:900;line-height:.98;letter-spacing:-.06em}.hero p{margin:18px 0 0;font-size:clamp(22px,3vw,38px);font-weight:400}
-.flow{position:relative;z-index:2;display:grid;grid-template-columns:minmax(360px,1.08fr) minmax(330px,.92fr);gap:clamp(28px,5vw,74px);align-items:center;width:min(1500px,100%);margin:auto}
-.question h2{max-width:650px;margin:0 0 26px;font-size:clamp(27px,3.6vw,48px);line-height:1.06}.primary-options{display:grid;grid-template-columns:1fr;gap:16px}.primary-choice{min-height:88px;padding:18px 28px;border:2px solid transparent;border-radius:999px;background:#050506;color:#fff;font-size:clamp(24px,3vw,38px);font-weight:850;box-shadow:0 16px 38px rgba(0,0,0,.18);transition:transform .22s ease,background .22s ease,color .22s ease,box-shadow .22s ease}.primary-choice:active{transform:scale(.985)}.primary-choice.active{border-color:rgba(255,255,255,.85);background:#fff;color:#050506;box-shadow:0 16px 44px rgba(16,29,82,.25),inset 0 0 0 1px rgba(0,0,0,.03)}
-.deficit-panel{position:relative;display:grid;gap:16px;padding:clamp(22px,3vw,38px);border:1px solid rgba(255,255,255,.65);border-radius:42px;background:linear-gradient(145deg,rgba(236,239,255,.9),rgba(213,233,255,.78));box-shadow:inset 0 1px 0 #fff,0 26px 70px rgba(25,31,95,.25);backdrop-filter:blur(18px);transition:opacity .25s ease,transform .25s ease,visibility .25s ease}.deficit-panel::before{content:"";position:absolute;left:-32px;top:50%;width:32px;height:3px;background:#fff;box-shadow:0 0 12px rgba(255,255,255,.5)}.deficit-panel::after{content:"";position:absolute;left:-11px;top:calc(50% - 8px);width:14px;height:14px;border-top:3px solid #fff;border-right:3px solid #fff;transform:rotate(45deg)}
+.brand{display:flex;align-items:center}.brand-logo{display:block;width:clamp(313px,26.62vw,511px);height:auto;filter:drop-shadow(0 4px 12px rgba(30,17,52,.16))}
+.status{display:none}
+.hero{position:relative;z-index:1;margin:clamp(49px,4.17vw,80px) auto clamp(61px,5.21vw,100px);text-align:center}.hero h1{margin:0;font-family:"Inter 18pt Black",Inter,Arial,sans-serif;font-size:clamp(76px,6.46vw,124px);font-weight:900;line-height:.98;letter-spacing:0;white-space:nowrap}.hero p{margin:clamp(17px,1.46vw,28px) 0 0;font-family:"Inter 18pt Regular",Inter,Arial,sans-serif;font-size:clamp(40px,3.44vw,66px);font-weight:400;line-height:1.08}
+.flow{position:relative;z-index:2;display:grid;grid-template-columns:clamp(506px,42.92vw,824px) clamp(466px,39.48vw,758px);gap:clamp(74px,6.25vw,120px);align-items:end;width:auto;margin:0 auto}
+.question h2{max-width:clamp(467px,39.58vw,760px);margin:0 0 clamp(27px,2.29vw,44px);font-family:"Inter 18pt Black",Inter,Arial,sans-serif;font-size:clamp(37px,3.18vw,61px);font-weight:900;line-height:1.18;letter-spacing:0}.primary-options{display:grid;grid-template-columns:1fr;gap:clamp(15px,1.25vw,24px)}.primary-choice{width:clamp(506px,42.92vw,824px);min-height:clamp(84px,7.08vw,136px);padding:clamp(12px,1.04vw,20px) clamp(22px,1.88vw,36px);border:2px solid transparent;border-radius:999px;background:#050506;color:#fff;font-family:"Inter 18pt Black",Inter,Arial,sans-serif;font-size:clamp(34px,2.92vw,56px);font-weight:900;line-height:1;box-shadow:none;transition:transform .22s ease,background .22s ease,color .22s ease,box-shadow .22s ease}.primary-choice:active{transform:scale(.985)}.primary-choice.active,body[data-flow="deficit"] .primary-choice[data-flow="deficit"]{border-color:#fff;background:#fff;color:#050506;box-shadow:none}body[data-flow="financing"] .primary-choice[data-flow="financing"]{border-color:#050506;background:#050506;color:#fff;box-shadow:none}
+.deficit-panel{position:relative;display:grid;gap:clamp(25px,2.08vw,40px);width:clamp(466px,39.48vw,758px);min-height:clamp(261px,22.14vw,425px);padding:clamp(32px,2.71vw,52px) clamp(34px,2.92vw,56px);border:0;border-radius:clamp(34px,2.92vw,56px);background:rgba(255,237,242,.82);box-shadow:none;backdrop-filter:none;transition:opacity .25s ease,transform .25s ease,visibility .25s ease}.deficit-panel::before{content:"";position:absolute;left:clamp(-92px,-4.95vw,-58px);top:calc(50% - clamp(18px,1.56vw,30px));width:clamp(66px,4.06vw,78px);height:clamp(41px,2.5vw,48px);background:url("public/arrow.png") center/contain no-repeat;box-shadow:none}.deficit-panel::after{display:none}
 body[data-flow="financing"] #deficitPanel{visibility:hidden;opacity:0;transform:translateX(28px) scale(.97);pointer-events:none}
-.btn{min-height:72px;padding:15px 24px;border:2px solid rgba(255,255,255,.9);border-radius:999px;background:#fff;color:#090a0c;text-align:center;font-size:clamp(18px,2.2vw,29px);font-weight:850;box-shadow:0 8px 22px rgba(43,56,126,.1);transition:transform .2s ease,background .22s ease,color .22s ease,box-shadow .22s ease}.btn:active{transform:scale(.985)}.btn[data-category="qualitative"].active{background:linear-gradient(90deg,#5a9bed,#2c57de);color:#fff;box-shadow:0 10px 26px rgba(44,87,222,.32)}.btn[data-category="quantitative"].active{background:linear-gradient(90deg,#ff7a2f,#ff4b00);color:#fff;box-shadow:0 10px 26px rgba(255,75,0,.3)}.btn[data-category="total"].active{background:linear-gradient(90deg,#f594b8,#ee668f 52%,#b82055);color:#fff;box-shadow:0 10px 28px rgba(184,32,85,.38)}.btn small{display:none}
-.panel-stack{display:grid}.panel-stack>.deficit-panel{grid-area:1/1}.financing-panel{align-content:center}.financing-panel .btn{min-height:112px;font-size:clamp(22px,2.6vw,34px);line-height:1.08}.financing-panel .btn.active{background:#fff;color:#090a0c;box-shadow:0 14px 34px rgba(23,38,111,.24)}body:not([data-flow="financing"]) #financingPanel{visibility:hidden;opacity:0;transform:translateX(28px) scale(.97);pointer-events:none}
-.current-selection{position:relative;z-index:2;margin:clamp(28px,5vh,54px) auto 0;padding:10px 20px;border:1px solid rgba(255,255,255,.45);border-radius:999px;background:rgba(6,11,24,.18);color:#fff;font-size:13px;text-align:center;backdrop-filter:blur(10px)}
+.btn{width:100%;min-height:clamp(49px,4.17vw,80px);padding:clamp(6px,.52vw,10px) clamp(17px,1.46vw,28px);border:0;border-radius:999px;background:#fff;color:#090a0c;text-align:center;font-family:"Inter 18pt Black",Inter,Arial,sans-serif;font-size:clamp(28px,2.4vw,46px);font-weight:900;line-height:1;white-space:nowrap;box-shadow:none;transition:transform .2s ease,background .22s ease,color .22s ease,box-shadow .22s ease}.btn:active{transform:scale(.985)}.btn[data-category="qualitative"].active,body[data-category="qualitative"] .btn[data-category="qualitative"],.btn[data-category="quantitative"].active,body[data-category="quantitative"] .btn[data-category="quantitative"],.btn[data-category="total"].active,body[data-category="total"] .btn[data-category="total"],.btn[data-category="financing"].active,body[data-category="financing"] .btn[data-category="financing"]{background:#00A3E0;color:#fff;box-shadow:none}.btn small{display:none}
+.panel-stack{display:grid}.panel-stack>.deficit-panel{grid-area:1/1}.financing-panel{min-height:clamp(182px,15.42vw,296px);align-content:center}.financing-panel .btn{min-height:clamp(94px,7.97vw,153px);font-size:clamp(29px,2.5vw,48px);line-height:1.2;text-align:left}.financing-panel .btn.active{background:#00A3E0;color:#fff;box-shadow:none}body:not([data-flow="financing"]) #financingPanel{visibility:hidden;opacity:0;transform:translateX(clamp(17px,1.46vw,28px)) scale(.97);pointer-events:none}
+.current-selection{display:none}
 .landing{position:relative;z-index:2;width:min(1640px,100%);margin:0 auto clamp(28px,5vh,58px);text-align:center}.landing h2{margin:0 0 clamp(28px,4vh,50px);font-size:clamp(31px,3.4vw,52px);font-weight:800;line-height:1.08;letter-spacing:-.035em}.landing-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,4vw,58px)}.landing-choice{min-height:clamp(86px,10vh,118px);padding:20px 32px;border:2px solid rgba(255,255,255,.96);border-radius:999px;background:#fff;color:#07080a;font-size:clamp(27px,3.2vw,46px);font-weight:800;letter-spacing:-.035em;box-shadow:0 18px 42px rgba(21,27,93,.2);transition:transform .2s ease,box-shadow .2s ease}.landing-choice[data-enter-flow="financing"]{background:#050506;color:#fff;border-color:#050506}.landing-choice:active{transform:scale(.985)}.landing-choice:focus-visible{outline:4px solid rgba(255,255,255,.72);outline-offset:5px}
-body[data-screen="landing"] .hero{margin:clamp(74px,9vh,112px) auto clamp(62px,9vh,106px)}body[data-screen="landing"] .flow,body[data-screen="landing"] .current-selection{display:none}body[data-screen="selector"] .landing{display:none}body[data-screen="selector"] .hero{margin:clamp(44px,6vh,72px) auto clamp(30px,4.5vh,50px)}body[data-screen="selector"] .current-selection{margin-top:16px}
-.deficit-panel::before{left:-58px;width:38px;height:2px;background:rgba(255,255,255,.92);box-shadow:none}.deficit-panel::after{left:-25px;top:calc(50% - 7px);width:11px;height:11px;border-width:2px}
+body[data-screen="landing"] .hero{margin:clamp(49px,4.17vw,80px) auto clamp(61px,5.21vw,100px)}body[data-screen="landing"] .flow,body[data-screen="landing"] .current-selection{display:none}body[data-screen="selector"] .landing{display:none}
 @media(max-width:760px){.app{padding:22px}.status{min-width:0}.status span{display:none}.hero{margin:42px auto 46px}.flow{grid-template-columns:1fr;gap:28px}.question h2{text-align:center}.primary-choice{min-height:70px}.deficit-panel{border-radius:28px}.deficit-panel::before,.deficit-panel::after{display:none}.landing-options{grid-template-columns:1fr}.landing-choice{min-height:72px}.landing h2{font-size:30px}body[data-screen="landing"] .hero{margin:48px auto 54px}}
+@media (min-width:1301px) and (max-width:1500px) and (orientation:landscape){
+ .app{padding:48px 0 40px 70px}
+ .topbar{width:1051px}
+ .brand-logo{width:280px}
+ .hero{width:906px;margin:52px 0 56px;text-align:center}
+ .hero h1{font-size:66px;line-height:.98;letter-spacing:0}
+ .hero p{margin-top:8px;font-size:36px;line-height:1.08}
+ .flow{grid-template-columns:450px 416px;gap:66px;align-items:start;width:1051px;margin:0}
+ .question h2{max-width:430px;margin-bottom:24px;font-family:"Inter 18pt SemiBold",Inter,Arial,sans-serif;font-size:36px;font-weight:600;line-height:1.14;letter-spacing:0}
+ .primary-options{gap:14px}
+ .primary-choice{width:450px;min-height:75px;font-family:"Inter 18pt Bold",Inter,Arial,sans-serif;font-size:31px;font-weight:700;line-height:1}
+ .panel-stack{margin-top:23px}
+ .deficit-panel{width:416px;min-height:233px;padding:28px 30px;gap:21px;border-radius:31px}
+ .deficit-panel::before{left:-59px;top:79px;width:58px;height:36px;background:url("public/arrow.png") center/contain no-repeat}
+ .deficit-panel::after{display:none}
+ .btn{min-height:45px;font-family:"Inter 18pt SemiBold",Inter,Arial,sans-serif;font-size:27px;font-weight:600;line-height:1}
+ .financing-panel{min-height:154px}
+ .financing-panel .btn{min-height:83px;font-size:28px}
+}
+@media (min-width:761px) and (max-width:1300px) and (orientation:landscape){
+ .app{padding:68px 67px 46px}
+ .brand-logo{width:315px}
+ .hero{margin:42px auto 34px}
+ .hero h1{font-size:76px;letter-spacing:0}
+ .hero p{margin-top:8px;font-size:42px}
+ .flow{grid-template-columns:506px 466px;gap:74px;align-items:start}
+ .question h2{max-width:470px;margin-bottom:20px;font-family:"Inter 18pt SemiBold",Inter,Arial,sans-serif;font-size:37px;font-weight:600;line-height:1.18;letter-spacing:0}
+ .primary-choice{width:506px;min-height:84px;font-family:"Inter 18pt Bold",Inter,Arial,sans-serif;font-size:35px;font-weight:700}
+ .panel-stack{margin-top:104px}
+ .deficit-panel{width:466px;min-height:262px;padding:32px 35px;gap:25px;border-radius:34px}
+ .deficit-panel::before{left:-78px;top:51px;width:78px;height:48px;background:url("public/arrow.png") center/contain no-repeat}
+ .deficit-panel::after{display:none}
+ .btn{min-height:50px;font-family:"Inter 18pt Bold",Inter,Arial,sans-serif;font-size:28px;font-weight:700;letter-spacing:0}
+ .financing-panel{min-height:184px}
+ .financing-panel .btn{min-height:96px;font-size:30px}
+}
+@media (min-width:761px) and (orientation:landscape){
+ html,body{width:100%;height:100%;min-height:100%;background:#454545}
+ body{display:grid;place-items:center;overflow:hidden}
+ .app{
+  position:relative;
+  display:block;
+  width:min(100vw,calc(100dvh * 1.6));
+  height:auto;
+  aspect-ratio:1920/1200;
+  min-height:0;
+  padding:0;
+  overflow:hidden;
+  container-type:size;
+  background:linear-gradient(180deg,#00A3E0 0%,#006DFF 20%,#2E5BFF 44%,#9A4B95 66%,#DB4568 82%,#FF5000 100%);
+ }
+ .topbar{
+  position:absolute;
+  z-index:3;
+  left:4.25%;
+  top:6.67%;
+  right:auto;
+  width:auto;
+  display:block;
+  margin:0;
+ }
+ .brand-logo{
+  width:25.2cqw;
+  height:auto;
+  filter:brightness(1.45) contrast(1.18);
+ }
+ .hero{
+  position:absolute;
+  z-index:2;
+  inset:0;
+  width:100%;
+  margin:0;
+  text-align:center;
+ }
+ .hero h1{
+  position:absolute;
+  left:13.125%;
+  top:20.17%;
+  width:73.91cqw;
+  height:6.35cqw;
+  margin:0;
+  overflow:hidden;
+  color:transparent;
+  text-indent:-9999px;
+  background:url("public/Medir%20para%20transformar.png") center/contain no-repeat;
+  filter:brightness(1.45) contrast(1.18);
+ }
+ .hero p{
+  position:absolute;
+  left:23.125%;
+  top:31.83%;
+  width:53.75cqw;
+  height:2.81cqw;
+  margin:0;
+  overflow:hidden;
+  color:transparent;
+  text-indent:-9999px;
+  background:url("public/D%C3%A9ficit%20habitacional%20CEPAL%20-%20BID.png") center/contain no-repeat;
+  filter:brightness(1.45) contrast(1.18);
+ }
+ .flow{
+  position:absolute;
+  z-index:2;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  margin:0;
+ }
+ .question{
+  position:absolute;
+  left:5.83%;
+  top:0;
+  width:45.1%;
+  height:100%;
+ }
+ .question h2{
+  position:absolute;
+  left:0;
+  top:auto;
+  bottom:43.5cqh;
+  max-width:none;
+  width:100%;
+  margin:0;
+  font-family:"Inter 18pt SemiBold",Inter,Arial,sans-serif;
+  font-size:2.92cqw;
+  font-weight:600;
+  line-height:1.22;
+  letter-spacing:0;
+  text-align:left;
+ }
+ .primary-options{
+  position:absolute;
+  left:0;
+  top:auto;
+  bottom:11.25cqh;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:2cqh;
+  margin:0;
+ }
+ .primary-choice{
+  position:relative;
+  width:43.16cqw;
+  height:8.74cqh;
+  padding:0 2.2cqw;
+  border:0 !important;
+  outline:0;
+  border-radius:999px;
+  font-family:"Inter 18pt SemiBold",Inter,Arial,sans-serif;
+  font-size:2.95cqw;
+  font-weight:600;
+  line-height:1.54;
+  letter-spacing:0;
+  box-shadow:none;
+ }
+ body[data-flow="deficit"] .primary-choice[data-flow="deficit"]::before,
+ body[data-flow="financing"] .primary-choice[data-flow="financing"]::before{
+  content:"";
+  position:absolute;
+  left:calc(100% + .75cqw);
+  top:50%;
+  width:4.95cqw;
+  height:5.33cqh;
+  transform:translateY(-50%);
+  background:url("public/arrow.png") center/contain no-repeat;
+  pointer-events:none;
+ }
+ body[data-flow="deficit"] .primary-choice[data-flow="deficit"]::after,
+ body[data-flow="financing"] .primary-choice[data-flow="financing"]::after{
+  display:none;
+ }
+ body[data-flow="deficit"] .primary-choice[data-flow="deficit"],
+ body[data-flow="financing"] .primary-choice[data-flow="financing"]{
+  background:#fff;
+  color:#050506;
+ }
+ body[data-flow="deficit"] .primary-choice[data-flow="financing"],
+ body[data-flow="financing"] .primary-choice[data-flow="deficit"]{
+  background:#050506;
+  color:#fff;
+ }
+ .panel-stack{
+  position:absolute;
+  left:54.9479%;
+  top:53.3333%;
+  display:grid;
+  width:39.5313%;
+  margin:0;
+ }
+ .panel-stack>.deficit-panel{
+  grid-area:1/1;
+ }
+ body[data-flow="financing"] .panel-stack{
+  top:64.0833%;
+ }
+ .deficit-panel{
+  position:relative;
+  display:grid;
+  width:100%;
+  height:35.4167cqh;
+  min-height:0;
+  padding:4.8333cqh 2.8646cqw;
+  gap:2.75cqh;
+  border-radius:4.8333cqh;
+  background:rgba(255,237,242,.82);
+  box-shadow:none;
+  backdrop-filter:none;
+ }
+ .deficit-panel::before{
+  display:none;
+ }
+ .deficit-panel::after{display:none}
+ .btn{
+  width:100%;
+  height:6.75cqh;
+  min-height:0;
+  padding:0 2.29cqw;
+  border:0 !important;
+  outline:0;
+  border-radius:999px;
+  background:#fff;
+  color:#090a0c;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  text-align:left;
+  font-family:"Inter 18pt SemiBold",Inter,Arial,sans-serif;
+  font-size:2.4cqw;
+  font-weight:600;
+  line-height:1;
+  letter-spacing:0;
+  white-space:nowrap;
+  box-shadow:none;
+ }
+ .financing-panel{
+  height:24.6667cqh;
+  min-height:0;
+  padding:5.9167cqh 2.8646cqw 6cqh;
+  align-content:center;
+ }
+ .financing-panel::before{display:none}
+ .financing-panel .btn{
+  width:33.8021cqw;
+  height:12.75cqh;
+  min-height:0;
+  font-size:2.4cqw;
+  line-height:1.12;
+ }
+ .financing-panel .btn{
+  background:#fff;
+  color:#141414;
+ }
+.financing-panel .btn.active,
+body[data-category="financing"] .financing-panel .btn[data-category="financing"]{
+  background:#00A3E0;
+  color:#fff;
+}
+ body[data-flow="financing"] #deficitPanel,
+ body:not([data-flow="financing"]) #financingPanel{
+  display:none;
+ }
+ body[data-screen="landing"] .hero,
+ body[data-screen="selector"] .hero{margin:0}
+ body[data-screen="landing"] .flow,
+ body[data-screen="landing"] .current-selection{display:none}
+}
 </style>
 </head>
-<body data-screen="landing">
+<body data-screen="selector" data-flow="deficit" data-category="total">
 <main class="app">
   <header class="topbar">
     <div class="brand"><img class="brand-logo" src="public/grupo-bid-logo-white.png" alt="Grupo BID" /></div>
@@ -52,7 +322,7 @@ body[data-screen="landing"] .hero{margin:clamp(74px,9vh,112px) auto clamp(62px,9
   </section>
 
   <section class="landing" id="landing" aria-label="Inicio de la experiencia">
-    <h2>¿Qué información deseas consultar?</h2>
+    <h2>¿Qué indicador deseas consultar?</h2>
     <div class="landing-options">
       <button class="landing-choice" data-enter-flow="deficit">Déficit Integral 2023</button>
       <button class="landing-choice" data-enter-flow="financing">Financiamiento</button>
@@ -61,7 +331,7 @@ body[data-screen="landing"] .hero{margin:clamp(74px,9vh,112px) auto clamp(62px,9
 
   <section class="flow" aria-label="Selección de información">
     <div class="question">
-      <h2>¿Qué información deseas consultar?</h2>
+      <h2>¿Qué indicador deseas consultar?</h2>
       <div class="primary-options">
         <button class="primary-choice" data-flow="deficit">Déficit Integral 2023</button>
         <button class="primary-choice" data-flow="financing">Financiamiento</button>
@@ -83,6 +353,7 @@ body[data-screen="landing"] .hero{margin:clamp(74px,9vh,112px) auto clamp(62px,9
 
 <script src="https://www.gstatic.com/firebasejs/12.17.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/12.17.0/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore-compat.js"></script>
 <script src="firebase-config.js"></script>
 <script>
 const countries=[
@@ -105,41 +376,195 @@ const defaultState={category:'total',mode:'regional',countryIso3:'COL',subregion
 const state={...defaultState};
 const previewParams=new URLSearchParams(location.search);
 let flowMode=previewParams.get('flow')==='financing'?'financing':'deficit';
-let screenMode=previewParams.get('screen')==='selector'?'selector':'landing';
+let screenMode=previewParams.get('screen')==='landing'?'landing':'selector';
+if(flowMode==='financing')state.category='financing';
 let firebaseStateRef=null;
 let firebaseConnectedRef=null;
+let firestoreDb=null;
 let pendingCategory='';
+const INTERACTION_TIMEOUT_MS=120000;
+let currentViewSegment=null;
+let viewTimeoutId=null;
 
 function setStatus(title,detail,online=false){const el=document.getElementById('status');el.classList.toggle('online',online);el.innerHTML='<strong>'+title+'</strong><span>'+detail+'</span>'}
 function normalizeState(next={}){return{...defaultState,category:labels[next.category]?next.category:state.category}}
 function applyState(next={},renderOnly=false){Object.assign(state,normalizeState(next));flowMode=state.category==='financing'?'financing':'deficit';if(!renderOnly)pendingCategory=state.category;render();if(!renderOnly)sendState()}
 function firebaseOptions(){return window.BID_FIREBASE||{}}
 function hasFirebaseConfig(){const o=firebaseOptions();return Boolean(o.apiKey&&o.projectId&&o.databaseURL)}
+function ensureFirebaseApp(){if(!firebase.apps.length)firebase.initializeApp(firebaseOptions())}
 function firebaseSessionPath(){const raw=(firebaseOptions().sessionId||'maqueta-1-bid').toString();const safe=raw.replace(/[.#$\/\[\]]/g,'-').slice(0,80)||'maqueta-1-bid';return 'live_reactions/bid-map-state-'+safe}
 function decodeRealtimeState(raw){if(!raw)return null;if(typeof raw.e==='string'){try{return JSON.parse(raw.e)}catch(_){return null}}return raw}
 function realtimePayload(){return{e:JSON.stringify(normalizeState(state)),ts:firebase.database.ServerValue.TIMESTAMP}}
 function sendState(){if(firebaseStateRef){firebaseStateRef.set(realtimePayload()).then(()=>{pendingCategory='';setStatus('Conectado','sincronizado con Firebase',true)}).catch(err=>{setStatus('Error Firebase',err.message,false);render()})}render()}
-function connect(){if(!hasFirebaseConfig()){setStatus('Configura Firebase','edita firebase-config.js',false);return}if(!window.firebase||!firebase.database){setStatus('SDK Firebase no cargó','revisa internet',false);return}try{if(!firebase.apps.length)firebase.initializeApp(firebaseOptions());const db=firebase.database();firebaseStateRef=db.ref(firebaseSessionPath());firebaseConnectedRef=db.ref('.info/connected');firebaseConnectedRef.on('value',snap=>setStatus(snap.val()?'Conectado':'Sin internet',snap.val()?'Firebase Realtime Database':'esperando conexión',Boolean(snap.val())));firebaseStateRef.on('value',snap=>{const next=decodeRealtimeState(snap.val());if(next){if(pendingCategory&&next.category!==pendingCategory)return;applyState(next,true)}else sendState()},err=>setStatus('Error Firebase',err.message,false))}catch(err){setStatus('Error Firebase',err.message,false)}}
+function connect(){if(previewParams.get('preview')==='1'){setStatus('Vista previa','sin Firebase',false);return}if(!hasFirebaseConfig()){setStatus('Configura Firebase','edita firebase-config.js',false);return}if(!window.firebase||!firebase.database){setStatus('SDK Firebase no cargó','revisa internet',false);return}try{ensureFirebaseApp();const db=firebase.database();firebaseStateRef=db.ref(firebaseSessionPath());firebaseConnectedRef=db.ref('.info/connected');firebaseConnectedRef.on('value',snap=>setStatus(snap.val()?'Conectado':'Sin internet',snap.val()?'Firebase Realtime Database':'esperando conexión',Boolean(snap.val())));firebaseStateRef.on('value',snap=>{const next=decodeRealtimeState(snap.val());if(next){if(pendingCategory&&next.category!==pendingCategory)return;applyState(next,true)}else sendState()},err=>setStatus('Error Firebase',err.message,false))}catch(err){setStatus('Error Firebase',err.message,false)}}
+function getFirestoreDb(){if(previewParams.get('preview')==='1'||!hasFirebaseConfig()||!window.firebase||!firebase.firestore)return null;try{ensureFirebaseApp();if(!firestoreDb)firestoreDb=firebase.firestore();return firestoreDb}catch(err){console.warn('Firestore no disponible',err);return null}}
+function newAnalyticsSessionId(){return(window.crypto&&window.crypto.randomUUID)?window.crypto.randomUUID():'session-'+Date.now()+'-'+Math.random().toString(36).slice(2)}
+function analyticsSessionId(nowMs=Date.now()){const idKey='maqueta1_bid_session_id';const lastKey='maqueta1_bid_session_last_activity';try{let id=localStorage.getItem(idKey);const last=Number(localStorage.getItem(lastKey)||0);if(!id||!last||nowMs-last>INTERACTION_TIMEOUT_MS){id=newAnalyticsSessionId();localStorage.setItem(idKey,id)}localStorage.setItem(lastKey,String(nowMs));return id}catch(_){return newAnalyticsSessionId()}}
+function activeViewMeta(){
+  const optionByCategory={
+    qualitative:['Deficit_Integral_2023','Deficit_cualitativo','Déficit cualitativo'],
+    quantitative:['Deficit_Integral_2023','Deficit_cuantitativo','Déficit cuantitativo'],
+    total:['Deficit_Integral_2023','Deficit_habitacional_total','Déficit habitacional total'],
+    financing:['Financiamiento','Cartera_Hipotecaria_PIB','Cartera Hipotecaria como Porcentaje del PIB']
+  };
+  const data=optionByCategory[state.category]||optionByCategory.total;
+  return{flowId:data[0],optionId:data[1],buttonText:data[2],category:state.category,flow:flowMode};
+}
+function analyticsMeta(button){
+  const category=button.dataset.category||state.category;
+  const flow=button.dataset.flow||button.dataset.enterFlow||flowMode;
+  const isFinancing=category==='financing'||flow==='financing';
+  const flowId=isFinancing?'Financiamiento':'Deficit_Integral_2023';
+  const optionByCategory={
+    qualitative:'Deficit_cualitativo',
+    quantitative:'Deficit_cuantitativo',
+    total:'Deficit_habitacional_total',
+    financing:'Cartera_Hipotecaria_PIB'
+  };
+  const optionId=button.dataset.category?optionByCategory[button.dataset.category]:(isFinancing?'Boton_Financiamiento':'Boton_Deficit_Integral_2023');
+  const cleanText=(button.innerText||button.textContent||labels[category]||'').replace(/\s+/g,' ').trim();
+  return{category,flow,flowId,optionId,buttonText:cleanText||optionId.replace(/_/g,' ')};
+}
+function viewDocRefs(db,utcDate,meta){
+  const dateDoc=db.collection('Maqueta1_BID').doc(utcDate);
+  const flowSummaryDoc=dateDoc.collection(meta.flowId).doc('_resumen');
+  const optionDoc=dateDoc.collection(meta.flowId).doc(meta.optionId);
+  return{dateDoc,flowSummaryDoc,optionDoc};
+}
+function writeViewDuration(segment,endMs,reason){
+  const db=getFirestoreDb();
+  if(!db||!segment)return;
+  const durationMs=Math.max(0,endMs-segment.startMs);
+  if(durationMs<1000)return;
+  const end=new Date(endMs);
+  const endIso=end.toISOString();
+  const serverTimestamp=firebase.firestore.FieldValue.serverTimestamp();
+  const seconds=Math.round(durationMs/100)/10;
+  const refs=viewDocRefs(db,segment.utcDate,segment.meta);
+  const viewId=segment.startIso.slice(11,23).replace(/[:.]/g,'-')+'_'+segment.meta.optionId+'_'+segment.sessionId.slice(0,8);
+  const viewDoc=refs.optionDoc.collection('views').doc(viewId);
+  const batch=db.batch();
+  batch.set(refs.dateDoc,{dateUtc:segment.utcDate,totalViewSeconds:firebase.firestore.FieldValue.increment(seconds),updatedAtServer:serverTimestamp,updatedAtUtc:endIso},{merge:true});
+  batch.set(refs.flowSummaryDoc,{flowGroup:segment.meta.flowId,totalViewSeconds:firebase.firestore.FieldValue.increment(seconds),updatedAtServer:serverTimestamp,updatedAtUtc:endIso},{merge:true});
+  batch.set(refs.optionDoc,{
+    optionId:segment.meta.optionId,
+    optionLabel:segment.meta.buttonText,
+    category:segment.meta.category,
+    flow:segment.meta.flow,
+    totalViewSeconds:firebase.firestore.FieldValue.increment(seconds),
+    lastViewSeconds:seconds,
+    lastViewEndedAtServer:serverTimestamp,
+    lastViewEndedAtUtc:endIso,
+    lastSessionId:segment.sessionId
+  },{merge:true});
+  batch.set(viewDoc,{
+    eventType:'view_duration',
+    flowGroup:segment.meta.flowId,
+    optionId:segment.meta.optionId,
+    optionLabel:segment.meta.buttonText,
+    category:segment.meta.category,
+    flow:segment.meta.flow,
+    sessionId:segment.sessionId,
+    startedAtUtc:segment.startIso,
+    endedAtUtc:endIso,
+    utcDate:segment.utcDate,
+    durationMs,
+    durationSeconds:seconds,
+    closeReason:reason,
+    pagePath:location.pathname,
+    browserTimezone:Intl.DateTimeFormat().resolvedOptions().timeZone||null
+  });
+  batch.commit().catch(err=>console.warn('No se pudo guardar el tiempo de vista en Firestore',err));
+}
+function scheduleViewTimeout(){
+  clearTimeout(viewTimeoutId);
+  if(!currentViewSegment)return;
+  viewTimeoutId=setTimeout(()=>{
+    const ended=Date.now();
+    writeViewDuration(currentViewSegment,ended,'timeout_2_minutes');
+    currentViewSegment=null;
+  },INTERACTION_TIMEOUT_MS);
+}
+function startViewSegment(meta,sessionId,now){
+  currentViewSegment={meta,sessionId,startMs:now.getTime(),startIso:now.toISOString(),utcDate:now.toISOString().slice(0,10)};
+  scheduleViewTimeout();
+}
+function trackButtonPress(button,extra={}){
+  const db=getFirestoreDb();
+  if(!db)return;
+  const now=new Date();
+  const sessionId=analyticsSessionId(now.getTime());
+  const utcIso=now.toISOString();
+  const utcDate=utcIso.slice(0,10);
+  const utcTime=utcIso.slice(11,19);
+  const meta=analyticsMeta(button);
+  if(currentViewSegment)writeViewDuration(currentViewSegment,now.getTime(),currentViewSegment.sessionId===sessionId?'changed_selection':'session_reset_after_2_minutes');
+  startViewSegment(activeViewMeta(),sessionId,now);
+  const serverTimestamp=firebase.firestore.FieldValue.serverTimestamp();
+  const increment=firebase.firestore.FieldValue.increment(1);
+  const eventId=utcIso.slice(11,23).replace(/[:.]/g,'-')+'_'+meta.optionId+'_'+sessionId.slice(0,8);
+  const payload={
+    eventType:'button_press',
+    buttonText:meta.buttonText,
+    buttonFlow:meta.flow,
+    buttonCategory:meta.category,
+    flowGroup:meta.flowId,
+    optionId:meta.optionId,
+    currentFlow:flowMode,
+    currentCategory:state.category,
+    currentCategoryLabel:labels[state.category]||state.category,
+    screenMode,
+    sessionId,
+    createdAtServer:serverTimestamp,
+    createdAtUtc:utcIso,
+    utcDate,
+    utcTime,
+    browserTimezone:Intl.DateTimeFormat().resolvedOptions().timeZone||null,
+    timezoneOffsetMinutes:now.getTimezoneOffset(),
+    pagePath:location.pathname,
+    pageUrl:location.href.split('#')[0],
+    referrer:document.referrer||null,
+    viewport:{width:innerWidth,height:innerHeight,devicePixelRatio:devicePixelRatio||1},
+    screen:{width:screen.width,height:screen.height},
+    userAgent:navigator.userAgent,
+    ...extra
+  };
+  const {dateDoc,flowSummaryDoc,optionDoc}=viewDocRefs(db,utcDate,meta);
+  const clickDoc=optionDoc.collection('clicks').doc(eventId);
+  const batch=db.batch();
+  batch.set(dateDoc,{dateUtc:utcDate,totalClicks:increment,updatedAtServer:serverTimestamp,updatedAtUtc:utcIso},{merge:true});
+  batch.set(flowSummaryDoc,{flowGroup:meta.flowId,totalClicks:increment,updatedAtServer:serverTimestamp,updatedAtUtc:utcIso},{merge:true});
+  batch.set(optionDoc,{optionId:meta.optionId,optionLabel:meta.buttonText,category:meta.category,flow:meta.flow,totalClicks:increment,lastClickAtServer:serverTimestamp,lastClickAtUtc:utcIso,lastSessionId:sessionId},{merge:true});
+  batch.set(clickDoc,payload);
+  batch.commit().catch(err=>console.warn('No se pudo guardar la interacción en Firestore',err));
+}
+addEventListener('pagehide',()=>{if(currentViewSegment)writeViewDuration(currentViewSegment,Date.now(),'page_closed')});
 function render(){
   document.body.dataset.category=state.category;
   document.body.dataset.flow=flowMode;
   document.body.dataset.screen=screenMode;
-  document.querySelectorAll('[data-flow]').forEach(btn=>btn.classList.toggle('active',btn.dataset.flow===flowMode));
-  document.querySelectorAll('[data-category]').forEach(btn=>btn.classList.toggle('active',btn.dataset.category===state.category));
+  document.querySelectorAll('button[data-flow]').forEach(btn=>btn.classList.toggle('active',btn.dataset.flow===flowMode));
+  document.querySelectorAll('button[data-category]').forEach(btn=>btn.classList.toggle('active',btn.dataset.category===state.category));
   document.getElementById('deficitPanel').setAttribute('aria-hidden',flowMode!=='deficit');
   document.getElementById('financingPanel').setAttribute('aria-hidden',flowMode!=='financing');
   document.getElementById('currentSelection').textContent='Indicador enviado: '+labels[state.category];
 }
 
-document.querySelectorAll('[data-category]').forEach(btn=>btn.onclick=()=>applyState({category:btn.dataset.category}));
-document.querySelectorAll('[data-enter-flow]').forEach(btn=>btn.onclick=()=>{
+document.querySelectorAll('button[data-category]').forEach(btn=>btn.onclick=()=>{applyState({category:btn.dataset.category});trackButtonPress(btn,{action:'select_category'})});
+document.querySelectorAll('button[data-enter-flow]').forEach(btn=>btn.onclick=()=>{
   screenMode='selector';
   flowMode=btn.dataset.enterFlow;
+  if(flowMode==='financing')applyState({category:'financing'});
+  else if(state.category==='financing')applyState({category:'total'});
   render();
+  trackButtonPress(btn,{action:'enter_flow'});
 });
-document.querySelectorAll('[data-flow]').forEach(btn=>btn.onclick=()=>{
+document.querySelectorAll('button[data-flow]').forEach(btn=>btn.onclick=()=>{
   flowMode=btn.dataset.flow;
-  render();
+  if(flowMode==='financing')applyState({category:'financing'});
+  else if(state.category==='financing')applyState({category:'total'});
+  else render();
+  trackButtonPress(btn,{action:'select_flow'});
 });
 render();
 connect();
