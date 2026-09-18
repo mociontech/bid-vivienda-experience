@@ -362,25 +362,25 @@ select{width:100%;padding:10px;color:white;border:1px solid #384651;border-radiu
 }
 .display-mode .legend{
  right:1.45vw;
- bottom:3.4vh;
+ bottom:7.2vh;
  width:clamp(450px,27.8vw,1000px);
 }
 .display-mode .event-tagline{
  position:fixed;
  right:2.9vw;
- bottom:10vh;
+ bottom:15vh;
  z-index:8;
  display:flex;
  flex-direction:column;
  justify-content:center;
- width:clamp(520px,32vw,730px);
- height:clamp(104px,8vw,180px);
+ width:clamp(560px,35vw,820px);
+ height:clamp(116px,9.2vw,205px);
  color:#fff;
  font-family:"Inter 18pt Light",Inter,Arial,sans-serif;
- font-size:clamp(15.5px,1.24vw,31px);
+ font-size:clamp(16px,1.34vw,34px);
  font-weight:300;
  line-height:1.19;
- letter-spacing:clamp(4px,.36vw,8.2px);
+ letter-spacing:clamp(5.2px,.52vw,11.5px);
  text-align:right;
  text-transform:uppercase;
  pointer-events:none;
@@ -1713,7 +1713,7 @@ function render(){
  document.getElementById('app').classList.toggle('regional-view',state.mode==='regional');
  document.getElementById('coverage').innerHTML='<strong>'+available.length+' / 31</strong><span>países con dato</span>';
   renderDisplayTitle(c); document.getElementById('description').textContent=c.description;
- document.getElementById('legend').innerHTML='<div class="scale">'+c.palette.map(x=>'<span style="background:'+x+'"></span>').join('')+'</div>'+legendScaleRanges(displayVals,c)+'<div class="legendlabels"><span>'+c.low+'</span><span>'+c.high+'</span></div>'+legendRanges(displayVals,c)+'<div class="nodata"><i></i> Información no disponible / ND en Excel</div>'+(c.countField?'<div class="formula-note"><strong>Fórmula:</strong> % = viviendas con déficit ÷ total de viviendas.</div>':'');
+ document.getElementById('legend').innerHTML='<div class="scale">'+c.palette.map(x=>'<span style="background:'+x+'"></span>').join('')+'</div>'+legendScaleRanges(displayVals,c)+'<div class="legendlabels"><span>'+c.low+'</span><span>'+c.high+'</span></div>'+legendRanges(displayVals,c);
  renderRankList(sortedAll,c,allVals);
  document.getElementById('reader').innerHTML='<article><h3>Cómo leer esta gráfica</h3><p>'+c.meaning+'</p><p class="source">'+c.source+'</p></article><article><h3>Clave para interpretar</h3><p>La escala de colores se recalcula para el indicador y filtro activo. El gris no es cero: significa que el Excel marca ND o no trae dato público oficial.</p></article>';
  document.querySelectorAll('.target-country').forEach(p=>{const d=isoMap.get(p.dataset.iso); if(!d)return; const val=d[c.field]; const isSelected=state.mode==='country'&&d.iso3===state.selected; const fill=quantileColor(displayVals,val,c.palette); p.classList.toggle('selected-country',isSelected); p.style.fill=fill; p.style.color=fill; p.style.opacity=!visible.has(d.iso3)?0.12:((state.mode==='country'&&!isSelected)?0.22:1); p.style.stroke=isDisplayMode?'rgba(255,255,255,.12)':(isSelected?'#fff':'rgba(255,255,255,.55)'); p.style.strokeWidth=isDisplayMode?'.36':(isSelected?'3.6':'.75');});
